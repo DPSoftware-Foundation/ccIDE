@@ -1,0 +1,8 @@
+{
+    "name": "Test Peripheral",
+    "author": "DPSoftware Foundation",
+    "description": "Test Peripheral",
+    "version": "1.0.0",
+    "category": "Blockly Extensions",
+    "license": "GPL-3.0-or-later"
+}

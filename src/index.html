@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ccIDE</title>
+    <script>
+        const bootstrap = require('bootstrap')
+    </script>
+</head>
+<body>
+    <!-- Navigation bar -->
+    <!-- Navigation bar -->
+    <nav id="navbar">
+        <button class="navbar-button" title="Peripherals" style="background-color: #0087bd;">
+            <svg viewBox="0 0 24 24"><path d="M15 7v4h1v2h-3V5h2l-3-4-3 4h2v8H8v-2.07c.7-.37 1.2-1.08 1.2-1.93A2.2 2.2 0 0 0 7 6.8c-1.22 0-2.2.98-2.2 2.2 0 .85.5 1.56 1.2 1.93V13a2 2 0 0 0 2 2h3v3.05c-.71.36-1.2 1.1-1.2 1.95a2.2 2.2 0 0 0 2.2 2.2 2.2 2.2 0 0 0 2.2-2.2c0-.85-.49-1.59-1.2-1.95V15h3a2 2 0 0 0 2-2v-2h1V7h-4z" /></svg>
+        </button>
+        <button class="navbar-button" title="Run" style="background-color: #0087bd; margin-left: auto;" onclick="gencode()">
+            <svg viewBox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7z" /></svg>
+        </button>
+    </nav>
+
+    <!-- Loading screen -->
+    <div id="loadingScreen">
+        <p>Loading...</p>
+    </div>
+
+    <!-- Blockly workspace container -->
+    <section id="blocklyContainer">
+        <div id="blocklyDiv"></div>
+    </section>
+
+    <!-- Status bar -->
+    <div id="statusBar">
+        <p id="statusMessage">Initializing...</p>
+    </div>
+
+    <style>
+        body {
+            background-color: #212121;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        #navbar {
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            padding: 15px;
+            gap: 10px;
+        }
+
+        .navbar-button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 50%; /* Make the button circular */
+            width: 40px; /* Adjust size as needed */
+            height: 40px; /* Adjust size as needed */
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+            font-size: 1.5em; /* Adjust size as needed */
+        }
+
+        .navbar-button:hover {
+            background-color: #34495e; /* Darken color on hover */
+        }
+
+        [data-bs-toggle="tooltip"] {
+            position: relative; /* Ensure tooltips are positioned correctly */
+            cursor: pointer; /* Add cursor style for tooltip interaction */
+        }
+
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #212121;
+            color: #ffffff;
+            display: flex; /* or display: block; */
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            z-index : 1;
+        }
+
+        #blocklyContainer {
+            position: relative;
+            width: 100%;
+            height: calc(100vh - 10vh); /* Adjust height to accommodate navbar and status bar */
+            display: none; /* Initially hide the Blockly container */
+        }
+
+        #blocklyDiv {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            color: #212121;
+        }
+
+        #statusBar {
+            height: 3vh; /* Set the height of the status bar */
+            background-color: #333;
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        #statusMessage {
+            margin: 0;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var tooltips = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            var tooltipList = tooltips.map(function (tooltip) {
+                return new bootstrap.Tooltip(tooltip);
+            });
+        });
+    </script>
+
+<script src="virtualcode.js"></script>
+</body>
+</html>

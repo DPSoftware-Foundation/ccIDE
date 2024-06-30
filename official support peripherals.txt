@@ -1,0 +1,21 @@
+official support
+https://www.curseforge.com/minecraft/mc-mods/cccbridge
+https://www.curseforge.com/minecraft/mc-mods/ccdbridge
+https://www.curseforge.com/minecraft/mc-mods/sc-peripherals
+https://www.curseforge.com/minecraft/mc-mods/more-red-x-cc-tweaked-compat
+https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals
+https://www.curseforge.com/minecraft/mc-mods/plethora-peripherals
+https://www.curseforge.com/minecraft/mc-mods/more-peripherals
+https://www.curseforge.com/minecraft/mc-mods/toms-peripherals
+https://www.curseforge.com/minecraft/texture-packs/create-computercraft
+https://modrinth.com/mod/computer-cartographer
+https://modrinth.com/mod/peripheralium
+https://modrinth.com/mod/unlimitedperipheralworks
+https://modrinth.com/datapack/ctov-advanced-peripheral-compat
+https://modrinth.com/mod/digital-items-3
+https://modrinth.com/mod/cloud-solutions
+https://modrinth.com/mod/cc-vs
+https://modrinth.com/mod/cc-shops
+
+official support (slow x2) 
+https://modrinth.com/mod/some-peripherals/versions

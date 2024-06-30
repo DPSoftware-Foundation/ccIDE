@@ -1,0 +1,25 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Custom Blocks" colour="270">
+        <!-- Define your custom blocks here -->
+        <block type="custom_math_operation">
+            <value name="NUM1">
+                <shadow type="math_number">
+                    <field name="NUM">10</field> <!-- Default value -->
+                </shadow>
+            </value>
+            <value name="NUM2">
+                <shadow type="math_number">
+                    <field name="NUM">5</field> <!-- Default value -->
+                </shadow>
+            </value>
+        </block>
+
+        <block type="another_block_type">
+            <value name="INPUT">
+                <shadow type="math_number">
+                    <field name="NUM">5</field> <!-- Default value -->
+                </shadow>
+            </value>
+        </block>
+    </category>
+</xml>
