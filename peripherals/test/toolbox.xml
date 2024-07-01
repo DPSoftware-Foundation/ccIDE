@@ -13,13 +13,5 @@
                 </shadow>
             </value>
         </block>
-
-        <block type="another_block_type">
-            <value name="INPUT">
-                <shadow type="math_number">
-                    <field name="NUM">5</field> <!-- Default value -->
-                </shadow>
-            </value>
-        </block>
     </category>
 </xml>

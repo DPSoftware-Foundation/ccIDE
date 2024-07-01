@@ -15,9 +15,25 @@ window.prompt = function(promptText, defaultValue) {
 
 const Blockly = require('blockly');
 
+Blockly.utils.colour.setHsvSaturation(0.9)
+
 const peripheralsfolder = path.join(__dirname, "../peripherals");
 
 const originaltoolbar = fs.readFileSync(path.join(__dirname, "toolbox.xml"), 'utf8');
+const sysmodulejson = fs.readFileSync(path.join(__dirname, "module_block_design.json"), 'utf8');
+
+
+const blocksJson = JSON.parse(sysmodulejson);
+for (const blockId in blocksJson) {
+    if (blocksJson.hasOwnProperty(blockId)) {
+        Blockly.Blocks[blockId] = {
+            init: function() {
+                this.jsonInit(blocksJson[blockId]);
+            }
+        };
+    }
+}
+    
 
 var workspace = Blockly.inject('blocklyDiv', {
     toolbox: originaltoolbar,
@@ -29,6 +45,7 @@ var workspace = Blockly.inject('blocklyDiv', {
         snap: true
     }
 });
+
 
 loadperipheral(workspace, originaltoolbar, "test");
 
