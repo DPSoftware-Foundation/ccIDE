@@ -1,5 +1,6 @@
 # ComputerCraft IDE (ccIDE)
 ccIDE is block based programming for ComputerCraft lua 
+![image](https://github.com/user-attachments/assets/0b0b0784-d2d9-486f-a8ac-c57f047c3b7f)
 
 ## official support peripherals
 | Peripheral | Status 
