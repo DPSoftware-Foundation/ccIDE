@@ -9,21 +9,23 @@
     </script>
 </head>
 <body>
-    <!-- Navigation bar -->
+    <!-- Loading screen -->
+    <div id="loadingScreen">
+        <p>Loading...</p>
+    </div>
+
     <!-- Navigation bar -->
     <nav id="navbar">
         <button class="navbar-button" title="Peripherals" style="background-color: #0087bd;">
             <svg viewBox="0 0 24 24"><path d="M15 7v4h1v2h-3V5h2l-3-4-3 4h2v8H8v-2.07c.7-.37 1.2-1.08 1.2-1.93A2.2 2.2 0 0 0 7 6.8c-1.22 0-2.2.98-2.2 2.2 0 .85.5 1.56 1.2 1.93V13a2 2 0 0 0 2 2h3v3.05c-.71.36-1.2 1.1-1.2 1.95a2.2 2.2 0 0 0 2.2 2.2 2.2 2.2 0 0 0 2.2-2.2c0-.85-.49-1.59-1.2-1.95V15h3a2 2 0 0 0 2-2v-2h1V7h-4z" /></svg>
         </button>
+        <button class="navbar-button" title="Library and Packages" style="background-color: #0087bd;">
+            <svg viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15l-1.89 1.07L16 8.61l1.96-1.11L12 4.15M6.04 7.5 12 10.85l1.96-1.1-5.88-3.4L6.04 7.5M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-6.7l-6 3.37v6.71l6-3.38z" /></svg>
+        </button>
         <button class="navbar-button" title="Run" style="background-color: #0087bd; margin-left: auto;" onclick="gencode()">
             <svg viewBox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7z" /></svg>
         </button>
     </nav>
-
-    <!-- Loading screen -->
-    <div id="loadingScreen">
-        <p>Loading...</p>
-    </div>
 
     <!-- Blockly workspace container -->
     <section id="blocklyContainer">
@@ -35,7 +37,52 @@
         <p id="statusMessage">Initializing...</p>
     </div>
 
+    <div class="popup" id="upload-popup">
+        <div class="popup-content">
+            <span class="close" id="uploadCloseBtn">&times;</span>
+            <div class="upload-progress-container" style="text-align: center;">
+                <div class="progress-container">
+                    <div class="progress" id="progress"></div>
+                    <div class="circle active">
+                        <svg viewBox="0 0 24 24"><path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3h2z" /></svg>
+                    </div>
+                    <div class="circle">
+                        <svg viewBox="0 0 24 24"><path d="m5.5 4.14-1 1.72L15 12 4.5 18.14l1 1.72L19 12 5.5 4.14z" /></svg>
+                    </div>
+                    <div class="circle">
+                        <svg viewBox="0 0 24 24"><path d="M9 16v-6H5l7-7 7 7h-4v6H9m-4 4v-2h14v2H5z" /></svg>
+                    </div>
+                    <div class="circle">
+                        <svg viewBox="0 0 24 24"><path d="m20 22-3.86-1.55c.7-1.53 1.2-3.11 1.51-4.72L20 22M7.86 20.45 4 22l2.35-6.27c.31 1.61.81 3.19 1.51 4.72M12 2s5 2 5 10c0 3.1-.75 5.75-1.67 7.83A2 2 0 0 1 13.5 21h-3a2 2 0 0 1-1.83-1.17C7.76 17.75 7 15.1 7 12c0-8 5-10 5-10m0 10c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" /></svg>
+                    </div>
+                </div>
+                <p id="upload-status"></p>
+            </div>
+        </div>
+    </div>
+
     <style>
+        #loadingScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #212121;
+            color: #ffffff;
+            display: flex; /* or display: block; */
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            z-index: 9999;
+            visibility: visible; /* Change visibility to hidden */
+        }
+
+        :root {
+            --line-border-fill: #3498db;
+            --line-border-empty: #e0e0e0;
+        }
+
         body {
             background-color: #212121;
             margin: 0;
@@ -77,26 +124,12 @@
             cursor: pointer; /* Add cursor style for tooltip interaction */
         }
 
-        #loadingScreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #212121;
-            color: #ffffff;
-            display: flex; /* or display: block; */
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            z-index : 1;
-        }
-
+        
         #blocklyContainer {
             position: relative;
             width: 100%;
             height: calc(100vh - 10vh); /* Adjust height to accommodate navbar and status bar */
-            display: none; /* Initially hide the Blockly container */
+            visibility: hidden; /* Initially hide the Blockly container */
         }
 
         #blocklyDiv {
@@ -105,7 +138,6 @@
             left: 0;
             right: 0;
             bottom: 0;
-            color: #212121;
         }
 
         #statusBar {
@@ -121,17 +153,151 @@
         #statusMessage {
             margin: 0;
         }
+
+        /* Styles for the upload-popup container */
+        .popup {
+            display: none; /* Hide initially */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            z-index: 999; /* Ensure it overlays other content */
+            overflow: auto;
+        }
+
+        /* Styles for the upload-popup content */
+        .popup-content {
+            background-color: #fefefe;
+            margin: 15% auto; /* Center the upload-popup vertically and horizontally */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Adjust width as needed */
+            max-width: 600px; /* Max width for larger screens */
+            animation: fadeIn 0.3s ease; /* Fade-in animation */
+        }
+
+        /* Close button */
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Fade-out animation */
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        
+        .progress-container {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 30px;
+            max-width: 100%;
+            width: 350px;
+        }
+
+        .progress-container::before {
+            content: "";
+            background-color: var(--line-border-empty);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 4px;
+            width: 100%;
+            z-index: 99; /* Change z-index to 1 or higher */
+        }
+
+        .progress {
+            background-color: var(--line-border-fill);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            height: 4px;
+            width: 0%;
+            z-index: 101;
+            transition: 0.4s ease;
+        }
+
+        .progress.error {
+            background-color: red; /* Set to red color for error state */
+        }
+
+
+        .circle {
+            background-color: #fff;
+            color: #999;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 3px solid var(--line-border-empty);
+            transition: 0.4s ease;
+            z-index: 101;
+        }
+
+        .circle.active {
+            border-color: var(--line-border-fill);
+        }
+
+        .circle.error {
+            border-color: red; /* Optionally, change border color to red */
+            color: white; /* Optionally, adjust text color for visibility */
+        }
     </style>
 
     <script>
+        var uploadpopup = document.getElementById('upload-popup');
+
         document.addEventListener('DOMContentLoaded', function () {
             var tooltips = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             var tooltipList = tooltips.map(function (tooltip) {
                 return new bootstrap.Tooltip(tooltip);
             });
         });
-    </script>
 
-<script src="virtualcode.js"></script>
+        // Event listener to close the upload-popup with fade-out effect
+        document.getElementById('uploadCloseBtn').addEventListener('click', function() {
+            uploadpopup.style.animation = 'fadeOut 0.3s ease'; // Apply fade-out animation
+            setTimeout(function() {
+                uploadpopup.style.display = 'none'; // Hide popup after animation completes
+                uploadpopup.style.animation = ''; // Reset animation property
+            }, 300); // Adjust to match animation duration in milliseconds
+        });
+
+        // Close the upload-popup if the user clicks outside of it
+        window.addEventListener('click', function(event) {
+            if (event.target == uploadpopup) {
+                uploadpopup.style.animation = 'fadeOut 0.3s ease'; // Apply fade-out animation
+                setTimeout(function() {
+                    uploadpopup.style.display = 'none'; // Hide popup after animation completes
+                    uploadpopup.style.animation = ''; // Reset animation property
+                }, 300); // Adjust to match animation duration in milliseconds
+            }
+        });
+
+    </script>
+    <script src="virtualcode.js"></script>
+    <script src="codegen.js"></script>
 </body>
 </html>

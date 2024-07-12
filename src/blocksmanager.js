@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const peripheralsfolder = path.join(__dirname, "../peripherals");
+const peripheralsfolder = path.join(__dirname, "../blocks");
 
 function mergeXml(originalXml, appendXml) {
     // Remove <xml id="toolbox" style="display: none;"> and </xml> from appendXml
@@ -22,7 +22,7 @@ function mergeXml(originalXml, appendXml) {
     return modifiedXml;
 }
 
-function loadperipheral(workspace, originaltoolbar, peripherals) {
+function loadperipheral(workspace, currenttoolbar, peripherals) {
     const filePath = path.join(peripheralsfolder, peripherals);
     const jsonfilePath = path.join(filePath, "block_design.json");
     const xmlfilePath = path.join(filePath, "toolbox.xml");
@@ -53,23 +53,23 @@ function loadperipheral(workspace, originaltoolbar, peripherals) {
     });
 
     // Load and merge new toolbox XML
-    try {
-        const toolbar = fs.readFileSync(xmlfilePath, 'utf8');
-        const newxml = mergeXml(originaltoolbar, toolbar);
-        
-        workspace.updateToolbox(newxml);
+    const toolbar = fs.readFileSync(xmlfilePath, 'utf8');
+    const newxml = mergeXml(currenttoolbar, toolbar);
+    
+    workspace.updateToolbox(newxml);
 
-        document.getElementById('statusMessage').textContent = `Loaded ${peripherals}`;
-    } catch (error) {
-        console.error('Error loading or merging XML:', error);
-        document.getElementById('statusMessage').textContent = `Can't Load ${peripherals}`;
-    }
+    document.getElementById('statusMessage').textContent = `Loaded ${peripherals}`;
+
     try {
         require(generatorfilePath); // This will execute generator.js if it's a Node.js module
     } catch (error) {
         console.error('Error loading generator.js:', error);
     }
+
+    return newxml;
 }
+
+
 
 module.exports = {
     loadperipheral

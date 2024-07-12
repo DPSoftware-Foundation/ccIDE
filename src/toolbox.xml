@@ -242,7 +242,7 @@
             </value>
         </block>
     </category>
-    <category name="Lists">
+    <category name="Table">
         <block type="lists_create_with">
         <mutation items="0"></mutation>
         </block>

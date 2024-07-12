@@ -1,0 +1,14 @@
+{
+    "name": "Test Peripheral",
+    "author": "DPSoftware Foundation",
+    "description": "Test Peripheral",
+    "version": "1.0.0",
+    "category": "Blockly Extensions",
+    "keyword": "test",
+    "license": "GPL-3.0-or-later",
+    "peripherals": false,
+    "library": false,
+    "turtle": false,
+    "system": true,
+    "require_network": false
+}

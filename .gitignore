@@ -1,1 +1,3 @@
 node_modules/
+.mcattributes
+package-lock.json
