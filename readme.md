@@ -53,3 +53,11 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
 |[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
 |[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport
+
+# Some small development video
+
+https://github.com/user-attachments/assets/8e9564fc-fc85-4ff6-b23a-357d3ac5f33c
+
+https://github.com/user-attachments/assets/195231d4-8fd8-4101-8068-70bc038a5c4f
+
+https://github.com/user-attachments/assets/8f114cfa-d87c-47d0-a670-a13dc975ab06
