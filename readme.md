@@ -1,7 +1,8 @@
 # ComputerCraft IDE (ccIDE)
-ccIDE is block based programming for ComputerCraft lua 
-![image](https://github.com/user-attachments/assets/0b0b0784-d2d9-486f-a8ac-c57f047c3b7f)
+ccIDE is block based programming for ComputerCraft lua.
+special thank for [this repo](https://github.com/Mirka1405/ccblockly)
 
+![image](https://github.com/user-attachments/assets/0b0b0784-d2d9-486f-a8ac-c57f047c3b7f)
 # Quick Start
 1. install nodejs and git
 2. git clone cd to this project 
@@ -15,12 +16,20 @@ it very simple! to install Remote code.
 ```
 wget run https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua
 ```
+for turtle
+```
+wget run https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/turtleremote.lua
+```
 ### Download and Run
 ```
 wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua remote.lua
 remote
 ```
-
+for turtle
+```
+wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua turtleremote.lua
+turtleremote
+```
 If error "Domain not permitted" try [this solution](https://github.com/cc-tweaked/CC-Tweaked/discussions/626#discussioncomment-241924).
 
 ## official support peripherals
@@ -45,3 +54,11 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
 |[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
 |[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport
+
+# Some small development video
+
+https://github.com/user-attachments/assets/8e9564fc-fc85-4ff6-b23a-357d3ac5f33c
+
+https://github.com/user-attachments/assets/195231d4-8fd8-4101-8068-70bc038a5c4f
+
+https://github.com/user-attachments/assets/8f114cfa-d87c-47d0-a670-a13dc975ab06
