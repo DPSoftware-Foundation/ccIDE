@@ -1,25 +1,27 @@
 const fs = require('fs');
 const path = require('path');
+const { DOMParser, XMLSerializer } = require('xmldom');
 
 const peripheralsfolder = path.join(__dirname, "../blocks");
 
-function mergeXml(originalXml, appendXml) {
-    // Remove <xml id="toolbox" style="display: none;"> and </xml> from appendXml
-    const cleanedAppendXml = appendXml.replace(/^<xml[^>]*>|<\/xml>$/g, '').trim();
+function mergeXml(xml1, xml2) {
+    const parser = new DOMParser();
+    const serializer = new XMLSerializer();
 
-    // Find the closing </xml> tag in originalXml
-    const closingTag = '</xml>';
-    const index = originalXml.lastIndexOf(closingTag);
-    
-    if (index === -1) {
-        console.error('Closing </xml> tag not found in original XML.');
-        return originalXml; // return original XML as is
+    const doc1 = parser.parseFromString(xml1, 'text/xml');
+    const doc2 = parser.parseFromString(xml2, 'text/xml');
+
+    const root1 = doc1.documentElement;
+    const children2 = doc2.documentElement.childNodes;
+
+    // Iterate through children2 and append each node to root1
+    for (let i = 0; i < children2.length; i++) {
+        root1.appendChild(children2[i].cloneNode(true));
     }
 
-    // Prepare the modified XML with the insertion of cleanedAppendXml
-    const modifiedXml = originalXml.slice(0, index) + cleanedAppendXml + originalXml.slice(index + closingTag.length);
-
-    return modifiedXml;
+    const mergedXml = serializer.serializeToString(doc1);
+    console.log(mergedXml)
+    return mergedXml;
 }
 
 function loadperipheral(workspace, currenttoolbar, peripherals) {

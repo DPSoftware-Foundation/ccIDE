@@ -28,6 +28,7 @@ app.whenReady().then(() => {
 
     win.loadFile('index.html')
     //win.openDevTools();
+    win.maximize()
 
     //app.on('activate', () => {
     //    if (BrowserWindow.getAllWindows().length === 0) {
@@ -111,8 +112,8 @@ app.whenReady().then(() => {
         {
             label: 'Edit',
             submenu: [
-                { role: 'undo', accelerator: 'CmdOrCtrl+Z' },
-                { role: 'redo', accelerator: 'CmdOrCtrl+Y' },
+                { role: 'undo', accelerator: 'CmdOrCtrl+Z', click: () => {win.webContents.send('request-undo-redo', false)} },
+                { role: 'redo', accelerator: 'CmdOrCtrl+Y', click: () => {win.webContents.send('request-undo-redo', true)} },
                 { type: 'separator' },
                 { role: 'cut', accelerator: 'CmdOrCtrl+X' },
                 { role: 'copy', accelerator: 'CmdOrCtrl+C' },
@@ -225,34 +226,34 @@ app.whenReady().then(() => {
 
     ipc.on('workspace-notsave', (event) => {
         win.setTitle(`${currentprojectname}* | ccIDE`)
-    })
-
-    /*
-    win.on('close', function(e){
-        win.show()
-    });
-
-    app.on("before-quit", function() {
-        if (currentprojectopen) {
-            const result = dialog.showMessageBoxSync({
-                type: 'question',
-                buttons: ['Save', 'Don\'t Save', 'Cancel'],
-                defaultId: 2,
-                title: 'Save Changes',
-                message: "Your project is not saved",
-            });
-            if (result === 1) {
-                win = null
-            } else if (result === 0) {
-                appexiting = true;
-                win.webContents.send('save-workspace-request');
-                
-            }
-        } else {
-            win = null
-        }
-        
-    })
-    */    
+    })    
 })
 
+
+
+app.on("close", function(e) {
+    console.log("Close event triggered");
+    if (currentprojectopen) {
+        const result = dialog.showMessageBoxSync({
+            type: 'question',
+            buttons: ['Save', 'Don\'t Save', 'Cancel'],
+            defaultId: 2,
+            title: 'Save Changes',
+            message: "Your project is not saved",
+        });
+        if (result === 1) {
+            // Don't save, continue closing
+            win = null;
+        } else if (result === 0) {
+            // Save and then quit
+            appexiting = true;
+            win.webContents.send('save-workspace-request');
+        } else {
+            // Cancel the close operation
+            e.preventDefault();
+        }
+    } else {
+        // No unsaved changes, continue closing
+        win = null;
+    }
+});

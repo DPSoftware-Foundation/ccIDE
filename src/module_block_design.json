@@ -1,50 +1,17 @@
 {
-    "sys_commmands_exec": {
-        "message0": "Execute %1",
+    "sys_sleep": {
+        "message0": "Sleep For %1 Second",
         "args0": [
-        {
-            "type": "input_value",
-            "name": "EXECOMMANDS",
-            "text": "say Hello World"
-        }
+            {
+                "type": "input_value",
+                "name": "SLEEPSEC",
+                "text": 1
+            }
         ],
         "previousStatement": null,
         "nextStatement": null,
         "colour": 120,
-        "tooltip": "Execute a specific command.",
-        "helpUrl": "https://tweaked.cc/module/commands.html#v:exec"
-    },
-    "sys_commmands_getblockposition": {
-        "message0": "GetBlockInfo at minX %1 minY %2 minZ %3 maxX %4 maxY %5 maxZ %6",
-        "args0": [
-        {
-            "type": "input_value",
-            "name": "MINX"
-        },
-        {
-            "type": "input_value",
-            "name": "MINY"
-        },
-        {
-            "type": "input_value",
-            "name": "MINZ"
-        },
-        {
-            "type": "input_value",
-            "name": "MAXX"
-        },
-        {
-            "type": "input_value",
-            "name": "MAXY"
-        },
-        {
-            "type": "input_value",
-            "name": "MAXZ"
-        }
-        ],
-        "colour": 120,
-        "output": "Array",
-        "tooltip": "Get information about a range of blocks.",
-        "helpUrl": "https://tweaked.cc/module/commands.html#v:getBlockInfos"
+        "tooltip": "Sleep command",
+        "helpUrl": ""
     }
 }

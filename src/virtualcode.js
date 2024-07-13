@@ -9,8 +9,8 @@ const path = require('path');
 const { ipcRenderer } = require("electron");
 const { loadperipheral } = require("./blocksmanager");
 const Blockly = require('blockly');
+const { DarkTheme } = require('@blockly/theme-dark')
 const ipc = ipcRenderer;
-
 
 let isprojectsaved = false;
 let usedlibinproject = []
@@ -18,9 +18,24 @@ let usedlibinproject = []
 Blockly.utils.colour.setHsvSaturation(0.9)
 
 let originaltoolbar = fs.readFileSync(path.join(__dirname, "toolbox.xml"), 'utf8');
-    
+const sysmodulejson = fs.readFileSync(path.join(__dirname, "module_block_design.json"), 'utf8');
+
+const blocksJson = JSON.parse(sysmodulejson);
+for (const blockId in blocksJson) {
+    if (blocksJson.hasOwnProperty(blockId)) {
+        Blockly.Blocks[blockId] = {
+            init: function() {
+                this.jsonInit(blocksJson[blockId]);
+            }
+        };
+    }
+}
+require("./module_generator")
+
+
 var workspace = Blockly.inject('blocklyDiv', {
     toolbox: originaltoolbar,
+    theme: DarkTheme,
     trashcan: true,
     grid: {
         spacing: 20,
@@ -31,6 +46,7 @@ var workspace = Blockly.inject('blocklyDiv', {
 });
 
 originaltoolbar = loadperipheral(workspace, originaltoolbar, "test");
+originaltoolbar = loadperipheral(workspace, originaltoolbar, "IDE");
 
 workspace.getToolbox().getFlyout().autoClose = false;
 
@@ -72,7 +88,13 @@ ipc.on('workspace-saved', (event, success) => {
     isprojectsaved = success
 });
 
+ipc.on('request-undo-redo', (event, redo) => {
+    console.log(redo)
+    workspace.undo(redo)
+});
+
 // Ensure Blockly container is shown after the workspace is injected
 document.getElementById('loadingScreen').style.visibility = 'hidden';
 document.getElementById('blocklyContainer').style.visibility = 'visible';
 document.getElementById('statusMessage').textContent = "ready";
+

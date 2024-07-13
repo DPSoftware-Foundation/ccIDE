@@ -1,0 +1,17 @@
+{
+    "ide_addcode": {
+        "message0": "Add Code %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "CODE",
+                "text": "print('hello world!')"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 150,
+        "tooltip": "Add Code for some code is not in IDE",
+        "helpUrl": ""
+    }
+}

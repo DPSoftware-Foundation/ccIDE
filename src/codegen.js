@@ -3,6 +3,9 @@ function delay(time) {
 }
 
 const { luaGenerator } = require('blockly/lua');  // Use require syntax for Blockly module
+const { CCRemote } = require("./ccRemote")
+
+const ccInstance = new CCRemote('127.0.0.1', 5133);
 
 const progress = document.getElementById("progress");
 const circles = document.querySelectorAll(".circle");
@@ -33,6 +36,9 @@ const uploadUpdateProgress = () => {
     }
 };
 
+function clientexit() {
+    ccInstance.sendCommand("exit")
+}
 async function gencode() {
     document.getElementById('upload-popup').style.display = 'block';
     upcurrentActive = 1;
@@ -43,8 +49,9 @@ async function gencode() {
     upcurrentActive++;
     uploadUpdateProgress();
     document.getElementById('upload-status').textContent = "Generating code";
+    let code = null;
     try {
-        let code = luaGenerator.workspaceToCode(workspace);
+        code = luaGenerator.workspaceToCode(workspace);
         console.log(code);
     } catch (e) {
         uploadError = true;
@@ -57,16 +64,18 @@ async function gencode() {
     document.getElementById('upload-status').textContent = "Uploading code to machine";
     upcurrentActive++;
     uploadUpdateProgress();
-    await delay(1000)
+    ccInstance.sendCode(code);
+    await delay(500)
 
     // execute with remote
     document.getElementById('upload-status').textContent = "Executing code";
     upcurrentActive++;
     uploadUpdateProgress();
-    await delay(1000)
+    ccInstance.runCode();
 
     // done!
     document.getElementById('upload-status').textContent = "Done!";
+    await delay(1000)
     document.getElementById('upload-popup').style.animation = 'fadeOut 0.3s ease'; // Apply fade-out animation
     setTimeout(function() {
         document.getElementById('upload-popup').style.display = 'none'; // Hide popup after animation completes

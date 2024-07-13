@@ -1,7 +1,7 @@
 {
-    "name": "Test Peripheral",
+    "name": "IDE",
     "author": "DPSoftware Foundation",
-    "description": "Test Peripheral",
+    "description": "Block for IDE",
     "version": "1.0.0",
     "category": "Blockly Extensions",
     "keyword": "test",

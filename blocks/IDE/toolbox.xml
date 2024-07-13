@@ -1,0 +1,6 @@
+<xml id="toolbox" style="display: none;">
+    <category name="IDE" colour="150">
+        <!-- Define your custom blocks here -->
+        <block type="ide_addcode"></block>
+    </category>
+</xml>
