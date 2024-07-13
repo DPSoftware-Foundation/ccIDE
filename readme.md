@@ -2,6 +2,27 @@
 ccIDE is block based programming for ComputerCraft lua 
 ![image](https://github.com/user-attachments/assets/0b0b0784-d2d9-486f-a8ac-c57f047c3b7f)
 
+# Quick Start
+1. install nodejs and git
+2. git clone cd to this project 
+3. Install dependency use `npm install .`
+4. To run this IDE use `npm run dev`
+5. Done!
+
+## Install Remote code into computercraft
+it very simple! to install Remote code.
+### Run from URL
+```
+wget run https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua
+```
+### Download and Run
+```
+wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua remote.lua
+remote
+```
+
+If error "Domain not permitted" try [this solution](https://github.com/cc-tweaked/CC-Tweaked/discussions/626#discussioncomment-241924).
+
 ## official support peripherals
 | Peripheral | Status 
 |------------|--------
