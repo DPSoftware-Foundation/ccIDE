@@ -1,7 +1,8 @@
 # ComputerCraft IDE (ccIDE)
-ccIDE is block based programming for ComputerCraft lua 
-![image](https://github.com/user-attachments/assets/0b0b0784-d2d9-486f-a8ac-c57f047c3b7f)
+ccIDE is block based programming for ComputerCraft lua.
+special thank for [this repo](https://github.com/Mirka1405/ccblockly)
 
+![image](https://github.com/user-attachments/assets/0b0b0784-d2d9-486f-a8ac-c57f047c3b7f)
 # Quick Start
 1. install nodejs and git
 2. git clone cd to this project 
