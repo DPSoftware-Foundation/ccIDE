@@ -43,7 +43,6 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[More Red x CC:Tweaked Compat](https://www.curseforge.com/minecraft/mc-mods/more-red-x-cc-tweaked-compat) | 🟥 Unsupport
 |[More Peripherals](https://www.curseforge.com/minecraft/mc-mods/more-peripherals) | 🟥 Unsupport
 |[Tom's Peripherals](https://www.curseforge.com/minecraft/mc-mods/toms-peripherals) | 🟥 Unsupport
-|[Create: ComputerCraft](https://www.curseforge.com/minecraft/texture-packs/create-computercraft) | 🟥 Unsupport
 |[Computer Cartographer](https://modrinth.com/mod/computer-cartographer) | 🟥 Unsupport
 |[Peripheralium](https://modrinth.com/mod/peripheralium) | 🟥 Unsupport
 |[Unlimited Peripheral Works](https://modrinth.com/mod/unlimitedperipheralworks) | 🟥 Unsupport
