@@ -54,7 +54,6 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[SirEdvin's Cloud Solutions](https://modrinth.com/mod/cloud-solutions) | 🟥 Unsupport
 |[CC: VS](https://modrinth.com/mod/cc-vs) | 🟥 Unsupport
 |[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
-|[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
 |[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport
 
 # Some small development video
