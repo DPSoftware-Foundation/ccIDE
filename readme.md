@@ -40,7 +40,6 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 First support
 |[CC:C Bridge](https://www.curseforge.com/minecraft/mc-mods/cccbridge) | 🟥 Unsupport
 |[CC:Destroy Bridge](https://www.curseforge.com/minecraft/mc-mods/ccdbridge) | 🟥 Unsupport
-|[SwitchCraft Peripherals](https://www.curseforge.com/minecraft/mc-mods/sc-peripherals) | 🟥 Unsupport
 |[More Red x CC:Tweaked Compat](https://www.curseforge.com/minecraft/mc-mods/more-red-x-cc-tweaked-compat) | 🟥 Unsupport
 |[Plethora Peripherals](https://www.curseforge.com/minecraft/mc-mods/plethora-peripherals) | 🟥 Unsupport
 |[More Peripherals](https://www.curseforge.com/minecraft/mc-mods/more-peripherals) | 🟥 Unsupport
@@ -54,6 +53,7 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[SirEdvin's Cloud Solutions](https://modrinth.com/mod/cloud-solutions) | 🟥 Unsupport
 |[CC: VS](https://modrinth.com/mod/cc-vs) | 🟥 Unsupport
 |[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
+|[SwitchCraft Peripherals](https://www.curseforge.com/minecraft/mc-mods/sc-peripherals) | 🟥 Unsupport
 |[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport
 
 # Some small development video
