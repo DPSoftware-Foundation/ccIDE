@@ -18,6 +18,7 @@ app.whenReady().then(() => {
     const win = new BrowserWindow({
         width: 1280,
         height: 720,
+        icon: path.join(__dirname, '..', 'assets', 'ccIDEIcon.ico'),
         webPreferences: {
             devTools: true,
             nodeIntegration: true,
