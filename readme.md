@@ -15,12 +15,20 @@ it very simple! to install Remote code.
 ```
 wget run https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua
 ```
+for turtle
+```
+wget run https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/turtleremote.lua
+```
 ### Download and Run
 ```
 wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua remote.lua
 remote
 ```
-
+for turtle
+```
+wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua turtleremote.lua
+turtleremote
+```
 If error "Domain not permitted" try [this solution](https://github.com/cc-tweaked/CC-Tweaked/discussions/626#discussioncomment-241924).
 
 ## official support peripherals
