@@ -21,6 +21,7 @@ wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.l
 remote
 ```
 
+If error "Domain not permitted" try [this solution](https://github.com/cc-tweaked/CC-Tweaked/discussions/626#discussioncomment-241924).
 
 ## official support peripherals
 | Peripheral | Status 
