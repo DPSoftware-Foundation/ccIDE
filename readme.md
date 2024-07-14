@@ -1,8 +1,10 @@
 # ComputerCraft IDE (ccIDE)
 ccIDE is block based programming for ComputerCraft lua.
+
 special thank for [this repo](https://github.com/Mirka1405/ccblockly)
 
-![image](https://github.com/user-attachments/assets/0b0b0784-d2d9-486f-a8ac-c57f047c3b7f)
+![image](https://github.com/user-attachments/assets/57c3f2b4-793b-4136-b503-6569bb577eae)
+
 # Quick Start
 1. install nodejs and git
 2. git clone cd to this project 
@@ -38,12 +40,9 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 First support
 |[CC:C Bridge](https://www.curseforge.com/minecraft/mc-mods/cccbridge) | 🟥 Unsupport
 |[CC:Destroy Bridge](https://www.curseforge.com/minecraft/mc-mods/ccdbridge) | 🟥 Unsupport
-|[SwitchCraft Peripherals](https://www.curseforge.com/minecraft/mc-mods/sc-peripherals) | 🟥 Unsupport
 |[More Red x CC:Tweaked Compat](https://www.curseforge.com/minecraft/mc-mods/more-red-x-cc-tweaked-compat) | 🟥 Unsupport
-|[Plethora Peripherals](https://www.curseforge.com/minecraft/mc-mods/plethora-peripherals) | 🟥 Unsupport
 |[More Peripherals](https://www.curseforge.com/minecraft/mc-mods/more-peripherals) | 🟥 Unsupport
 |[Tom's Peripherals](https://www.curseforge.com/minecraft/mc-mods/toms-peripherals) | 🟥 Unsupport
-|[Create: ComputerCraft](https://www.curseforge.com/minecraft/texture-packs/create-computercraft) | 🟥 Unsupport
 |[Computer Cartographer](https://modrinth.com/mod/computer-cartographer) | 🟥 Unsupport
 |[Peripheralium](https://modrinth.com/mod/peripheralium) | 🟥 Unsupport
 |[Unlimited Peripheral Works](https://modrinth.com/mod/unlimitedperipheralworks) | 🟥 Unsupport
@@ -52,7 +51,8 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[SirEdvin's Cloud Solutions](https://modrinth.com/mod/cloud-solutions) | 🟥 Unsupport
 |[CC: VS](https://modrinth.com/mod/cc-vs) | 🟥 Unsupport
 |[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
-|[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
+|[SwitchCraft Peripherals](https://www.curseforge.com/minecraft/mc-mods/sc-peripherals) | 🟥 Unsupport
+|[Plethora Peripherals](https://www.curseforge.com/minecraft/mc-mods/plethora-peripherals) | 🟥 Unsupport
 |[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport
 
 # Some small development video
