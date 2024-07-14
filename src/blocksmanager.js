@@ -2,7 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const { DOMParser, XMLSerializer } = require('xmldom');
 
-const peripheralsfolder = path.join(__dirname, "../blocks");
+const peripheralsfolder = path.join(__dirname, "../blocks"); 
+
+let registedblock = {}
 
 function mergeXml(xml1, xml2) {
     const parser = new DOMParser();
@@ -20,7 +22,6 @@ function mergeXml(xml1, xml2) {
     }
 
     const mergedXml = serializer.serializeToString(doc1);
-    console.log(mergedXml)
     return mergedXml;
 }
 
@@ -71,8 +72,48 @@ function loadperipheral(workspace, currenttoolbar, peripherals) {
     return newxml;
 }
 
+function extractFolderName(path) {
+    // Normalize path separators to handle both Windows and Unix-style paths
+    const normalizedPath = path.replace(/[\\\/]/g, '/');
+    // Split by '/' to get path segments
+    const parts = normalizedPath.split('/');
+    // Filter out empty parts and get the last segment
+    const folderName = parts.filter(part => part.trim() !== '').pop();
+    return folderName;
+}
 
+function scanindex() {
+    const files = fs.readdirSync(peripheralsfolder);
+
+    // Iterate through files and directories
+    files.forEach(file => {
+        const filePath = path.join(peripheralsfolder, file);
+        const stat = fs.statSync(filePath);
+
+        if (stat.isDirectory()) {
+            // If it's a directory, recursively call scanFolders
+            const files = fs.readdirSync(filePath);
+            files.forEach(file => {
+                if (file === 'index.json') {
+                    const filePath2 = path.join(filePath, file);
+                    // If it's a file named index.json, read its contents
+                    const content = fs.readFileSync(filePath2, 'utf8');
+                    const jsonData = JSON.parse(content);
+
+                    blockfoldername = extractFolderName(filePath);
+                    registedblock[blockfoldername] = {
+                        infomation: jsonData,
+                        image: null
+                    };
+                    console.log(`registered ${blockfoldername} blocks`)
+                }
+
+            })
+        }
+    });
+}
 
 module.exports = {
-    loadperipheral
+    loadperipheral,
+    scanindex
 }

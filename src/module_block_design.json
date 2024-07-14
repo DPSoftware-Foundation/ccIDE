@@ -1,4 +1,13 @@
 {
+    "sys_start": {
+        "message0": "When Code Start",
+        "message1": "do %1",
+        "args1": [
+            {"type": "input_statement", "name": "DO"}
+        ],
+        "colour": 45,
+        "tooltip": "Not require but make your code easy to read."
+    },
     "sys_sleep": {
         "message0": "Sleep For %1 Second",
         "args0": [

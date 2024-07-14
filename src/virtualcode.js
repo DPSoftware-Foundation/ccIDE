@@ -1,4 +1,3 @@
-document.getElementById('statusMessage').textContent = "loading";
 // override prompt command
 window.prompt = function(promptText, defaultValue) {
     return ipc.sendSync("prompt", promptText, defaultValue);
@@ -7,12 +6,12 @@ window.prompt = function(promptText, defaultValue) {
 const fs = require('fs');
 const path = require('path');
 const { ipcRenderer } = require("electron");
-const { loadperipheral } = require("./blocksmanager");
+const { loadperipheral, scanindex } = require("./blocksmanager");
 const Blockly = require('blockly');
-const { DarkTheme } = require('@blockly/theme-dark')
 const ipc = ipcRenderer;
 
 let isprojectsaved = false;
+let isprojectopened = false;
 let usedlibinproject = []
 
 Blockly.utils.colour.setHsvSaturation(0.9)
@@ -32,10 +31,8 @@ for (const blockId in blocksJson) {
 }
 require("./module_generator")
 
-
 var workspace = Blockly.inject('blocklyDiv', {
     toolbox: originaltoolbar,
-    theme: DarkTheme,
     trashcan: true,
     grid: {
         spacing: 20,
@@ -45,10 +42,16 @@ var workspace = Blockly.inject('blocklyDiv', {
     }
 });
 
-originaltoolbar = loadperipheral(workspace, originaltoolbar, "test");
-originaltoolbar = loadperipheral(workspace, originaltoolbar, "IDE");
+try {
+    scanindex();
 
+    originaltoolbar = loadperipheral(workspace, originaltoolbar, "Template");
+    originaltoolbar = loadperipheral(workspace, originaltoolbar, "IDE");
+} catch (e) {
+    ipc.send("erroronstart", `Error on loading block: ${e}`)
+}
 workspace.getToolbox().getFlyout().autoClose = false;
+
 
 // Save workspace
 ipc.on('save-workspace-request', (event) => {
@@ -81,11 +84,16 @@ workspace.addChangeListener(function(event) {
     if (isprojectsaved) {
         isprojectsaved = false
         ipc.send("workspace-notsave")
-    };
+    } else if (!isprojectopened) {
+        ipc.send("workspace-unsave")
+    }
 });
 
 ipc.on('workspace-saved', (event, success) => {
     isprojectsaved = success
+    if (!isprojectopened) {
+        isprojectopened = true;
+    }
 });
 
 ipc.on('request-undo-redo', (event, redo) => {
@@ -93,8 +101,10 @@ ipc.on('request-undo-redo', (event, redo) => {
     workspace.undo(redo)
 });
 
-// Ensure Blockly container is shown after the workspace is injected
-document.getElementById('loadingScreen').style.visibility = 'hidden';
-document.getElementById('blocklyContainer').style.visibility = 'visible';
-document.getElementById('statusMessage').textContent = "ready";
+ipc.on("open-about", () => {
+    document.getElementById('about-popup').style.display = 'block';
+})
 
+// Ensure Blockly container is shown after the workspace is injected
+document.getElementById('statusMessage').textContent = "ready";
+ipc.send("ready")

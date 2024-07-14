@@ -1,14 +1,15 @@
 {
-    "name": "Test Peripheral",
+    "name": "Template",
     "author": "DPSoftware Foundation",
-    "description": "Test Peripheral",
+    "description": "Template for creating custom blocks in ccIDE",
     "version": "1.0.0",
-    "category": "Blockly Extensions",
-    "keyword": "test",
+    "category": "",
+    "keyword": "template, custom block, ccIDE",
     "license": "GPL-3.0-or-later",
     "peripherals": false,
     "library": false,
     "turtle": false,
+    "pocket": false,
     "require_network": false,
     "dependencies": {}
 }

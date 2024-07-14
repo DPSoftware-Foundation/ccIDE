@@ -9,6 +9,7 @@
     "peripherals": false,
     "library": false,
     "turtle": false,
+    "pocket": false,
     "require_network": false,
     "dependencies": {}
 }

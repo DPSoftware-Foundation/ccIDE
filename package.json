@@ -4,8 +4,8 @@
   "description": "ComputerCraft mod virtual lua IDE",
   "main": "index.js",
   "scripts": {
-    "dev": "electron src/.",
-    "nodedev": "node src/."
+    "dev": "electron .",
+    "nodedev": "node ."
   },
   "author": "DPSoftware Foundation",
   "license": "GPL-3.0-or-later",
@@ -13,13 +13,10 @@
     "electron": "^31.1.0"
   },
   "dependencies": {
-    "@blockly/field-multilineinput": "^5.0.5",
-    "@blockly/theme-dark": "^7.0.3",
     "@electron/remote": "^2.1.2",
     "blockly": "^11.1.1",
     "bootstrap": "^5.3.3",
     "electron-prompt": "^1.7.0",
-    "mergexml": "^1.2.4",
     "xmldom": "^0.6.0"
   }
 }

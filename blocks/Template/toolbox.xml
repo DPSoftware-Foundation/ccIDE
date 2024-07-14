@@ -1,0 +1,44 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Template" colour="270">
+        <!-- Math operation block -->
+        <block type="math_operation">
+            <value name="NUM1">
+                <shadow type="math_number">
+                    <field name="NUM">10</field> <!-- Default value -->
+                </shadow>
+            </value>
+            <value name="NUM2">
+                <shadow type="math_number">
+                    <field name="NUM">5</field> <!-- Default value -->
+                </shadow>
+            </value>
+        </block>
+
+        <!-- Print text block -->
+        <block type="text_print">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">Hello, world!</field> <!-- Default value -->
+                </shadow>
+            </value>
+        </block>
+
+        <!-- If condition block -->
+        <block type="controls_if">
+            <value name="IF0">
+                <shadow type="logic_boolean">
+                    <field name="BOOL">TRUE</field> <!-- Default value -->
+                </shadow>
+            </value>
+        </block>
+
+        <!-- Set variable block -->
+        <block type="variables_set">
+            <value name="VALUE">
+                <shadow type="math_number">
+                    <field name="NUM">0</field> <!-- Default value -->
+                </shadow>
+            </value>
+        </block>
+    </category>
+</xml>

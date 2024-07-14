@@ -11,5 +11,5 @@ luaGenerator.forBlock['ide_addcode'] = function(block, generator) {
 
     // Remove all occurrences of the matched characters
     const cleanedStr = codefromuser.replace(/[']/g, '');
-    return cleanedStr;
+    return cleanedStr+"\n";
 };

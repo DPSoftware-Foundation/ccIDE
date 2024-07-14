@@ -4,28 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ccIDE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
     <script>
         const bootstrap = require('bootstrap')
     </script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-    <!-- Loading screen -->
-    <div id="loadingScreen">
-        <p>Loading...</p>
-    </div>
-
     <!-- Navigation bar -->
     <nav id="navbar">
-        <button class="navbar-button" title="Peripherals" style="background-color: #0087bd;">
-            <svg viewBox="0 0 24 24"><path d="M15 7v4h1v2h-3V5h2l-3-4-3 4h2v8H8v-2.07c.7-.37 1.2-1.08 1.2-1.93A2.2 2.2 0 0 0 7 6.8c-1.22 0-2.2.98-2.2 2.2 0 .85.5 1.56 1.2 1.93V13a2 2 0 0 0 2 2h3v3.05c-.71.36-1.2 1.1-1.2 1.95a2.2 2.2 0 0 0 2.2 2.2 2.2 2.2 0 0 0 2.2-2.2c0-.85-.49-1.59-1.2-1.95V15h3a2 2 0 0 0 2-2v-2h1V7h-4z" /></svg>
+        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Computer Types" style="background-color: #0087bd;">
+            <svg viewBox="0 0 24 24"><path d="M6 4h12v1h3v2h-3v2h3v2h-3v2h3v2h-3v2h3v2h-3v1H6v-1H3v-2h3v-2H3v-2h3v-2H3V9h3V7H3V5h3V4m5 11v3h1v-3h-1m2 0v3h1v-3h-1m2 0v3h1v-3h-1z" /></svg>
         </button>
-        <button class="navbar-button" title="Library and Packages" style="background-color: #0087bd;">
+        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Library and Packages" style="background-color: #0087bd;" onclick="openlibraryselect()">
             <svg viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15l-1.89 1.07L16 8.61l1.96-1.11L12 4.15M6.04 7.5 12 10.85l1.96-1.1-5.88-3.4L6.04 7.5M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-6.7l-6 3.37v6.71l6-3.38z" /></svg>
         </button>
-        <button class="navbar-button" title="Disconnect Client" style="background-color: #bd0000; margin-left: auto; position: absolute; right: 65px;" onclick="clientexit()">
+        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Peripherals" style="background-color: #0087bd;">
+            <svg viewBox="0 0 24 24"><path d="M15 7v4h1v2h-3V5h2l-3-4-3 4h2v8H8v-2.07c.7-.37 1.2-1.08 1.2-1.93A2.2 2.2 0 0 0 7 6.8c-1.22 0-2.2.98-2.2 2.2 0 .85.5 1.56 1.2 1.93V13a2 2 0 0 0 2 2h3v3.05c-.71.36-1.2 1.1-1.2 1.95a2.2 2.2 0 0 0 2.2 2.2 2.2 2.2 0 0 0 2.2-2.2c0-.85-.49-1.59-1.2-1.95V15h3a2 2 0 0 0 2-2v-2h1V7h-4z" /></svg>
+        </button>
+        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Preview code" style="background-color: #0087bd; margin-left: auto; position: absolute; right: 115px;" onclick="clientexit()">
+            <svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z" /></svg>
+        </button>
+        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Disconnect Client" style="background-color: #bd0000; margin-left: auto; position: absolute; right: 65px;" onclick="clientexit()">
             <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .89-2 2v4h2V5h14v14H5v-4H3v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8.92 12.58L11.5 17l5-5-5-5-1.42 1.41L12.67 11H3v2h9.67l-2.59 2.58z" /></svg>
         </button>
-        <button class="navbar-button" title="Run" style="background-color: #10bd00; margin-left: auto;" onclick="gencode()">
+        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Run" style="background-color: #10bd00; margin-left: auto;" onclick="gencode()">
             <svg viewBox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7z" /></svg>
         </button>
     </nav>
@@ -42,7 +46,7 @@
 
     <div class="popup" id="upload-popup">
         <div class="popup-content">
-            <span class="close" id="uploadCloseBtn">&times;</span>
+            <button type="button" class="btn-close float-end" aria-label="Close" id="uploadCloseBtn"></button>
             <div class="upload-progress-container" style="text-align: center;">
                 <div class="progress-container">
                     <div class="progress" id="progress"></div>
@@ -64,242 +68,53 @@
         </div>
     </div>
 
-    <style>
-        #loadingScreen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #212121;
-            color: #ffffff;
-            display: flex; /* or display: block; */
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
-            z-index: 9999;
-            visibility: visible; /* Change visibility to hidden */
-        }
+    <div class="popup" id="about-popup">
+        <div class="popup-content">
+            <button type="button" class="btn-close float-end" aria-label="Close" id="aboutCloseBtn"></button>
+            <h2>ccIDE</h2>
+            <p>
+                ccIDE is an integrated development environment designed for coding Lua scripts
+                for ComputerCraft. It provides a user-friendly interface for creating and managing
+                projects, designing custom blocks, and debugging scripts efficiently.
+            </p>
+            <p>
+                Developed by DPSoftware Foundation, ccIDE aims to streamline the development
+                process for ComputerCraft programmers, offering features like block-based coding,
+                real-time collaboration, and seamless integration with ComputerCraft environments.
+            </p>
+            <p>
+                Visit <a href="https://damp11113.xyz/dpsoftware/ccide">ccIDE Website</a> for more information and updates.
+            </p>
+            <div class="license">
+                &copy; 2024 DPSoftware Foundation. Licensed under GPL v3.
+            </div>
+            <style>
+                .license {
+                    font-size: 14px;
+                    color: #888;
+                    text-align: center;
+                    margin-top: 20px;
+                }
+            </style>
+        </div>
+    </div>
 
-        :root {
-            --line-border-fill: #3498db;
-            --line-border-empty: #e0e0e0;
-        }
-
-        body {
-            background-color: #212121;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-        }
-
-        #navbar {
-            background-color: #2c3e50;
-            color: white;
-            display: flex;
-            padding: 15px;
-            gap: 10px;
-        }
-
-        .navbar-button {
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            border-radius: 50%; /* Make the button circular */
-            width: 40px; /* Adjust size as needed */
-            height: 40px; /* Adjust size as needed */
-            font-size: 1em;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: background-color 0.3s;
-            font-size: 1.5em; /* Adjust size as needed */
-        }
-
-        .navbar-button:hover {
-            background-color: #34495e; /* Darken color on hover */
-        }
-
-        [data-bs-toggle="tooltip"] {
-            position: relative; /* Ensure tooltips are positioned correctly */
-            cursor: pointer; /* Add cursor style for tooltip interaction */
-        }
-
-        
-        #blocklyContainer {
-            position: relative;
-            width: 100%;
-            height: calc(100vh - 10vh); /* Adjust height to accommodate navbar and status bar */
-            visibility: hidden; /* Initially hide the Blockly container */
-        }
-
-        #blocklyDiv {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        #statusBar {
-            height: 3vh; /* Set the height of the status bar */
-            background-color: #333;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            padding: 0 10px;
-            box-sizing: border-box;
-        }
-
-        #statusMessage {
-            margin: 0;
-        }
-
-        /* Styles for the upload-popup container */
-        .popup {
-            display: none; /* Hide initially */
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-            z-index: 999; /* Ensure it overlays other content */
-            overflow: auto;
-        }
-
-        /* Styles for the upload-popup content */
-        .popup-content {
-            background-color: #fefefe;
-            margin: 15% auto; /* Center the upload-popup vertically and horizontally */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* Adjust width as needed */
-            max-width: 600px; /* Max width for larger screens */
-            animation: fadeIn 0.3s ease; /* Fade-in animation */
-        }
-
-        /* Close button */
-        .close {
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #000;
-            text-decoration: none;
-        }
-
-        /* Fade-in animation */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Fade-out animation */
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        
-        .progress-container {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-bottom: 30px;
-            max-width: 100%;
-            width: 350px;
-        }
-
-        .progress-container::before {
-            content: "";
-            background-color: var(--line-border-empty);
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            height: 4px;
-            width: 100%;
-            z-index: 99; /* Change z-index to 1 or higher */
-        }
-
-        .progress {
-            background-color: var(--line-border-fill);
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            height: 4px;
-            width: 0%;
-            z-index: 101;
-            transition: 0.4s ease;
-        }
-
-        .progress.error {
-            background-color: red; /* Set to red color for error state */
-        }
-
-
-        .circle {
-            background-color: #fff;
-            color: #999;
-            border-radius: 50%;
-            height: 30px;
-            width: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 3px solid var(--line-border-empty);
-            transition: 0.4s ease;
-            z-index: 101;
-        }
-
-        .circle.active {
-            border-color: var(--line-border-fill);
-        }
-
-        .circle.error {
-            border-color: red; /* Optionally, change border color to red */
-            color: white; /* Optionally, adjust text color for visibility */
-        }
-    </style>
-
-    <script>
-        var uploadpopup = document.getElementById('upload-popup');
-
-        document.addEventListener('DOMContentLoaded', function () {
-            var tooltips = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-            var tooltipList = tooltips.map(function (tooltip) {
-                return new bootstrap.Tooltip(tooltip);
-            });
-        });
-
-        // Event listener to close the upload-popup with fade-out effect
-        document.getElementById('uploadCloseBtn').addEventListener('click', function() {
-            uploadpopup.style.animation = 'fadeOut 0.3s ease'; // Apply fade-out animation
-            setTimeout(function() {
-                uploadpopup.style.display = 'none'; // Hide popup after animation completes
-                uploadpopup.style.animation = ''; // Reset animation property
-            }, 300); // Adjust to match animation duration in milliseconds
-        });
-
-        // Close the upload-popup if the user clicks outside of it
-        window.addEventListener('click', function(event) {
-            if (event.target == uploadpopup) {
-                uploadpopup.style.animation = 'fadeOut 0.3s ease'; // Apply fade-out animation
-                setTimeout(function() {
-                    uploadpopup.style.display = 'none'; // Hide popup after animation completes
-                    uploadpopup.style.animation = ''; // Reset animation property
-                }, 300); // Adjust to match animation duration in milliseconds
-            }
-        });
-
-    </script>
+    <div class="popup" id="library-popup">
+        <div class="popup-content" style="max-width: 600px;">
+            <button type="button" class="btn-close float-end" aria-label="Close" id="libraryCloseBtn"></button>
+            <div class="library-container" id="libcontainer">
+                <div class="library-item overflow-auto">
+                    <img src="image.jpg" class="libimage" onerror="this.onerror=null;this.src='../assets/noimagefallback.png'; this.alt='No Image Available';">
+                    <p>Lib 1</p>
+                    <i>Test</i>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success btn-sm float-end">Import</button>
+        </div>
+    </div>
+    
+    
+    <script src="frontend.js"></script>
     <script src="virtualcode.js"></script>
     <script src="codegen.js"></script>
 </body>
