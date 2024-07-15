@@ -1,11 +1,11 @@
 {
   "name": "ccide",
-  "version": "1.0.2",
+  "version": "1.1",
   "description": "ComputerCraft mod virtual lua IDE",
   "main": "index.js",
   "scripts": {
     "dev": "electron .",
-    "nodedev": "node ."
+    "build": "electron-packager . ccIDE --platform=win32 --arch=x64 --icon=assets/ccIDEIcon.ico --out=dist --overwrite"
   },
   "author": "DPSoftware Foundation",
   "license": "GPL-3.0-or-later",

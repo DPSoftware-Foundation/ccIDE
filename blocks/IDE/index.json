@@ -7,9 +7,16 @@
     "keyword": "test",
     "license": "GPL-3.0-or-later",
     "peripherals": false,
-    "library": false,
-    "turtle": false,
-    "pocket": false,
+    "library": true,
     "require_network": false,
-    "dependencies": {}
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": true,
+        "adv": true, 
+        "command": true,
+        "pocket": true,
+        "advpocket": true,
+        "turtle": true,
+        "advturtle": true
+    }
 }

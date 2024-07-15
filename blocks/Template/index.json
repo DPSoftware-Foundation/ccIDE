@@ -8,8 +8,15 @@
     "license": "GPL-3.0-or-later",
     "peripherals": false,
     "library": false,
-    "turtle": false,
-    "pocket": false,
     "require_network": false,
-    "dependencies": {}
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": false,
+        "adv": false, 
+        "command": false,
+        "pocket": false,
+        "advpocket": false,
+        "turtle": false,
+        "advturtle": false
+    }
 }

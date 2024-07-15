@@ -45,8 +45,8 @@ var workspace = Blockly.inject('blocklyDiv', {
 try {
     scanindex();
 
-    originaltoolbar = loadperipheral(workspace, originaltoolbar, "Template");
     originaltoolbar = loadperipheral(workspace, originaltoolbar, "IDE");
+    usedlibinproject.push("IDE");
 } catch (e) {
     ipc.send("erroronstart", `Error on loading block: ${e}`)
 }
@@ -55,23 +55,47 @@ workspace.getToolbox().getFlyout().autoClose = false;
 
 // Save workspace
 ipc.on('save-workspace-request', (event) => {
+    document.getElementById('statusMessage').textContent = `Saving...`;
     const state = Blockly.serialization.workspaces.save(workspace);
     const data = {
         "usedlibrary": usedlibinproject,
         "content": state
     }
+    
     ipc.send('save-workspace', data);
 });
 
 // Load workspace
 ipc.on('load-workspace', (event, json) => {
-    if (json) {
-        data = JSON.parse(json)
-        usedlibinproject = data.usedlibrary
-        workspace.clear()
-        Blockly.serialization.workspaces.load(data.content, workspace);
-        isprojectsaved = true
-    } 
+    try {
+        if (json) {
+            data = JSON.parse(json)
+            const libinproject = data.usedlibrary
+            workspace.clear()
+            for (let i = 0; i < libinproject.length; i++) {
+                const packagefolder = libinproject[i]
+                if (!usedlibinproject.includes(packagefolder)) {
+                    try {
+                        originaltoolbar = loadperipheral(workspace, originaltoolbar, packagefolder);
+                        usedlibinproject.push(packagefolder);
+                    } catch (e) {
+                        document.getElementById('statusMessage').textContent = `Can't Import ${usedlibinproject[i]}: ${e}`;
+                        setTimeout(() => {
+                            document.getElementById('statusMessage').textContent = `Ready`;
+                        }, 1000);
+                    }
+                }
+            }
+            Blockly.serialization.workspaces.load(data.content, workspace);
+            isprojectsaved = true
+            document.getElementById('statusMessage').textContent = `Project Loaded`;
+        } 
+    } catch (e) {
+        document.getElementById('statusMessage').textContent = `Can't Load Project: ${e}`;
+    }
+    setTimeout(() => {
+        document.getElementById('statusMessage').textContent = `Ready`;
+    }, 1000);
 })
 
 workspace.addChangeListener(function(event) {
@@ -89,11 +113,41 @@ workspace.addChangeListener(function(event) {
     }
 });
 
+document.getElementById("packageman-import-btn").addEventListener('click', () => {
+    var librarypopup = document.getElementById('library-popup');
+    librarypopup.style.animation = 'fadeOut 0.3s ease'; // Apply fade-out animation
+    setTimeout(function() {
+        librarypopup.style.display = 'none'; // Hide popup after animation completes
+        librarypopup.style.animation = ''; // Reset animation property
+    }, 300); // Adjust to match animation duration in milliseconds
+
+    const selectedItems = document.querySelectorAll('.library-item.selected');
+    selectedItems.forEach(item => {
+        const packagefolder = item.getAttribute('data-libraryfolder');
+        if (!usedlibinproject.includes(packagefolder)) {
+            try {
+                originaltoolbar = loadperipheral(workspace, originaltoolbar, packagefolder);
+                usedlibinproject.push(packagefolder);
+            } catch (e) {
+                document.getElementById('statusMessage').textContent = `Can't Import ${packagefolder}: ${e}`;
+            }
+        }
+        setTimeout(() => {
+            document.getElementById('statusMessage').textContent = `Ready`;
+        }, 1000);
+    });
+    
+});
+
 ipc.on('workspace-saved', (event, success) => {
     isprojectsaved = success
     if (!isprojectopened) {
         isprojectopened = true;
     }
+    document.getElementById('statusMessage').textContent = `Project Saved`;
+    setTimeout(() => {
+        document.getElementById('statusMessage').textContent = `Ready`;
+    }, 1000);
 });
 
 ipc.on('request-undo-redo', (event, redo) => {
@@ -106,5 +160,5 @@ ipc.on("open-about", () => {
 })
 
 // Ensure Blockly container is shown after the workspace is injected
-document.getElementById('statusMessage').textContent = "ready";
+document.getElementById('statusMessage').textContent = `Ready`;
 ipc.send("ready")

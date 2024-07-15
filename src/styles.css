@@ -93,9 +93,19 @@ body {
     border: 1px solid #888;
     width: 80%; /* Adjust width as needed */
     max-width: 600px; /* Max width for larger screens */
+    max-height: 80%; /* Ensure content does not overflow the screen */
+    display: flex;
+    flex-direction: column;
     animation: fadeIn 0.3s ease; /* Fade-in animation */
+    position: relative; /* Ensure the close button can be positioned relative to this */
 }
 
+/* Position the close button to the top right corner */
+.btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 
 /* Fade-in animation */
 @keyframes fadeIn {
@@ -170,21 +180,49 @@ body {
     color: white; /* Optionally, adjust text color for visibility */
 }
 
+.libimageicon {
+    width: 20px;
+    height: 20px;
+}
 .libimage {
     width: 100px;
     height: 100px;
-    
 }
-
+.library-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.libimage {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 15px;
+}
+.library-details {
+    flex: 1;
+    line-height: 10px;
+}
 .library-item {
-    margin: 0 auto;
+    cursor: pointer;
     padding: 10px;
+    border-bottom: 1px solid #e9ecef;
 }
-
+.library-item.selected {
+    background-color: #e9ecef;
+}
+.library-content {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    max-height: 720px; /* Ensure a max height for scrolling */
+}
 .library-item:hover {
     background-color: #cacaca;
 }
 
-.library-container {
-    border: 1px solid #000000;
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
 }
