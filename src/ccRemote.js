@@ -26,6 +26,15 @@ class CCRemote {
         });
     }
 
+    isClientConnect() {
+        for (const client of this.socket.clients) {
+            if (client.readyState === WebSocket.OPEN) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     sendCommand(command) {
         // Iterate over each connected client and send the command
         this.socket.clients.forEach((client) => {
@@ -41,7 +50,6 @@ class CCRemote {
             if (client.readyState === WebSocket.OPEN) {
                 client.send("sendcode");
                 setTimeout(() => {
-                    console.log(Code)
                     client.send(Code);
                     return true
                 }, 500);
@@ -62,6 +70,14 @@ class CCRemote {
         });
     }
 
+    disconnectAllClients() {
+        this.socket.clients.forEach((client) => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.close();
+            }
+        });
+    }
+    
 }
 
 module.exports = { CCRemote };

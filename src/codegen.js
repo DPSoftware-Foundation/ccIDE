@@ -38,7 +38,13 @@ const uploadUpdateProgress = () => {
 
 function clientexit() {
     ccInstance.sendCommand("exit")
+    ccInstance.disconnectAllClients();
 }
+
+function gencodeonly() {
+    return luaGenerator.workspaceToCode(workspace);
+}
+
 async function gencode() {
     document.getElementById('upload-popup').style.display = 'block';
     upcurrentActive = 1;
@@ -60,18 +66,25 @@ async function gencode() {
         return
     }
 
-    // upload to computercraft with remote
-    document.getElementById('upload-status').textContent = "Uploading code to machine";
     upcurrentActive++;
     uploadUpdateProgress();
-    ccInstance.sendCode(code);
-    await delay(500)
+    if (ccInstance.isClientConnect()) {
+        // upload to computercraft with remote
+        document.getElementById('upload-status').textContent = "Uploading code to machine";
+        ccInstance.sendCode(code);
+        await delay(500)
 
-    // execute with remote
-    document.getElementById('upload-status').textContent = "Executing code";
-    upcurrentActive++;
-    uploadUpdateProgress();
-    ccInstance.runCode();
+        // execute with remote
+        document.getElementById('upload-status').textContent = "Executing code";
+        upcurrentActive++;
+        uploadUpdateProgress();
+        ccInstance.runCode();
+    } else {
+        uploadError = true;
+        uploadUpdateProgress();
+        document.getElementById('upload-status').innerHTML = `Please Connect Computer to IDE.\nInstruction: <a href="https://github.com/DPSoftware-Foundation/ccIDE#install-remote-code-into-computercraft">Install Remote code into computercraft</a> in github.`;
+        return
+    }
 
     // done!
     document.getElementById('upload-status').textContent = "Done!";

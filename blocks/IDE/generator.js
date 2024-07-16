@@ -13,3 +13,17 @@ luaGenerator.forBlock['ide_addcode'] = function(block, generator) {
     const cleanedStr = codefromuser.replace(/[']/g, '');
     return cleanedStr+"\n";
 };
+
+luaGenerator.forBlock['ide_start'] = function(block, generator) {
+    var docode = generator.statementToCode(block, 'DO');
+
+    var code =
+`
+function main()
+${docode}
+end
+
+main()
+`
+    return code;
+};

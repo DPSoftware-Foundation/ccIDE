@@ -1,0 +1,22 @@
+{
+    "name": "CC: Turtle",
+    "author": "DPSoftware Foundation",
+    "description": "Library for control turtle",
+    "version": "0.1",
+    "category": "turtle",
+    "keyword": "turtle",
+    "license": "GPL-3.0-or-later",
+    "peripherals": false,
+    "library": true,
+    "require_network": false,
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": false,
+        "adv": false, 
+        "command": false,
+        "pocket": false,
+        "advpocket": false,
+        "turtle": true,
+        "advturtle": true
+    }
+}

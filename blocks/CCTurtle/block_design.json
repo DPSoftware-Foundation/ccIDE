@@ -1,0 +1,383 @@
+{
+    "turtle_move_operation": {
+        "message0": "Move %1 for %2 blocks",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Forward", "FORWARD"],
+                    ["Back", "BACK"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "FOR",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Move the turtle."
+    },
+    "turtle_turn_operation": {
+        "message0": "Turn %1 for %2 round",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Left", "LEFT"],
+                    ["Right", "RIGHT"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "ROUND",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Turn the turtle."
+    },
+    "turtle_dig_operation": {
+        "message0": "Dig in %1 of turtle with %2 side",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Front", "FRONT"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            },
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Left", "LEFT"],
+                    ["Right", "RIGHT"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Attempt to break the block in direction of the turtle."
+    },
+    "turtle_attack_operation": {
+        "message0": "Attack in %1 of turtle with %2 side",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Front", "FRONT"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            },
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Left", "LEFT"],
+                    ["Right", "RIGHT"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Attack the entity in direction of the turtle."
+    },
+    "turtle_place_operation": {
+        "message0": "Use/Place in %1 of turtle",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Front", "FRONT"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Place a block or item into the world in direction of the turtle."
+    },
+    "turtle_drop_operation": {
+        "message0": "Drop item in %1 of turtle for %2 items",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Front", "FRONT"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "COUNT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Drop the currently selected stack into the inventory in the turtle, or as an item into the world if there is no inventory."
+    },
+    "turtle_select_item": {
+        "message0": "Select item in slot %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Change the currently selected slot."
+    },
+    "turtle_get_item_count": {
+        "message0": "Get item count in slot %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Number",
+        "colour": 215,
+        "tooltip": "Get the number of items in the given slot."
+    },
+    "turtle_get_slot_free": {
+        "message0": "Get free space in slot %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Number",
+        "colour": 215,
+        "tooltip": "Get the remaining number of items which may be stored in this stack."
+    },
+    "turtle_detect_block": {
+        "message0": "Detect solid block in %1 of turtle",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Front", "FRONT"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 215,
+        "tooltip": "Check if there is a solid block in direction of the turtle."
+    },
+    "turtle_compare_item": {
+        "message0": "Compare block in %1 of turtle is equal current item slot",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Front", "FRONT"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 215,
+        "tooltip": "Check if the block in direction of the turtle is equal to the item in the currently selected slot."
+    },
+    "turtle_collect_item": {
+        "message0": "Collect %1 items in %2 of turtle",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "COUNT",
+                "check": "Number"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Front", "FRONT"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Collect an item from the inventory in direction of the turtle, or from an item floating in the world. If count is 0 it collect all item."
+    },
+    "turtle_get_fuel_level": {
+        "message0": "Get current fuel level",
+        "inputsInline": true,
+        "output": "Number",
+        "colour": 215,
+        "tooltip": "Get the maximum amount of fuel this turtle currently holds."
+    },
+    "turtle_refuel": {
+        "message0": "Refuel turtle for %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "COUNT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Refuel this turtle. If 0 it refuel unlimit from current item."
+    },
+    "turtle_compare_to": {
+        "message0": "Compare item to slot %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 215,
+        "tooltip": "Compare the item in the currently selected slot to the item in another slot."
+    },
+    "turtle_transfer_to": {
+        "message0": "Transfer item to slot %1 for %2 items",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "COUNT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 215,
+        "tooltip": "Move an item from the selected slot to another one."
+    },
+    "turtle_get_selected_slot": {
+        "message0": "Get current selected slot",
+        "inputsInline": true,
+        "output": "Number",
+        "colour": 215,
+        "tooltip": "Get the currently selected slot."
+    },
+    "turtle_get_fuel_limit": {
+        "message0": "Get fuel limit",
+        "inputsInline": true,
+        "output": "Number",
+        "colour": 215,
+        "tooltip": "Get the maximum amount of fuel this turtle can hold."
+    },
+    "turtle_equip": {
+        "message0": "Equip item on %1 side",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Left", "LEFT"],
+                    ["Right", "RIGHT"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "output": "Multiple",
+        "colour": 215,
+        "tooltip": "Equip (or unequip) an item on the side of this turtle."
+    },
+    "turtle_inspect": {
+        "message0": "Inspect block on %1 side",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "OPERATION",
+                "options": [
+                    ["Front", "FRONT"],
+                    ["Up", "UP"],
+                    ["Down", "DOWN"]
+                ]
+            }
+        ],
+        "inputsInline": true,
+        "output": "Multiple",
+        "colour": 215,
+        "tooltip": "Get information about the block in direction of the turtle."
+    },
+    "turtle_get_item_detail": {
+        "message0": "Get Item detail in slot %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Array",
+        "colour": 215,
+        "tooltip": "Get detailed information about the items in the given slot."
+    },
+    "turtle_craft": {
+        "message0": "Craft Item with limit %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "LIMIT",
+                "check": "Number"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Multiple",
+        "colour": 215,
+        "tooltip": "Craft a recipe based on the turtle's inventory."
+    }
+}

@@ -12,17 +12,3 @@ luaGenerator.forBlock['sys_sleep'] = function(block, generator) {
     var code = `sleep(${sleepfor})\n`;
     return code;
 };
-
-luaGenerator.forBlock['sys_start'] = function(block, generator) {
-    var docode = generator.statementToCode(block, 'DO');
-
-    var code =
-`
-function main()
-${docode}
-end
-
-main()
-`
-    return code;
-};

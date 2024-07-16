@@ -2,5 +2,6 @@
     <category name="IDE" colour="150">
         <!-- Define your custom blocks here -->
         <block type="ide_addcode"></block>
+        <block type="ide_start"></block>
     </category>
 </xml>

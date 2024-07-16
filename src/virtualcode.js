@@ -39,6 +39,15 @@ var workspace = Blockly.inject('blocklyDiv', {
         length: 3,
         colour: '#ccc',
         snap: true
+    }, 
+    zoom:{
+        controls: true,
+        wheel: true,
+        startScale: 1.0,
+        maxScale: 5,
+        minScale: 0.1,
+        scaleSpeed: 1.1,
+        pinch: true
     }
 });
 
@@ -52,6 +61,10 @@ try {
 }
 workspace.getToolbox().getFlyout().autoClose = false;
 
+ipc.on('export-lua-request', (event) => {    
+    console.log("exporting lua")
+    ipc.send('export-lua', gencodeonly());
+})
 
 // Save workspace
 ipc.on('save-workspace-request', (event) => {

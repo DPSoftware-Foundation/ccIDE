@@ -46,7 +46,7 @@
         <block type="controls_flow_statements"></block>
     </category>
     <category name="Events" colour="45">
-        <block type="sys_start"></block>
+        
     </category>
     <category name="Math" colour="230">
         <block type="math_number" gap="32">

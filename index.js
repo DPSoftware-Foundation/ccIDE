@@ -209,6 +209,19 @@ app.whenReady().then(() => {
                 },
                 { type: 'separator' },
                 {
+                    label: 'Export',
+                    submenu: [
+                        {
+                            label: "Export Lua",
+                            accelerator: 'CmdOrCtrl+Shift+L',
+                            click: () => {
+                                win.webContents.send('export-lua-request');
+                            }
+                        }
+                    ]
+                },
+                { type: 'separator' },
+                {
                     label: 'Exit',
                     accelerator: 'CmdOrCtrl+Q',
                     click: () => {
@@ -373,6 +386,28 @@ app.whenReady().then(() => {
         }
     });
 
+    ipc.on('export-lua', (event, data) => {
+        dialog.showSaveDialog(win, {
+            title: 'Save Project',
+            defaultPath: path.join(app.getPath('documents'), 'main.lua'),
+            filters: [
+                { extensions: ['lua'] }
+            ]
+        }).then(result => {
+            if (!result.canceled) {
+                fs.writeFile(result.filePath, data, (err) => {
+                    if (err) {
+                        console.error('Error exporting lua from project:', err);
+                        dialog.showErrorBox("Export Lua Error", err.message)
+                    }
+                });
+            }
+        }).catch(err => {
+            console.error('Error exporting lua from project:', err);
+            dialog.showErrorBox("Export Lua Error", err.message)
+        });
+    });
+
     ipc.on('workspace-notsave', (event) => {
         win.setTitle(`${currentprojectname}* | ccIDE`)
         currentworkspacechange = true;
@@ -381,7 +416,6 @@ app.whenReady().then(() => {
         currentworkspacechange = true;
     })
 })
-
 
 
 app.on("close", function(e) {

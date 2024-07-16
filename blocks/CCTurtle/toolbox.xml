@@ -1,0 +1,97 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Turtle" colour="215">
+        <block type="turtle_move_operation">
+            <value name="FOR">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_turn_operation">
+            <value name="ROUND">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>   
+        <block type="turtle_dig_operation"></block>
+        <block type="turtle_attack_operation"></block>
+        <block type="turtle_place_operation"></block>
+        <block type="turtle_drop_operation">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_select_item">
+            <value name="SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_get_item_count">
+            <value name="SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_get_slot_free">
+            <value name="SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_detect_block"></block>
+        <block type="turtle_compare_item"></block>
+        <block type="turtle_collect_item">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field> <!-- If 0 it collect all item-->
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_get_fuel_level"></block>
+        <block type="turtle_refuel">
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field> <!-- If 0 it refuel unlimit from current item-->
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_compare_to">
+            <value name="SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field> <!-- If 0 it refuel unlimit from current item-->
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_transfer_to">
+            <value name="SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field> <!-- If 0 it refuel unlimit from current item-->
+                </shadow>
+            </value>
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">64</field> <!-- If 0 it refuel unlimit from current item-->
+                </shadow>
+            </value>
+        </block>
+        <block type="turtle_get_selected_slot"></block>
+        <block type="turtle_get_fuel_limit"></block>
+        <block type="turtle_equip"></block>
+        <block type="turtle_inspect"></block>
+        <block type="turtle_get_item_detail"></block>
+        <block type="turtle_craft">
+            <value name="LIMIT">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+</xml>
