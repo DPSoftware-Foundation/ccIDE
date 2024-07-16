@@ -17,9 +17,7 @@ while true do
             file:write(filedata)
             file:close()
         elseif message == "runcode" then
-            id = multishell.launch({}, "main.lua")
-            multishell.setTitle(id, "Code")
-            multishell.setFocus(id)
+            shell.run("main")
         elseif message == "exit" then
             print("Exiting...")
             break

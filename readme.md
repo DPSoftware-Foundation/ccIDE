@@ -15,22 +15,24 @@ special thank for [this repo](https://github.com/Mirka1405/ccblockly)
 ## Install Remote code into computercraft
 it very simple! to install Remote code.
 ### Run from URL
+for advanced computer/pocket/turtle
+```
+wget run https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/advremote.lua
+```
+for non advance computer/pocket/turtle
 ```
 wget run https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua
 ```
-for turtle
-```
-wget run https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/turtleremote.lua
-```
 ### Download and Run
+for advanced computer/pocket/turtle
+```
+wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/advremote.lua advremote.lua
+advremote
+```
+for non advanced computer/pocket/turtle
 ```
 wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua remote.lua
 remote
-```
-for turtle
-```
-wget https://raw.githubusercontent.com/DPSoftware-Foundation/ccIDE/main/remote.lua turtleremote.lua
-turtleremote
 ```
 If error "Domain not permitted" try [this solution](https://github.com/cc-tweaked/CC-Tweaked/discussions/626#discussioncomment-241924).
 
