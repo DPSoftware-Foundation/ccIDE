@@ -66,7 +66,7 @@ https://github.com/user-attachments/assets/195231d4-8fd8-4101-8068-70bc038a5c4f
 https://github.com/user-attachments/assets/8f114cfa-d87c-47d0-a670-a13dc975ab06
 
 # For adapting in other project
-This project is based every block based IDE from DPSoftware Foundation
+This project is based for every block based IDE from DPSoftware Foundation
 
 # License 
 This project is licensed under the [GPL v3 License](https://github.com/DPSoftware-Foundation/ccIDE/blob/main/LICENSE).
