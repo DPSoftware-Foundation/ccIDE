@@ -1,0 +1,22 @@
+{
+    "name": "Rednet",
+    "author": "DPSoftware Foundation",
+    "description": "Library for rednet",
+    "version": "1.0.0",
+    "category": "Network",
+    "keyword": "Rednet",
+    "license": "GPL-3.0-or-later",
+    "peripherals": true,
+    "library": true,
+    "require_network": false,
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": true,
+        "adv": true, 
+        "command": true,
+        "pocket": true,
+        "advpocket": true,
+        "turtle": true,
+        "advturtle": true
+    }
+}

@@ -65,19 +65,19 @@
         <block type="turtle_compare_to">
             <value name="SLOT">
                 <shadow type="math_number">
-                    <field name="NUM">1</field> <!-- If 0 it refuel unlimit from current item-->
+                    <field name="NUM">1</field>
                 </shadow>
             </value>
         </block>
         <block type="turtle_transfer_to">
             <value name="SLOT">
                 <shadow type="math_number">
-                    <field name="NUM">1</field> <!-- If 0 it refuel unlimit from current item-->
+                    <field name="NUM">1</field> 
                 </shadow>
             </value>
             <value name="COUNT">
                 <shadow type="math_number">
-                    <field name="NUM">64</field> <!-- If 0 it refuel unlimit from current item-->
+                    <field name="NUM">64</field> 
                 </shadow>
             </value>
         </block>
@@ -85,7 +85,13 @@
         <block type="turtle_get_fuel_limit"></block>
         <block type="turtle_equip"></block>
         <block type="turtle_inspect"></block>
-        <block type="turtle_get_item_detail"></block>
+        <block type="turtle_get_item_detail">
+            <value name="SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field> 
+                </shadow>
+            </value>
+        </block>
         <block type="turtle_craft">
             <value name="LIMIT">
                 <shadow type="math_number">

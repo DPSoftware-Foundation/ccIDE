@@ -63,8 +63,8 @@
                 "type": "field_dropdown",
                 "name": "SIDE",
                 "options": [
-                    ["Left", "LEFT"],
-                    ["Right", "RIGHT"]
+                    ["Left", "left"],
+                    ["Right", "right"]
                 ]
             }
         ],
@@ -90,8 +90,8 @@
                 "type": "field_dropdown",
                 "name": "SIDE",
                 "options": [
-                    ["Left", "LEFT"],
-                    ["Right", "RIGHT"]
+                    ["Left", "left"],
+                    ["Right", "right"]
                 ]
             }
         ],
@@ -376,7 +376,8 @@
             }
         ],
         "inputsInline": true,
-        "output": "Multiple",
+        "previousStatement": null,
+        "nextStatement": null,
         "colour": 215,
         "tooltip": "Craft a recipe based on the turtle's inventory."
     }

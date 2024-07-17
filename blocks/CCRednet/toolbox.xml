@@ -1,0 +1,64 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Rednet" colour="20">
+        <block type="rednet_open"></block>
+        <block type="rednet_close"></block>
+        <block type="rednet_isopen"></block>
+        <block type="rednet_send">
+            <value name="PROTO">
+                <shadow type="text">
+                    <field name="TEXT">default</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="rednet_broadcast">
+            <value name="PROTO">
+                <shadow type="text">
+                    <field name="TEXT">default</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="rednet_receive">
+            <value name="PROTO">
+                <shadow type="text">
+                    <field name="TEXT">default</field>
+                </shadow>
+            </value>
+            <value name="TIMEOUT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="rednet_host">
+            <value name="PROTO">
+                <shadow type="text">
+                    <field name="TEXT">default</field>
+                </shadow>
+            </value>
+            <value name="NAME">
+                <shadow type="text">
+                    <field name="TEXT">SomeName</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="rednet_unhost">
+            <value name="PROTO">
+                <shadow type="text">
+                    <field name="TEXT">default</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="rednet_lookup">
+            <value name="NAME">
+                <shadow type="text">
+                    <field name="TEXT">SomeName</field>
+                </shadow>
+            </value>
+            <value name="PROTO">
+                <shadow type="text">
+                    <field name="TEXT">default</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+</xml>

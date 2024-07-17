@@ -2,7 +2,7 @@
     "name": "CC: Turtle",
     "author": "DPSoftware Foundation",
     "description": "Library for control turtle",
-    "version": "0.1",
+    "version": "1.0",
     "category": "turtle",
     "keyword": "turtle",
     "license": "GPL-3.0-or-later",

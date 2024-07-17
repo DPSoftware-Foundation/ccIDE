@@ -99,9 +99,11 @@ ipc.on('load-workspace', (event, json) => {
                     }
                 }
             }
-            Blockly.serialization.workspaces.load(data.content, workspace);
-            isprojectsaved = true
-            document.getElementById('statusMessage').textContent = `Project Loaded`;
+            setTimeout(() => {
+                Blockly.serialization.workspaces.load(data.content, workspace);
+                isprojectsaved = true
+                document.getElementById('statusMessage').textContent = `Project Loaded`;
+            }, 100);
         } 
     } catch (e) {
         document.getElementById('statusMessage').textContent = `Can't Load Project: ${e}`;

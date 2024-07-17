@@ -13,5 +13,45 @@
         "colour": 120,
         "tooltip": "Sleep command",
         "helpUrl": ""
+    },
+    "sys_utils_table_variable_pack": {
+        "message0": "Pack %1 to Table",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "RETURN_ARGS",
+                "check": "Multiple"
+            }
+        ],
+        "output": "Array",
+        "colour": 220
+    },
+    "sys_utils_get_value_from_table_with_index": {
+        "message0": "UnPack %1 to Value with index/key %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TABLE",
+                "check": "Array"
+            },
+            {
+                "type": "input_value",
+                "name": "INDEX",
+                "check": ["Number", "String"]
+            }
+        ],
+        "output": null,
+        "colour": 220
+    },
+    "sys_utils_get_type": {
+        "message0": "Get type of %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INPUT"
+            }
+        ],
+        "output": "String",
+        "colour": 220
     }
 }

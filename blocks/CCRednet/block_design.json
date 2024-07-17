@@ -1,0 +1,177 @@
+{
+    "rednet_open": {
+        "message0": "Open modem at %1 of computer",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["All", "all"],
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 20,
+        "tooltip": "Opens a modem with the given peripheral name, allowing it to send and receive messages over rednet."
+    },
+    "rednet_close": {
+        "message0": "Close modem at %1 of computer",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["All", "all"],
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 20,
+        "tooltip": "Opens a modem with the given peripheral name, allowing it to send and receive messages over rednet."
+    },
+    "rednet_isopen": {
+        "message0": "Is modem at %1 of computer",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["All", "all"],
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "Boolean",
+        "colour": 20,
+        "tooltip": "Determine if rednet is currently open."
+    },
+    "rednet_send": {
+        "message0": "Send %1 to computer id %2 with protocol %3",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "ID",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "PROTO",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 20,
+        "tooltip": "Allows a computer or turtle with an attached modem to send a message intended for a computer with a specific ID."
+    },
+    "rednet_broadcast": {
+        "message0": "Broadcast %1 with protocol %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "PROTO",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 20,
+        "tooltip": "Broadcasts a string message over the predefined CHANNEL_BROADCAST channel."
+    },
+    "rednet_receive": {
+        "message0": "Receive data with protocol %1 and timeout waiting for %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "PROTO",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "TIMEOUT",
+                "check": "Number"
+            }
+        ],
+        "output": "Multiple",
+        "colour": 20,
+        "tooltip": "Wait for a rednet message to be received, or until nTimeout seconds have elapsed."
+    },
+    "rednet_host": {
+        "message0": "Start Host protocol %1 with hostname %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "PROTO",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 20,
+        "tooltip": "Register the system as 'hosting' the desired protocol under the specified name."
+    },
+    "rednet_unhost": {
+        "message0": "Stop Host protocol %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "PROTO",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 20,
+        "tooltip": "Stop hosting a specific protocol, meaning it will no longer respond to rednet.lookup requests."
+    },
+    "rednet_lookup": {
+        "message0": "Find Hostname %1 with protocol %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PROTO",
+                "check": "String"
+            }
+        ],
+        "output": "Number",
+        "colour": 20,
+        "tooltip": "Search the local rednet network for systems hosting the desired protocol and returns any computer IDs that respond as 'registered' against it."
+    }
+}

@@ -1,0 +1,137 @@
+{
+    "redstone_set_output": {
+        "message0": "Set redstone %1 at %2 of computer",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "STATE",
+                "options": [
+                    ["On", "OFF"],
+                    ["Off", "ON"]
+                ]
+            },
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 10,
+        "tooltip": "Turn the redstone signal of a specific side on or off."
+    },
+    "redstone_get_output": {
+        "message0": "Get redstone output at %1 of computer",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "Boolean",
+        "colour": 10,
+        "tooltip": "Get the current redstone output of a specific side."
+    },
+    "redstone_read_input": {
+        "message0": "Read redstone input at %1 of computer",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "Boolean",
+        "colour": 10,
+        "tooltip": "Get the current redstone input of a specific side."
+    },
+    "redstone_set_analog_output": {
+        "message0": "Set redstone analog with power %1 at %2 of computer",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POWER",
+                "check": "Number"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 10,
+        "tooltip": "Set the redstone signal strength for a specific side."
+    },
+    "redstone_get_analog_output": {
+        "message0": "Get redstone analog output at %1 of computer",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "Number",
+        "colour": 10,
+        "tooltip": "Get the redstone output signal strength for a specific side."
+    },
+    "redstone_read_analog_input": {
+        "message0": "Read redstone analog output at %1 of computer",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "Number",
+        "colour": 10,
+        "tooltip": "Get the redstone input signal strength for a specific side."
+    }
+}
