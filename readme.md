@@ -1,5 +1,3 @@
-[![wakatime](https://wakatime.com/badge/user/0e729f00-081a-41e0-ab17-b9ac6abfc334/project/e9e0d6a6-dfaf-46d0-bb77-e1f7127e7fb4.svg)](https://wakatime.com/badge/user/0e729f00-081a-41e0-ab17-b9ac6abfc334/project/e9e0d6a6-dfaf-46d0-bb77-e1f7127e7fb4)
-
 # ComputerCraft IDE (ccIDE)
 ccIDE is block based programming for ComputerCraft lua.
 
@@ -59,13 +57,18 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[Plethora Peripherals](https://www.curseforge.com/minecraft/mc-mods/plethora-peripherals) | 🟥 Unsupport
 |[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport
 
-# Some small development video
+# Some small developer media
+[![wakatime](https://wakatime.com/badge/user/0e729f00-081a-41e0-ab17-b9ac6abfc334/project/e9e0d6a6-dfaf-46d0-bb77-e1f7127e7fb4.svg)](https://wakatime.com/badge/user/0e729f00-081a-41e0-ab17-b9ac6abfc334/project/e9e0d6a6-dfaf-46d0-bb77-e1f7127e7fb4)
 
 https://github.com/user-attachments/assets/8e9564fc-fc85-4ff6-b23a-357d3ac5f33c
 
 https://github.com/user-attachments/assets/195231d4-8fd8-4101-8068-70bc038a5c4f
 
 https://github.com/user-attachments/assets/8f114cfa-d87c-47d0-a670-a13dc975ab06
+
+This is my time for this project in one week
+![image](https://github.com/user-attachments/assets/d2c8ec6e-25b4-45e4-9f72-a7fb4b8906d1)
+
 
 # For adapting in other project
 This project is based for every block based IDE from DPSoftware Foundation
