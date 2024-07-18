@@ -1,0 +1,22 @@
+{
+    "name": "Colors",
+    "author": "DPSoftware Foundation",
+    "description": "Constants and functions for colour values",
+    "version": "0.5",
+    "category": "Display",
+    "keyword": "Colors",
+    "license": "GPL-3.0-or-later",
+    "peripherals": false,
+    "library": true,
+    "require_network": false,
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": false,
+        "adv": true, 
+        "command": false,
+        "pocket": false,
+        "advpocket": true,
+        "turtle": false,
+        "advturtle": true
+    }
+}

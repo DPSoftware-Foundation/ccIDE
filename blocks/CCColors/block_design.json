@@ -1,0 +1,63 @@
+{
+    "colors_color_picker": {
+        "message0": "Color %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "COLOR",
+                "options": [
+                    ["White", "colors.white"],
+                    ["Orange", "colors.orange"],
+                    ["Magenta", "colors.magenta"],
+                    ["Light blue", "colors.lightBlue"],
+                    ["Yellow", "colors.yellow"],
+                    ["Lime", "colors.lime"],
+                    ["Pink", "colors.pink"],
+                    ["Gray", "colors.gray"],
+                    ["Light gray", "colors.lightGray"],
+                    ["Cyan", "colors.cyan"],
+                    ["Purple", "colors.purple"],
+                    ["Blue", "colors.blue"],
+                    ["Brown", "colors.brown"],
+                    ["Green", "colors.green"],
+                    ["Red", "colors.red"],
+                    ["Black", "colors.black"]
+                ]
+            }
+        ],
+        "output": "CCColors",
+        "colour": 192,
+        "tooltip": "Pick color value"
+    },
+    "colors_combine": {
+        "message0": "Combine color from %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "COLORARRAY",
+                "check": "Array"
+            }
+        ],
+        "output": "CCColors",
+        "colour": 192,
+        "tooltip": "Combines a set of colors (or sets of colors) into a larger set."
+    },
+    "colors_subtract": {
+        "message0": "Subtract color %1 from %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "COLORARRAY",
+                "check": "Array"
+            },
+            {
+                "type": "input_value",
+                "name": "COLOR",
+                "check": "CCColors"
+            }
+        ],
+        "output": "CCColors",
+        "colour": 192,
+        "tooltip": "Removes one or more colors (or sets of colors) from an initial set."
+    }
+}

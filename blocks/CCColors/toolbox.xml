@@ -1,0 +1,7 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Colors" colour="192">
+        <block type="colors_color_picker"></block>
+        <block type="colors_combine"></block>
+        <block type="colors_subtract"></block>
+    </category>
+</xml>
