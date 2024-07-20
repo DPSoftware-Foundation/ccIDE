@@ -318,6 +318,8 @@
     </category>
     <category name="Utils" colour="220">
         <block type="sys_utils_get_type"></block>
+        <block type="ide_addcode"></block>
+        <block type="ide_start"></block>
     </category>
     <sep></sep>
     <category name="Variables" custom="VARIABLE" colour="330">

@@ -17,8 +17,9 @@ let usedlibinproject = []
 Blockly.utils.colour.setHsvSaturation(0.9)
 
 let originaltoolbar = fs.readFileSync(path.join(__dirname, "toolbox.xml"), 'utf8');
-const sysmodulejson = fs.readFileSync(path.join(__dirname, "module_block_design.json"), 'utf8');
 
+// load some system library
+const sysmodulejson = fs.readFileSync(path.join(__dirname, "module_block_design.json"), 'utf8');
 const blocksJson = JSON.parse(sysmodulejson);
 for (const blockId in blocksJson) {
     if (blocksJson.hasOwnProperty(blockId)) {
@@ -53,9 +54,6 @@ var workspace = Blockly.inject('blocklyDiv', {
 
 try {
     scanindex();
-
-    originaltoolbar = loadperipheral(workspace, originaltoolbar, "IDE");
-    usedlibinproject.push("IDE");
 } catch (e) {
     ipc.send("erroronstart", `Error on loading block: ${e}`)
 }
@@ -163,11 +161,6 @@ ipc.on('workspace-saved', (event, success) => {
     setTimeout(() => {
         document.getElementById('statusMessage').textContent = `Ready`;
     }, 1000);
-});
-
-ipc.on('request-undo-redo', (event, redo) => {
-    console.log(redo)
-    workspace.undo(redo)
 });
 
 ipc.on("open-about", () => {

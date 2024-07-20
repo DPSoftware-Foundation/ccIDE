@@ -58,3 +58,26 @@ luaGenerator.forBlock['sys_table_append_data'] = function(block, generator) {
 
     return `table.insert(${table}, ${data})\n`;
 };
+
+// Define your custom block handler
+luaGenerator.forBlock['ide_addcode'] = function(block, generator) {
+    var codefromuser = generator.valueToCode(block, 'CODE', generator.ORDER_ATOMIC);
+
+    // Remove all occurrences of the matched characters
+    const cleanedStr = codefromuser.replace(/[']/g, '');
+    return cleanedStr+"\n";
+};
+
+luaGenerator.forBlock['ide_start'] = function(block, generator) {
+    var docode = generator.statementToCode(block, 'DO');
+
+    var code =
+`
+function main()
+${docode}
+end
+
+main()
+`
+    return code;
+};

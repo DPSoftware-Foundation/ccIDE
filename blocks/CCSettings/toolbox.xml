@@ -1,0 +1,62 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Settings" colour="120">
+        <block type="settings_define">
+            <value name="NAME">
+                <shadow type="text">
+                    <field name="TEXT">SomeSettingsName</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="settings_undefine">
+            <value name="NAME">
+                <shadow type="text">
+                    <field name="TEXT">SomeSettingsName</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="settings_set">
+            <value name="NAME">
+                <shadow type="text">
+                    <field name="TEXT">SomeSettingsName</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="settings_get">
+            <value name="NAME">
+                <shadow type="text">
+                    <field name="TEXT">SomeSettingsName</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="settings_getdetails">
+            <value name="NAME">
+                <shadow type="text">
+                    <field name="TEXT">SomeSettingsName</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="settings_unset">
+            <value name="NAME">
+                <shadow type="text">
+                    <field name="TEXT">SomeSettingsName</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="settings_clear"></block>
+        <block type="settings_getnames"></block>
+        <block type="settings_load">
+            <value name="FILE">
+                <shadow type="text">
+                    <field name="TEXT">.settings</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="settings_save">
+            <value name="FILE">
+                <shadow type="text">
+                    <field name="TEXT">.settings</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+</xml>

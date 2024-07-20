@@ -6,7 +6,6 @@ const peripheralsfolder = path.join(__dirname, "../blocks");
 
 const fallbackImagePath = path.join(__dirname, '..', 'assets', 'noimagefallback.png'); // Path to fallback image
 
-let registedblock = {}
 
 const defineicon = {
     computer: {
@@ -142,77 +141,78 @@ function scanindex() {
                     const jsonData = JSON.parse(content);
 
                     blockfoldername = extractFolderName(filePath);
-                    registedblock[blockfoldername] = jsonData;
-                    foundedpackages++;
+                    if (!blockfoldername.startsWith("_")) {
+                        foundedpackages++;
 
-                    // create item in list
-                    const imagePath = path.join(filePath, "icon.png");
+                        // create item in list
+                        const imagePath = path.join(filePath, "icon.png");
 
-                    const libraryItem = document.createElement('div');
-                    libraryItem.classList.add('library-item', 'overflow-auto', 'library-container');
-                    libraryItem.setAttribute('data-libraryfolder', blockfoldername);
+                        const libraryItem = document.createElement('div');
+                        libraryItem.classList.add('library-item', 'overflow-auto', 'library-container');
+                        libraryItem.setAttribute('data-libraryfolder', blockfoldername);
 
-                    // add image
-                    const img = document.createElement('img');
-                    img.classList.add('libimage');
-                    if (fileExists(imagePath)) {
-                        img.src = imagePath;
-                    } else {
-                        img.src = fallbackImagePath;
-                    }
-                    libraryItem.appendChild(img);
+                        // add image
+                        const img = document.createElement('img');
+                        img.classList.add('libimage');
+                        if (fileExists(imagePath)) {
+                            img.src = imagePath;
+                        } else {
+                            img.src = fallbackImagePath;
+                        }
+                        libraryItem.appendChild(img);
 
-                    // Create the library details container
-                    const libraryDetails = document.createElement('div');
-                    libraryDetails.classList.add('library-details');
-                    
-                    // Create the title element
-                    const title = document.createElement('h3');
-                    title.textContent = jsonData.name + ` [v${jsonData.version} by ${jsonData.author}]`;
-                    libraryDetails.appendChild(title);
+                        // Create the library details container
+                        const libraryDetails = document.createElement('div');
+                        libraryDetails.classList.add('library-details');
+                        
+                        // Create the title element
+                        const title = document.createElement('h3');
+                        title.textContent = jsonData.name + ` [v${jsonData.version} by ${jsonData.author}]`;
+                        libraryDetails.appendChild(title);
 
-                    // Create the description element
-                    const description = document.createElement('p');
-                    description.innerHTML = jsonData.description;
-                    libraryDetails.appendChild(description);
+                        // Create the description element
+                        const description = document.createElement('p');
+                        description.innerHTML = jsonData.description;
+                        libraryDetails.appendChild(description);
 
-                    console.log(jsonData)
-                    if (jsonData.design_for_computer.basic) {
-                        addimageiconinfo(libraryDetails, defineicon.computer.basic, "Basic Computer Supported");
-                    }
-                    if (jsonData.design_for_computer.adv) {
-                        addimageiconinfo(libraryDetails, defineicon.computer.adv, "Advanced Computer Supported");
-                    }
-                    //if (jsonData.design_for_computer.command) {
-                    //    addimageiconinfo(libraryDetails, defineicon.computer.command, "Command Computer Supported");
-                    //}
-                    if (jsonData.design_for_computer.pocket) {
-                        addimageiconinfo(libraryDetails, defineicon.computer.pocket, "Pocket Computer Supported");
-                    }
-                    if (jsonData.design_for_computer.advpocket) {
-                        addimageiconinfo(libraryDetails, defineicon.computer.advpocket, "Advanced Pocket Computer Supported");
-                    }
-                    if (jsonData.design_for_computer.turtle) {
-                        addimageiconinfo(libraryDetails, defineicon.computer.turtle, "Turtle Supported");
-                    }
-                    if (jsonData.design_for_computer.advturtle) {
-                        addimageiconinfo(libraryDetails, defineicon.computer.advturtle, "Advanced Turtle Supported");
-                    }
+                        console.log(jsonData)
+                        if (jsonData.design_for_computer.basic) {
+                            addimageiconinfo(libraryDetails, defineicon.computer.basic, "Basic Computer Supported");
+                        }
+                        if (jsonData.design_for_computer.adv) {
+                            addimageiconinfo(libraryDetails, defineicon.computer.adv, "Advanced Computer Supported");
+                        }
+                        //if (jsonData.design_for_computer.command) {
+                        //    addimageiconinfo(libraryDetails, defineicon.computer.command, "Command Computer Supported");
+                        //}
+                        if (jsonData.design_for_computer.pocket) {
+                            addimageiconinfo(libraryDetails, defineicon.computer.pocket, "Pocket Computer Supported");
+                        }
+                        if (jsonData.design_for_computer.advpocket) {
+                            addimageiconinfo(libraryDetails, defineicon.computer.advpocket, "Advanced Pocket Computer Supported");
+                        }
+                        if (jsonData.design_for_computer.turtle) {
+                            addimageiconinfo(libraryDetails, defineicon.computer.turtle, "Turtle Supported");
+                        }
+                        if (jsonData.design_for_computer.advturtle) {
+                            addimageiconinfo(libraryDetails, defineicon.computer.advturtle, "Advanced Turtle Supported");
+                        }
 
-                    // check computer type support
-                    if (jsonData.peripherals) {
-                        addimageiconinfo(libraryDetails, defineicon.peripheral, "Peripheral");
-                    }
-                    if (jsonData.library) {
-                        addimageiconinfo(libraryDetails, defineicon.library, "Library");
-                    }
-                    if (jsonData.require_network) {
-                        addimageiconinfo(libraryDetails, defineicon.networkreq, "Require Network");
-                    }
+                        // check computer type support
+                        if (jsonData.peripherals) {
+                            addimageiconinfo(libraryDetails, defineicon.peripheral, "Peripheral");
+                        }
+                        if (jsonData.library) {
+                            addimageiconinfo(libraryDetails, defineicon.library, "Library");
+                        }
+                        if (jsonData.require_network) {
+                            addimageiconinfo(libraryDetails, defineicon.networkreq, "Require Network");
+                        }
 
-                    libraryItem.appendChild(libraryDetails);
-                    document.getElementById('libcontainer').appendChild(libraryItem);
-                    console.log(`registered ${blockfoldername} blocks and added to packages managers`)
+                        libraryItem.appendChild(libraryDetails);
+                        document.getElementById('libcontainer').appendChild(libraryItem);
+                        console.log(`registered ${blockfoldername} blocks and added to packages managers`)
+                    }
                 }
 
             })

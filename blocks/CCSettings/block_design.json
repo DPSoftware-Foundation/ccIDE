@@ -1,0 +1,147 @@
+{
+    "settings_define": {
+        "message0": "Define new %1 Description %2 Default %3 Type %4",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "DESC",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "DEF"
+            },
+            {
+                "type": "input_value",
+                "name": "TYPE",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 120,
+        "tooltip": "Define a new setting, optional specifying various properties about it."
+    },
+    "settings_undefine": {
+        "message0": "UnDefine %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 120,
+        "tooltip": "Remove a definition of a setting."
+    },
+    "settings_set": {
+        "message0": "Set %1 with value %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 120,
+        "tooltip": "Set the value of a setting."
+    },
+    "settings_get": {
+        "message0": "Get %1 If no value then use %2 as default",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "DEF"
+            }
+        ],
+        "output": null,
+        "colour": 120,
+        "tooltip": "Get the value of a setting."
+    },
+    "settings_getdetails": {
+        "message0": "Get %1 Details",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            }
+        ],
+        "output": "Array",
+        "colour": 120,
+        "tooltip": "Get details about a specific setting."
+    },
+    "settings_unset": {
+        "message0": "UnSet %1 value",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 120,
+        "tooltip": "Remove the value of a setting, setting it to the default."
+    },
+    "settings_clear": {
+        "message0": "Clear all settings",
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 120,
+        "tooltip": "Resets the value of all settings."
+    },
+    "settings_getnames": {
+        "message0": "Get all settings",
+        "output": "Array",
+        "colour": 120,
+        "tooltip": "Get the names of all currently defined settings."
+    },
+    "settings_load": {
+        "message0": "Load settings from %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FILE",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 120,
+        "tooltip": "Load settings from the given file."
+    },
+    "settings_save": {
+        "message0": "Save settings to %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FILE",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 120,
+        "tooltip": "Save settings to the given file."
+    }
+}

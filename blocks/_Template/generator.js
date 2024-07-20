@@ -1,3 +1,5 @@
+// this file not for generator only
+
 const { luaGenerator } = require('blockly/lua');
 
 // Check if luaGenerator.forBlock is defined and initialize if necessary

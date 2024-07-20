@@ -82,7 +82,7 @@ async function gencode() {
     } else {
         uploadError = true;
         uploadUpdateProgress();
-        document.getElementById('upload-status').innerHTML = `Please Connect Computer to IDE.\nInstruction: <a href="https://github.com/DPSoftware-Foundation/ccIDE#install-remote-code-into-computercraft">Install Remote code into computercraft</a> in github.`;
+        document.getElementById('upload-status').innerHTML = `Please Connect Computer to IDE.\nInstruction: <a href="https://github.com/DPSoftware-Foundation/ccIDE#install-remote-code-into-computercraft">Install Remote code into computercraft</a> in github. (Please press SHIFT or CTRL and click)`;
         return
     }
 
