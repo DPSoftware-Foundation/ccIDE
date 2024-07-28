@@ -1,0 +1,56 @@
+<xml id="toolbox" style="display: none;">
+    <category name="System" colour="0">
+        <block type="sysos_pullevent">
+            <value name="EVENT">
+                <shadow type="text">
+                    <field name="TEXT">All</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sysos_pullrawevent">
+            <value name="EVENT">
+                <shadow type="text">
+                    <field name="TEXT">All</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sysos_version"></block>
+        <block type="sysos_run"></block>
+        <block type="sysos_queue_event"></block>
+        <block type="sysos_start_timer">
+            <value name="TIME">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sysos_cancel_timer"></block>
+        <block type="sysos_set_alarm">
+            <value name="TIME">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sysos_cancel_alarm"></block>
+        <block type="sysos_shutdown"></block>
+        <block type="sysos_reboot"></block>
+        <block type="sysos_get_computer_id"></block>
+        <block type="sysos_get_computer_label"></block>
+        <block type="sysos_set_computer_label"></block>
+        <block type="sysos_clock"></block>
+        <block type="sysos_time"></block>
+        <block type="sysos_day"></block>
+        <block type="sysos_epoch"></block>
+        <block type="sysos_date">
+            <value name="FORMAT">
+                <shadow type="text">
+                    <field name="TEXT">%A %d %B %Y</field>
+                </shadow>
+            </value>
+            <value name="TIME">
+                <shadow type="sysos_time"></shadow>
+            </value>
+        </block>
+    </category>
+</xml>

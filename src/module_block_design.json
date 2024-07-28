@@ -67,7 +67,7 @@
         "colour": 260
     },
     "sys_table_add_key_value": {
-        "message0": "Add key %1 with data %2",
+        "message0": "Add key %1 with data %2\nShorthand %3",
         "args0": [
             {
                 "type": "input_value",
@@ -77,6 +77,10 @@
             {
                 "type": "input_value",
                 "name": "VALUE"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "SHORT"
             }
         ],
         "output": "Array_Pair",
@@ -95,7 +99,8 @@
                 "check": "Array"
             }
         ],
-        "output": "Array",
+        "previousStatement": null,
+        "nextStatement": null,
         "colour": 260
     },
     "ide_addcode": {
@@ -121,5 +126,37 @@
         ],
         "colour": 220,
         "tooltip": "Not require but make your code easy to read."
+    },
+    "sys_exit": {
+        "message0": "Exit the code",
+        "previousStatement": null,
+        "colour": 38
+    },
+    "sys_write": {
+        "message0": "Write %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TEXT",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 110,
+        "tooltip": "Writes a line of text to the screen without a newline at the end, wrapping text if necessary."
+    },
+    "sys_print_error": {
+        "message0": "Print error %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ERROR"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 110,
+        "tooltip": "Prints the specified values to the screen in red, separated by spaces, wrapping if necessary. After printing, the cursor is moved to the next line."
     }
 }

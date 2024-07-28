@@ -16,6 +16,22 @@ let isopennewproject = false;
 
 app.whenReady().then(() => {
     reloadall(false);
+    var splash = new BrowserWindow({
+        width: 600, 
+        height: 300, 
+        icon: path.join(__dirname, 'assets', 'ccIDEIcon.ico'),
+        transparent: true, 
+        frame: false, 
+        center: true,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+        }
+    });
+
+    splash.loadFile('src/splash.html');
+    splash.webContents.send("change-status", "Initializing...")
+
     const win = new BrowserWindow({
         width: 1280,
         height: 720,
@@ -30,19 +46,16 @@ app.whenReady().then(() => {
         center: true,
     })
 
-    var splash = new BrowserWindow({
-        width: 600, 
-        height: 300, 
-        icon: path.join(__dirname, 'assets', 'ccIDEIcon.ico'),
-        transparent: true, 
-        frame: false, 
-        center: true
-    });
-
-    win.loadFile('src/index.html');
-    splash.loadFile('src/splash.html');
+    try {
+        win.loadFile('src/index.html');
+    } catch {
+        try {
+            win.loadFile('dist_src/index.html');
+        } catch {
+            dialog.showErrorBox("Error on startup", "Can't find index.html");
+        }
+    }
     win.setTitle(`ccIDE`)
-
 
     ipc.once('ready', () => {
         console.log("ready")
@@ -57,9 +70,11 @@ app.whenReady().then(() => {
         dialog.showErrorBox("Error on startup", errormessage);
         //win.openDevTools();
     });
+
+    ipc.on('update-startup-status', (event, status) => {
+        splash.webContents.send("change-status", status)
+    });
     
-
-
     //app.on('activate', () => {
     //    if (BrowserWindow.getAllWindows().length === 0) {
     //        createWindow()
@@ -79,7 +94,6 @@ app.whenReady().then(() => {
             win.reload();
         }
     }
-
 
     // Define a custom menu template
     const menuTemplate = [

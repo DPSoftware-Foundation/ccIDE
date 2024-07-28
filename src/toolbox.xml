@@ -3,14 +3,28 @@
         <block type="text_print">
             <value name="TEXT">
                 <shadow type="text">
-                <field name="TEXT">abc</field>
+                    <field name="TEXT">Hello World!</field>
                 </shadow>
             </value>
         </block>
         <block type="text_prompt_ext">
             <value name="TEXT">
                 <shadow type="text">
-                <field name="TEXT">abc</field>
+                    <field name="TEXT">Hello World!</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sys_write">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">Hello World!</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="sys_print_error">
+            <value name="ERROR">
+                <shadow type="text">
+                    <field name="TEXT">Hello World!</field>
                 </shadow>
             </value>
         </block>
@@ -60,9 +74,7 @@
         </block>
         <block type="controls_forEach"></block>
         <block type="controls_flow_statements"></block>
-    </category>
-    <category name="Events" colour="45">
-        
+        <block type="sys_exit"></block>
     </category>
     <category name="Math" colour="230">
         <block type="math_number" gap="32">
@@ -176,7 +188,7 @@
         <block type="text_length">
             <value name="VALUE">
                 <shadow type="text">
-                    <field name="TEXT">abc</field>
+                    <field name="TEXT">Hello World!</field>
                 </shadow>
             </value>
         </block>
@@ -195,7 +207,7 @@
             </value>
             <value name="FIND">
                 <shadow type="text">
-                <field name="TEXT">abc</field>
+                <field name="TEXT">Hello World!</field>
                 </shadow>
             </value>
         </block>
@@ -216,7 +228,7 @@
         <block type="text_changeCase">
             <value name="TEXT">
                 <shadow type="text">
-                <field name="TEXT">abc</field>
+                <field name="TEXT">Hello World!</field>
                 </shadow>
             </value>
         </block>

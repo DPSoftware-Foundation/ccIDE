@@ -1,0 +1,22 @@
+{
+    "name": "CC: System (OS)",
+    "author": "DPSoftware Foundation",
+    "description": "The os API allows interacting with the current computer.",
+    "version": "1.0.0",
+    "category": "System",
+    "keyword": "System, OS",
+    "license": "GPL-3.0-or-later",
+    "peripherals": false,
+    "library": true,
+    "require_network": false,
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": true,
+        "adv": true, 
+        "command": true,
+        "pocket": true,
+        "advpocket": true,
+        "turtle": true,
+        "advturtle": true
+    }
+}

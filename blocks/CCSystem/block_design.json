@@ -1,0 +1,249 @@
+{
+    "sysos_pullevent": {
+        "message0": "Pull %1 event",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "EVENT",
+                "check": "String"
+            }
+        ],
+        "output": "Multiple",
+        "colour": 0,
+        "tooltip": "Pause execution of the current thread and waits for any events matching filter.",
+        "helpUrl": "https://tweaked.cc/module/os.html#v:pullEvent"
+    },
+    "sysos_pullrawevent": {
+        "message0": "Pull raw %1 event",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "EVENT",
+                "check": "String"
+            }
+        ],
+        "output": "Multiple",
+        "colour": 0,
+        "tooltip": "Pause execution of the current thread and waits for events, including the terminate event.",
+        "helpUrl": "https://tweaked.cc/module/os.html#v:pullEventRaw"
+    },
+    "sysos_version": {
+        "message0": "Get system version",
+        "output": "String",
+        "colour": 0,
+        "tooltip": "Get the current CraftOS version (for example, CraftOS 1.9)."
+    },
+    "sysos_run": {
+        "message0": "Run %1\nEnvironment %2\nArgs %3",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "RUN",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "ENV",
+                "check": "Array"
+            },
+            {
+                "type": "input_value",
+                "name": "ARGS",
+                "check": "Multiple"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 0,
+        "tooltip": "Run the program at the given path with the specified environment and arguments.",
+        "helpUrl": "https://tweaked.cc/module/os.html#v:run"
+    },
+    "sysos_queue_event": {
+        "message0": "Add event %1 to queue with args %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "EVENT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "ARGS",
+                "check": "Multiple"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 0,
+        "tooltip": "Adds an event to the event queue. This event can later be pulled with os.pullEvent."
+    },
+    "sysos_start_timer": {
+        "message0": "Start timer at %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TIME",
+                "check": "Number"
+            }
+        ],
+        "output": "Number",
+        "colour": 0,
+        "tooltip": "Starts a timer that will run for the specified number of seconds. Once the timer fires, a timer event will be added to the queue with the ID returned from this function as the first parameter.",
+        "helpUrl": "https://tweaked.cc/module/os.html#v:startTimer"
+    },
+    "sysos_cancel_timer": {
+        "message0": "Stop timer id %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ID",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 0,
+        "tooltip": "Cancels a timer previously started with startTimer. This will stop the timer from firing."
+    },
+    "sysos_set_alarm": {
+        "message0": "Set alarm to %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TIME",
+                "check": "Number"
+            }
+        ],
+        "output": "Number",
+        "colour": 0,
+        "tooltip": "Sets an alarm that will fire at the specified in-game time."
+    },
+    "sysos_cancel_alarm": {
+        "message0": "Stop alarm id %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ID",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 0,
+        "tooltip": "Cancels an alarm previously started with setAlarm."
+    },
+    "sysos_shutdown": {
+        "message0": "Shutdown computer",
+        "previousStatement": null,
+        "colour": 0,
+        "tooltip": "Shuts down the computer immediately."
+    },
+    "sysos_reboot": {
+        "message0": "Restart computer",
+        "previousStatement": null,
+        "colour": 0,
+        "tooltip": "Reboots the computer immediately."
+    },
+    "sysos_get_computer_id": {
+        "message0": "Get computer id",
+        "output": "Number",
+        "colour": 0,
+        "tooltip": "Returns the ID of the computer."
+    },
+    "sysos_get_computer_label": {
+        "message0": "Get computer label",
+        "output": "String",
+        "colour": 0,
+        "tooltip": "Returns the label of the computer, or nil if none is set."
+    },
+    "sysos_set_computer_label": {
+        "message0": "Set computer label to %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "LABEL",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 0,
+        "tooltip": "Set the label of this computer."
+    },
+    "sysos_clock": {
+        "message0": "Get Uptime",
+        "output": "String",
+        "colour": 0,
+        "tooltip": "Returns the number of seconds that the computer has been running."
+    },
+    "sysos_time": {
+        "message0": "Get time of %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "LOCATE",
+                "options": [
+                    ["In Game World", "ingame"],
+                    ["UTC", "utc"],
+                    ["Local", "local"]
+                ]
+            }
+        ],
+        "output": null,
+        "colour": 0,
+        "tooltip": "Returns the current time depending on the string passed in. This will always be in the range [0.0, 24.0)."
+    },
+    "sysos_day": {
+        "message0": "Get day of %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "LOCATE",
+                "options": [
+                    ["In Game World", "ingame"],
+                    ["UTC", "utc"],
+                    ["Local", "local"]
+                ]
+            }
+        ],
+        "output": null,
+        "colour": 0,
+        "tooltip": "Returns the day depending on the locale specified."
+    },
+    "sysos_epoch": {
+        "message0": "Get epoch of %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "LOCATE",
+                "options": [
+                    ["In Game World", "ingame"],
+                    ["UTC", "utc"],
+                    ["Local", "local"]
+                ]
+            }
+        ],
+        "output": null,
+        "colour": 0,
+        "tooltip": "Returns the number of milliseconds since an epoch depending on the locale."
+    },
+    "sysos_date": {
+        "message0": "Format date with patten %1 from time %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FORMAT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "TIME",
+                "check": "Number"
+            }
+        ],
+        "output": null,
+        "colour": 0,
+        "tooltip": "Returns a date string (or table) using a specified format string and optional time to format.",
+        "helpUrl": "https://cplusplus.com/reference/ctime/strftime/"
+    }
+}

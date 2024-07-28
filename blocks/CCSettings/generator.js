@@ -29,7 +29,7 @@ luaGenerator.forBlock['settings_define'] = function(block, generator) {
     if (def != "") {
         option.default = def
     }
-    if (type  != "") {
+    if (type != "") {
         option.type = type
     }
     var exportedoption = exportWithEquals(option);

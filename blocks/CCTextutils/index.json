@@ -1,0 +1,22 @@
+{
+    "name": "CC: Textutils",
+    "author": "DPSoftware Foundation",
+    "description": "Helpful utilities for formatting and manipulating strings.",
+    "version": "1.0.0",
+    "category": "utils",
+    "keyword": "utils",
+    "license": "GPL-3.0-or-later",
+    "peripherals": false,
+    "library": true,
+    "require_network": false,
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": true,
+        "adv": true, 
+        "command": true,
+        "pocket": true,
+        "advpocket": true,
+        "turtle": true,
+        "advturtle": true
+    }
+}

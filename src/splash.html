@@ -64,9 +64,18 @@
         <div class="progress-bar">
             <div class="progress-bar-value"></div>
         </div>
+        <h6 id="status">Initializing...</h6>
     </div>
     <div id="copyright">
         &copy; 2024 DPSoftware Foundation. Licensed under GPL v3.
     </div>
+    <script>
+        const { ipcRenderer } = require("electron");
+        const ipc = ipcRenderer;
+
+        ipc.on('change-status', (event, status) => {
+            document.getElementById('status').textContent = status;
+        });
+    </script>
 </body>
 </html>

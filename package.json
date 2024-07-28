@@ -5,14 +5,19 @@
   "main": "index.js",
   "scripts": {
     "dev": "electron .",
-    "build": "electron-packager . ccIDE --platform=win32 --arch=x64 --icon=assets/ccIDEIcon.ico --out=dist --overwrite"
+    "build": "electron-packager . ccIDE --platform=win32 --arch=x64 --icon=assets/ccIDEIcon.ico --out=dist --overwrite",
+    "full_build": "webpack --mode production && electron-packager . ccIDE --platform=win32 --arch=x64 --icon=assets/ccIDEIcon.ico --out=dist --overwrite"
   },
   "author": "DPSoftware Foundation",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "electron": "^31.1.0"
+    "electron": "^31.1.0",
+    "webpack": "^5.93.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
   },
   "dependencies": {
+    "@blockly/plugin-workspace-search": "^9.0.5",
     "@electron/remote": "^2.1.2",
     "blockly": "^11.1.1",
     "bootstrap": "^5.3.3",

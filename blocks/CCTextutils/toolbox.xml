@@ -1,0 +1,37 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Textutils" colour="32">
+        <block type="textutils_slow_write">
+            <value name="RATE">
+                <shadow type="math_number">
+                    <field name="NUM">20</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="textutils_slow_print">
+            <value name="RATE">
+                <shadow type="math_number">
+                    <field name="NUM">20</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="textutils_paged_print">
+            <value name="FREELINES">
+                <shadow type="math_number">
+                    <field name="NUM">20</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="textutils_tabulate"></block>
+        <block type="textutils_paged_tabulate"></block>
+        <block type="textutils_empty_json_array"></block>
+        <block type="textutils_json_null"></block>
+        <block type="textutils_serialize"></block>
+        <block type="textutils_unserialize"></block>
+        <block type="textutils_serialize_json"></block>
+        <block type="textutils_unserialize_json"></block>
+        <block type="textutils_url_encode"></block>
+        <block type="textutils_complete"></block>
+        <block type="textutils_format_time"></block>
+
+    </category>
+</xml>

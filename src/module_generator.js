@@ -41,8 +41,12 @@ luaGenerator.forBlock['sys_table_unpack_to_args'] = function(block, generator) {
 luaGenerator.forBlock['sys_table_add_key_value'] = function(block, generator) {
     var key = generator.valueToCode(block, 'KEY', generator.ORDER_NONE);
     var value = generator.valueToCode(block, 'VALUE', generator.ORDER_NONE);
-
-    return [`[${key}] = ${value}`, luaGenerator.ORDER_NONE];
+    var shorted = block.getFieldValue('SHORT') == 'TRUE';
+    if (!shorted) {
+        return [`[${key}] = ${value}`, luaGenerator.ORDER_NONE];
+    } else {
+        return [`${key} = ${value}`, luaGenerator.ORDER_NONE];
+    }
 };
 
 luaGenerator.forBlock['sys_table_append_data'] = function(block, generator) {
@@ -80,4 +84,21 @@ end
 main()
 `
     return code;
+};
+
+
+luaGenerator.forBlock['sys_exit'] = function(block, generator) {
+    return `exit()\n`;
+};
+
+luaGenerator.forBlock['sys_write'] = function(block, generator) {
+    var text = generator.valueToCode(block, 'TEXT', generator.ORDER_NONE);
+
+    return `write(${text})\n`;
+};
+
+luaGenerator.forBlock['sys_print_error'] = function(block, generator) {
+    var error = generator.valueToCode(block, 'ERROR', generator.ORDER_NONE);
+
+    return `printError(${error})\n`;
 };

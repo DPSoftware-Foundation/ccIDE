@@ -1,63 +1,78 @@
+const { ipcRenderer } = require("electron");
+const ipc = ipcRenderer;
+
 // override prompt command
 window.prompt = function(promptText, defaultValue) {
     return ipc.sendSync("prompt", promptText, defaultValue);
 };
 
+ipc.send("update-startup-status", "Importing module...")
 const fs = require('fs');
 const path = require('path');
-const { ipcRenderer } = require("electron");
 const { loadperipheral, scanindex } = require("./blocksmanager");
 const Blockly = require('blockly');
-const ipc = ipcRenderer;
+const { WorkspaceSearch } = require("@blockly/plugin-workspace-search")
 
 let isprojectsaved = false;
 let isprojectopened = false;
 let usedlibinproject = []
 
+ipc.send("update-startup-status", "Initializing blockly workspace...")
 Blockly.utils.colour.setHsvSaturation(0.9)
 
 let originaltoolbar = fs.readFileSync(path.join(__dirname, "toolbox.xml"), 'utf8');
 
-// load some system library
-const sysmodulejson = fs.readFileSync(path.join(__dirname, "module_block_design.json"), 'utf8');
-const blocksJson = JSON.parse(sysmodulejson);
-for (const blockId in blocksJson) {
-    if (blocksJson.hasOwnProperty(blockId)) {
-        Blockly.Blocks[blockId] = {
-            init: function() {
-                this.jsonInit(blocksJson[blockId]);
-            }
-        };
-    }
-}
-require("./module_generator")
+try {
+    var workspace = Blockly.inject('blocklyDiv', {
+        toolbox: originaltoolbar,
+        trashcan: true,
+        grid: {
+            spacing: 20,
+            length: 3,
+            colour: '#ccc',
+            snap: true
+        }, 
+        zoom:{
+            controls: true,
+            wheel: true,
+            startScale: 1.0,
+            maxScale: 5,
+            minScale: 0.1,
+            scaleSpeed: 1.1,
+            pinch: true
+        }
+    });
 
-var workspace = Blockly.inject('blocklyDiv', {
-    toolbox: originaltoolbar,
-    trashcan: true,
-    grid: {
-        spacing: 20,
-        length: 3,
-        colour: '#ccc',
-        snap: true
-    }, 
-    zoom:{
-        controls: true,
-        wheel: true,
-        startScale: 1.0,
-        maxScale: 5,
-        minScale: 0.1,
-        scaleSpeed: 1.1,
-        pinch: true
-    }
-});
+    const workspaceSearch = new WorkspaceSearch(workspace);
+    workspaceSearch.init();
+
+    workspace.getToolbox().getFlyout().autoClose = false;
+} catch (e) {
+    ipc.send("erroronstart", `Error on initializing workspace: ${e}`)
+}
 
 try {
+    ipc.send("update-startup-status", "Importing system library...")
+    const sysmodulejson = fs.readFileSync(path.join(__dirname, "module_block_design.json"), 'utf8');
+    const blocksJson = JSON.parse(sysmodulejson);
+    for (const blockId in blocksJson) {
+        if (blocksJson.hasOwnProperty(blockId)) {
+            Blockly.Blocks[blockId] = {
+                init: function() {
+                    this.jsonInit(blocksJson[blockId]);
+                }
+            };
+        }
+    }
+    require("./module_generator")
+
+    ipc.send("update-startup-status", "Scanning library...")
     scanindex();
 } catch (e) {
     ipc.send("erroronstart", `Error on loading block: ${e}`)
 }
-workspace.getToolbox().getFlyout().autoClose = false;
+
+ipc.send("update-startup-status", "Initializing event...")
 
 ipc.on('export-lua-request', (event) => {    
     console.log("exporting lua")
@@ -111,6 +126,21 @@ ipc.on('load-workspace', (event, json) => {
     }, 1000);
 })
 
+ipc.on('workspace-saved', (event, success) => {
+    isprojectsaved = success
+    if (!isprojectopened) {
+        isprojectopened = true;
+    }
+    document.getElementById('statusMessage').textContent = `Project Saved`;
+    setTimeout(() => {
+        document.getElementById('statusMessage').textContent = `Ready`;
+    }, 1000);
+});
+
+ipc.on("open-about", () => {
+    document.getElementById('about-popup').style.display = 'block';
+})
+
 workspace.addChangeListener(function(event) {
     if ([Blockly.Events.UI, 
         Blockly.Events.VIEWPORT_CHANGE, 
@@ -149,24 +179,15 @@ document.getElementById("packageman-import-btn").addEventListener('click', () =>
             document.getElementById('statusMessage').textContent = `Ready`;
         }, 1000);
     });
-    
 });
-
-ipc.on('workspace-saved', (event, success) => {
-    isprojectsaved = success
-    if (!isprojectopened) {
-        isprojectopened = true;
-    }
-    document.getElementById('statusMessage').textContent = `Project Saved`;
-    setTimeout(() => {
-        document.getElementById('statusMessage').textContent = `Ready`;
-    }, 1000);
-});
-
-ipc.on("open-about", () => {
-    document.getElementById('about-popup').style.display = 'block';
-})
 
 // Ensure Blockly container is shown after the workspace is injected
-document.getElementById('statusMessage').textContent = `Ready`;
-ipc.send("ready")
+ipc.send("update-startup-status", "Finished")
+setTimeout(() => {
+    ipc.send("ready")
+}, 500);
+
+document.getElementById('statusMessage').textContent = "Computer isn't connect";
+setTimeout(() => {
+    document.getElementById('statusMessage').textContent = `Ready`;
+}, 10000);

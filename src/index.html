@@ -21,13 +21,15 @@
         <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Packages Managers" style="background-color: #0087bd;" onclick="openlibraryselect()">
             <svg viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15l-1.89 1.07L16 8.61l1.96-1.11L12 4.15M6.04 7.5 12 10.85l1.96-1.1-5.88-3.4L6.04 7.5M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-6.7l-6 3.37v6.71l6-3.38z" /></svg>
         </button>
-        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Preview code" style="background-color: #0087bd; margin-left: auto; position: absolute; right: 115px;" onclick="clientexit()">
+        <!-- 
+        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Preview code" style="background-color: #0087bd; margin-left: auto; position: absolute; right: 115px;">
             <svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z" /></svg>
         </button>
-        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Disconnect Client" style="background-color: #bd0000; margin-left: auto; position: absolute; right: 65px;" onclick="clientexit()">
+        -->
+        <button class="navbar-button" id="navbar-button-computer-disconnect" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Disconnect Client" style="background-color: #bd0000; margin-left: auto; position: absolute; right: 65px;" onclick="clientexit()" disabled>
             <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .89-2 2v4h2V5h14v14H5v-4H3v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8.92 12.58L11.5 17l5-5-5-5-1.42 1.41L12.67 11H3v2h9.67l-2.59 2.58z" /></svg>
         </button>
-        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Run" style="background-color: #10bd00; margin-left: auto;" onclick="gencode()">
+        <button class="navbar-button" id="navbar-button-computer-run" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Run" style="background-color: #10bd00; margin-left: auto;" onclick="gencode()" disabled>
             <svg viewBox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7z" /></svg>
         </button>
     </nav>
@@ -131,12 +133,8 @@
         </div>
     </div>
     
-    
-    
-    
-    
     <script src="frontend.js"></script>
-    <script src="virtualcode.js"></script>
+    <script src="index.js"></script>
     <script src="codegen.js"></script>
 </body>
 </html>

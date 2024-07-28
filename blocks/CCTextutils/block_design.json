@@ -1,0 +1,237 @@
+{
+    "textutils_slow_write": {
+        "message0": "Write %1 with rate %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TEXT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RATE",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 32,
+        "tooltip": "Slowly writes string text at current cursor position, character-by-character."
+    },
+    "textutils_slow_print": {
+        "message0": "Print %1 with rate %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TEXT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RATE",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 32,
+        "tooltip": "Slowly prints string text at current cursor position, character-by-character."
+    },
+    "textutils_format_time": {
+        "message0": "Format time from %1\n24-Hour %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TIME",
+                "check": "Number"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "24H"
+            }
+        ],
+        "output": "String",
+        "colour": 32,
+        "tooltip": "Takes input time and formats it in a more readable format such as 6:30 PM."
+    },
+    "textutils_paged_print": {
+        "message0": "Print %1\nlimit %2 lines",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TEXT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "FREELINES",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 32,
+        "tooltip": "Prints a given string to the display.",
+        "helpUrl": "https://tweaked.cc/module/textutils.html#v:pagedPrint"
+    },
+    "textutils_tabulate": {
+        "message0": "Print table %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ARGS",
+                "check": "Multiple"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 32,
+        "tooltip": "Prints tables in a structured form.",
+        "helpUrl": "https://tweaked.cc/module/textutils.html#v:tabulate"
+    },
+    "textutils_paged_tabulate": {
+        "message0": "Print table %1 with paged",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ARGS",
+                "check": "Multiple"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 32,
+        "tooltip": "Prints tables in a structured form, stopping and prompting for input should the result not fit on the terminal."
+    },
+    "textutils_empty_json_array": {
+        "message0": "Empty json array",
+        "output": "Array",
+        "colour": 32,
+        "tooltip": "Prints tables in a structured form, stopping and prompting for input should the result not fit on the terminal."
+    },
+    "textutils_json_null": {
+        "message0": "Json null",
+        "output": "Array",
+        "colour": 32,
+        "tooltip": "A table representing the JSON null value."
+    },
+    "textutils_serialize": {
+        "message0": "Serialize %1\nCompact %2\nAllow repetitions %3",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "OBJECT",
+                "check": "Array"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "COMPACT"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "ALLOWREPETI"
+            }
+        ],
+        "output": "String",
+        "colour": 32,
+        "tooltip": "Prints tables in a structured form, stopping and prompting for input should the result not fit on the terminal.",
+        "helpUrl": "https://tweaked.cc/module/textutils.html#v:serialize"
+    },
+    "textutils_unserialize": {
+        "message0": "UnSerialize %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "OBJECT",
+                "check": "String"
+            }
+        ],
+        "output": "Array",
+        "colour": 32,
+        "tooltip": "Converts a serialised string back into a reassembled Lua object."
+    },
+    "textutils_serialize_json": {
+        "message0": "Serialize %1 to json\nNBT style %2\nUnicode %3\nAllow repetitions %4",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "OBJECT",
+                "check": "String"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "NBT"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "UNICODE"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "ALLOWREPETI"
+            }
+        ],
+        "output": "String",
+        "colour": 32,
+        "tooltip": "Returns a JSON representation of the given data.",
+        "helpUrl": "https://tweaked.cc/module/textutils.html#v:serializeJSON"
+    },
+    "textutils_unserialize_json": {
+        "message0": "UnSerialize %1 to json\nNBT style %2\nParse null %3\nParse empty array %4",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "OBJECT",
+                "check": "String"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "NBT"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "PARSENULL"
+            },
+            {
+                "type": "field_checkbox",
+                "name": "PARSEEA"
+            }
+        ],
+        "output": ["Array", "Multiple"],
+        "colour": 32,
+        "tooltip": "Converts a serialised JSON string back into a reassembled Lua object.",
+        "helpUrl": "https://tweaked.cc/module/textutils.html#v:unserializeJSON"
+    },
+    "textutils_url_encode": {
+        "message0": "Encode URL %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "URL",
+                "check": "String"
+            }
+        ],
+        "output": "String",
+        "colour": 32,
+        "tooltip": "Replaces certain characters in a string to make it safe for use in URLs or POST data."
+    },
+    "textutils_complete": {
+        "message0": "Complete %1 in table %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SEARCH_TEXT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "SEARCH_TABLE",
+                "check": "Table"
+            }
+        ],
+        "output": "Array",
+        "colour": 32,
+        "tooltip": "Provides a list of possible completions for a partial Lua expression.",
+        "helpUrl": "https://tweaked.cc/module/textutils.html#v:complete"
+    }
+}

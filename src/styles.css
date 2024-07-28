@@ -37,6 +37,16 @@ body {
     font-size: 1.5em; /* Adjust size as needed */
 }
 
+.navbar-button:disabled {
+    background-color: #7f8c8d; /* Gray color for disabled state */
+    cursor: not-allowed;
+    opacity: 0.6; /* Makes the button look disabled */
+}
+
+.navbar-button:disabled svg {
+    fill: #ffffff; /* Change icon color if needed */
+}
+
 .navbar-button:hover {
     background-color: #0066cc; /* Darken color on hover */
     z-index: 99; 
