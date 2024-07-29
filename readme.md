@@ -66,10 +66,6 @@ https://github.com/user-attachments/assets/195231d4-8fd8-4101-8068-70bc038a5c4f
 
 https://github.com/user-attachments/assets/8f114cfa-d87c-47d0-a670-a13dc975ab06
 
-This is my time for this project in one week
-![image](https://github.com/user-attachments/assets/d2c8ec6e-25b4-45e4-9f72-a7fb4b8906d1)
-
-
 # For adapting in other project
 This project is based for every block based IDE from DPSoftware Foundation
 
