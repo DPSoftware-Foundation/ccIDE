@@ -1,7 +1,7 @@
 # ComputerCraft IDE (ccIDE)
 ccIDE is block based programming for ComputerCraft lua.
 
-special thank for [this repo](https://github.com/Mirka1405/ccblockly)
+special thank for [ccblockly](https://github.com/Mirka1405/ccblockly) for idea
 
 ![image](https://github.com/user-attachments/assets/599c9ebe-66ca-445d-94da-4216cb57e918)
 
