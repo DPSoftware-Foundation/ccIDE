@@ -172,7 +172,7 @@
     },
     "sysos_clock": {
         "message0": "Get Uptime",
-        "output": "String",
+        "output": "Number",
         "colour": 0,
         "tooltip": "Returns the number of seconds that the computer has been running."
     },

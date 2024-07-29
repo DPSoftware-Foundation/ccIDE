@@ -5,6 +5,7 @@ function delay(time) {
 const { luaGenerator } = require('blockly/lua');  // Use require syntax for Blockly module
 const { CCRemote } = require("./ccRemote")
 
+console.log("Starting remote server...")
 const ccInstance = new CCRemote('127.0.0.1', 5133);
 
 const progress = document.getElementById("progress");
@@ -46,19 +47,20 @@ function gencodeonly() {
 }
 
 async function gencode() {
+    console.log("Starting generate code")
     document.getElementById('upload-popup').style.display = 'block';
     upcurrentActive = 1;
     uploadError = false;
     uploadUpdateProgress();
     // compile/convert code
 
+    console.log("Generating code...")
     upcurrentActive++;
     uploadUpdateProgress();
     document.getElementById('upload-status').textContent = "Generating code";
     let code = null;
     try {
         code = luaGenerator.workspaceToCode(workspace);
-        console.log(code);
     } catch (e) {
         uploadError = true;
         uploadUpdateProgress();
@@ -70,16 +72,19 @@ async function gencode() {
     uploadUpdateProgress();
     if (ccInstance.isClientConnect()) {
         // upload to computercraft with remote
+        console.log("Uploading code to machine...")
         document.getElementById('upload-status').textContent = "Uploading code to machine";
         ccInstance.sendCode(code);
         await delay(500)
 
         // execute with remote
+        console.log("Executing code in machine...")
         document.getElementById('upload-status').textContent = "Executing code";
         upcurrentActive++;
         uploadUpdateProgress();
         ccInstance.runCode();
     } else {
+        console.log("Machine is not connected")
         uploadError = true;
         uploadUpdateProgress();
         document.getElementById('upload-status').innerHTML = `Please Connect Computer to IDE.\nInstruction: <a href="https://github.com/DPSoftware-Foundation/ccIDE#install-remote-code-into-computercraft">Install Remote code into computercraft</a> in github. (Please press SHIFT or CTRL and click)`;
@@ -87,6 +92,7 @@ async function gencode() {
     }
 
     // done!
+    console.log("Run code done!")
     document.getElementById('upload-status').textContent = "Done!";
     await delay(1000)
     document.getElementById('upload-popup').style.animation = 'fadeOut 0.3s ease'; // Apply fade-out animation

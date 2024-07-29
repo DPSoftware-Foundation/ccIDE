@@ -7,7 +7,7 @@ class CCRemote {
             host: ip
         });
 
-        console.log("Server is started");
+        console.log("Remote server is started");
 
         this.socket.on('connection', (ws) => {
             document.getElementById("navbar-button-computer-disconnect").disabled = false;

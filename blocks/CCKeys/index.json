@@ -1,10 +1,10 @@
 {
-    "name": "CC: Redstone",
+    "name": "CC: Keys",
     "author": "DPSoftware Foundation",
-    "description": "Library for control redstone",
+    "description": "Constants for all keyboard 'key codes', as queued by the key event.",
     "version": "1.0.0",
-    "category": "Power",
-    "keyword": "Redstone",
+    "category": "Input",
+    "keyword": "Keyboard",
     "license": "GPL-3.0-or-later",
     "peripherals": false,
     "library": true,
@@ -14,8 +14,8 @@
         "basic": true,
         "adv": true, 
         "command": true,
-        "pocket": false,
-        "advpocket": false,
+        "pocket": true,
+        "advpocket": true,
         "turtle": true,
         "advturtle": true
     }

@@ -1,0 +1,15 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Disk" colour="160">
+        <block type="disk_is_present"></block>
+        <block type="disk_get_label"></block>
+        <block type="disk_set_label"></block>
+        <block type="disk_has_data"></block>
+        <block type="disk_get_mount_path"></block>
+        <block type="disk_has_audio"></block>
+        <block type="disk_get_audio_title"></block>
+        <block type="disk_play_audio"></block>
+        <block type="disk_stop_audio"></block>
+        <block type="disk_eject"></block>
+        <block type="disk_get_id"></block>
+    </category>
+</xml>

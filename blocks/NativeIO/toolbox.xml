@@ -1,0 +1,36 @@
+<xml id="toolbox" style="display: none;">
+    <category name="IO" colour="260">
+        <!-- Open file block -->
+        <block type="io_open">
+            <value name="MODE">
+                <shadow type="field_dropdown">
+                    <field name="MODE">r</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="io_read">
+            <value name="FORMAT">
+                <shadow type="field_dropdown">
+                    <field name="FORMAT">a</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="io_write">
+            <value name="DATA">
+                <shadow type="text">
+                    <field name="TEXT">Hello, world!</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="io_seek">
+            <value name="OFFSET">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="io_lines"></block>
+        <block type="io_flush"></block>
+        <block type="io_close"></block>    
+    </category>
+</xml>

@@ -6,7 +6,20 @@ window.prompt = function(promptText, defaultValue) {
     return ipc.sendSync("prompt", promptText, defaultValue);
 };
 
-ipc.send("update-startup-status", "Importing module...")
+window.onerror = function (message, source, lineno, colno, error) {
+    ipc.send("error", message)
+    return true; // Prevents the default browser error handling
+};
+
+console.originalLog = console.log;
+
+console.log = function (...args) {
+    ipc.send("update-log-status", ...args)
+    console.originalLog(...args)
+};
+
+
+console.log("Importing module...")
 const fs = require('fs');
 const path = require('path');
 const { loadperipheral, scanindex } = require("./blocksmanager");
@@ -17,7 +30,7 @@ let isprojectsaved = false;
 let isprojectopened = false;
 let usedlibinproject = []
 
-ipc.send("update-startup-status", "Initializing blockly workspace...")
+console.log("Initializing blockly workspace...")
 Blockly.utils.colour.setHsvSaturation(0.9)
 
 let originaltoolbar = fs.readFileSync(path.join(__dirname, "toolbox.xml"), 'utf8');
@@ -52,7 +65,7 @@ try {
 }
 
 try {
-    ipc.send("update-startup-status", "Importing system library...")
+    console.log("Importing system library...")
     const sysmodulejson = fs.readFileSync(path.join(__dirname, "module_block_design.json"), 'utf8');
     const blocksJson = JSON.parse(sysmodulejson);
     for (const blockId in blocksJson) {
@@ -66,13 +79,13 @@ try {
     }
     require("./module_generator")
 
-    ipc.send("update-startup-status", "Scanning library...")
+    console.log("Scanning library...")
     scanindex();
 } catch (e) {
     ipc.send("erroronstart", `Error on loading block: ${e}`)
 }
 
-ipc.send("update-startup-status", "Initializing event...")
+console.log("Initializing event...")
 
 ipc.on('export-lua-request', (event) => {    
     console.log("exporting lua")
@@ -81,6 +94,7 @@ ipc.on('export-lua-request', (event) => {
 
 // Save workspace
 ipc.on('save-workspace-request', (event) => {
+    console.log("Saving project...")
     document.getElementById('statusMessage').textContent = `Saving...`;
     const state = Blockly.serialization.workspaces.save(workspace);
     const data = {
@@ -93,6 +107,7 @@ ipc.on('save-workspace-request', (event) => {
 
 // Load workspace
 ipc.on('load-workspace', (event, json) => {
+    console.log("Loading project...")
     try {
         if (json) {
             data = JSON.parse(json)
@@ -182,7 +197,7 @@ document.getElementById("packageman-import-btn").addEventListener('click', () =>
 });
 
 // Ensure Blockly container is shown after the workspace is injected
-ipc.send("update-startup-status", "Finished")
+console.log("Finished")
 setTimeout(() => {
     ipc.send("ready")
 }, 500);

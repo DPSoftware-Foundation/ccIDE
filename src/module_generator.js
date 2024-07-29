@@ -16,7 +16,7 @@ luaGenerator.forBlock['sys_sleep'] = function(block, generator) {
 luaGenerator.forBlock['sys_utils_table_variable_pack'] = function(block, generator) {
     var args = generator.valueToCode(block, 'RETURN_ARGS', generator.ORDER_NONE);
 
-    return [`table.pack(${arg})`, luaGenerator.ORDER_NONE];
+    return [`table.pack(${args})`, luaGenerator.ORDER_NONE];
 };
 
 luaGenerator.forBlock['sys_utils_get_value_from_table_with_index'] = function(block, generator) {

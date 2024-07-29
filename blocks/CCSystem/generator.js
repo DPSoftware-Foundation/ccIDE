@@ -10,17 +10,17 @@ if (!luaGenerator.forBlock) {
 luaGenerator.forBlock['sysos_pullevent'] = function(block, generator) {
     var event = generator.valueToCode(block, 'EVENT', generator.ORDER_ATOMIC);
 
-    if (event == "") {
-        return [`os.pullevent()`, luaGenerator.ORDER_NONE];
+    if (event == "'All'") {
+        return [`os.pullEvent()`, luaGenerator.ORDER_NONE];
     } else {
-        return [`os.pullevent(${event})`, luaGenerator.ORDER_NONE];
+        return [`os.pullEvent(${event})`, luaGenerator.ORDER_NONE];
     }
 };
 
 luaGenerator.forBlock['sysos_pullrawevent'] = function(block, generator) {
     var event = generator.valueToCode(block, 'EVENT', generator.ORDER_ATOMIC);
 
-    if (event == "") {
+    if (event == "'All'") {
         return [`os.pullEventRaw()`, luaGenerator.ORDER_NONE];
     } else {
         return [`os.pullEventRaw(${event})`, luaGenerator.ORDER_NONE];

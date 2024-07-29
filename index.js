@@ -1,8 +1,13 @@
+console.log("Initializing...")
 const { app, BrowserWindow, ipcMain, Menu, dialog } = require('electron')
 const fs = require('fs');
 const prompt = require('electron-prompt');
 const path = require('path');
+const pino = require('pino')
+const pretty = require('pino-pretty')
 const ipc = ipcMain
+
+const logger = pino(pretty())
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
@@ -14,7 +19,11 @@ let appreloading = false;
 let currentworkspacechange = false;
 let isopennewproject = false;
 
+
+let appstarted = false;
+
 app.whenReady().then(() => {
+    logger.info("Initializing splash window...")
     reloadall(false);
     var splash = new BrowserWindow({
         width: 600, 
@@ -30,7 +39,8 @@ app.whenReady().then(() => {
     });
 
     splash.loadFile('src/splash.html');
-    splash.webContents.send("change-status", "Initializing...")
+
+    logger.info("Initializing main windows...")
 
     const win = new BrowserWindow({
         width: 1280,
@@ -45,7 +55,7 @@ app.whenReady().then(() => {
         show: false,
         center: true,
     })
-
+    
     try {
         win.loadFile('src/index.html');
     } catch {
@@ -58,21 +68,32 @@ app.whenReady().then(() => {
     win.setTitle(`ccIDE`)
 
     ipc.once('ready', () => {
-        console.log("ready")
+        logger.info("Ready!")
         if (splash) {
             splash.close();
         }
         win.show();
-        win.maximize();
+        //win.maximize();
+        appstarted = true;
     });
 
     ipc.on('erroronstart', (event, errormessage) => {
+        logger.error(errormessage)
         dialog.showErrorBox("Error on startup", errormessage);
         //win.openDevTools();
     });
 
-    ipc.on('update-startup-status', (event, status) => {
-        splash.webContents.send("change-status", status)
+    ipc.on('error', (event, errormessage) => {
+        logger.error(errormessage)
+        dialog.showErrorBox("Error", errormessage);
+        //win.openDevTools();
+    });
+
+    ipc.on('update-log-status', (event, status) => {
+        logger.info(status)
+        if (!appstarted) {
+            splash.webContents.send("change-status", status)
+        } 
     });
     
     //app.on('activate', () => {
@@ -95,6 +116,7 @@ app.whenReady().then(() => {
         }
     }
 
+    logger.info("Settings up menu bar...")
     // Define a custom menu template
     const menuTemplate = [
         {
@@ -274,6 +296,8 @@ app.whenReady().then(() => {
     // Set the custom menu
     const menu = Menu.buildFromTemplate(menuTemplate);
     Menu.setApplicationMenu(menu);
+
+    logger.info("Settings up event...")
     
     ipc.on('prompt', (event, promptText, defaultValue) => {
         try {

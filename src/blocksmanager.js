@@ -42,6 +42,8 @@ function mergeXml(xml1, xml2) {
 }
 
 function loadperipheral(workspace, currenttoolbar, peripherals) {
+    console.log(`Importing ${peripherals} blocks`)
+
     const filePath = path.join(peripheralsfolder, peripherals);
     const jsonfilePath = path.join(filePath, "block_design.json");
     const xmlfilePath = path.join(filePath, "toolbox.xml");
@@ -79,11 +81,9 @@ function loadperipheral(workspace, currenttoolbar, peripherals) {
 
     document.getElementById('statusMessage').textContent = `Loaded ${peripherals}`;
 
-    try {
-        require(generatorfilePath); // This will execute generator.js if it's a Node.js module
-    } catch (error) {
-        console.error('Error loading generator.js:', error);
-    }
+    require(generatorfilePath); // This will execute generator.js if it's a Node.js module
+
+    console.log(`Loaded ${peripherals} blocks`)
 
     return newxml;
 }
@@ -114,7 +114,7 @@ function addimageiconinfo(div, src, tiptool) {
     img.setAttribute('data-bs-placement', "bottom");
     img.setAttribute('data-bs-title', tiptool);
     div.appendChild(img);
-    console.log(`added image ${img}`);
+    console.log(`added image ${src}`);
 }
 
 function scanindex() {
@@ -175,7 +175,6 @@ function scanindex() {
                         description.innerHTML = jsonData.description;
                         libraryDetails.appendChild(description);
 
-                        console.log(jsonData)
                         if (jsonData.design_for_computer.basic) {
                             addimageiconinfo(libraryDetails, defineicon.computer.basic, "Basic Computer Supported");
                         }
@@ -211,7 +210,7 @@ function scanindex() {
 
                         libraryItem.appendChild(libraryDetails);
                         document.getElementById('libcontainer').appendChild(libraryItem);
-                        console.log(`registered ${blockfoldername} blocks and added to packages managers`)
+                        console.log(`Registered ${blockfoldername} blocks and added to packages managers`)
                     }
                 }
 

@@ -1,0 +1,232 @@
+{
+    "disk_is_present": {
+        "message0": "Is disk %1 present?",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "Boolean",
+        "colour": 160,
+        "tooltip": "Check if any item is present in the disk drive"
+    },
+    "disk_get_label": {
+        "message0": "get label disk %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "String",
+        "colour": 160,
+        "tooltip": "Get the label of the disk in the drive"
+    },
+    "disk_set_label": {
+        "message0": "set label disk %1 to %2",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "LABEL",
+                "check": "String"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 160,
+        "tooltip": "Set the label of the disk in the drive"
+    },
+    "disk_has_data": {
+        "message0": "Is disk %1 have data?",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "Boolean",
+        "colour": 160,
+        "tooltip": "Check if the disk has data"
+    },
+    "disk_get_mount_path": {
+        "message0": "get mount path of disk %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "String",
+        "colour": 160,
+        "tooltip": "Get the mount path of the disk"
+    },
+    "disk_has_audio": {
+        "message0": "Is disk %1 have audio?",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "Boolean",
+        "colour": 160,
+        "tooltip": "Check if the disk has audio"
+    },
+    "disk_get_audio_title": {
+        "message0": "get audio title of disk %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": ["String", "Boolean"],
+        "colour": 160,
+        "tooltip": "Get the title of the audio track"
+    },
+    "disk_play_audio": {
+        "message0": "play audio disk %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 160,
+        "tooltip": "Play the audio track on the disk"
+    },
+    "disk_stop_audio": {
+        "message0": "stop audio on %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 160,
+        "tooltip": "Stop the audio track on the disk"
+    },
+    "disk_eject": {
+        "message0": "eject disk %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 160,
+        "tooltip": "Eject the disk from the drive",
+        "helpUrl": ""
+    },
+    "disk_get_id": {
+        "message0": "get ID of disk %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["Left", "left"],
+                    ["Right", "right"],
+                    ["Front", "front"],
+                    ["Back", "back"]
+                ]
+            }
+        ],
+        "output": "String",
+        "colour": 160,
+        "tooltip": "Get the unique ID of the disk"
+    }
+}

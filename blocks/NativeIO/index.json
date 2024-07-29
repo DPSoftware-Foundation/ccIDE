@@ -1,10 +1,10 @@
 {
-    "name": "CC: Redstone",
+    "name": "IO",
     "author": "DPSoftware Foundation",
-    "description": "Library for control redstone",
+    "description": "Lua Native: Input/Output file",
     "version": "1.0.0",
-    "category": "Power",
-    "keyword": "Redstone",
+    "category": "Native",
+    "keyword": "Native, Lua, IO",
     "license": "GPL-3.0-or-later",
     "peripherals": false,
     "library": true,
@@ -14,8 +14,8 @@
         "basic": true,
         "adv": true, 
         "command": true,
-        "pocket": false,
-        "advpocket": false,
+        "pocket": true,
+        "advpocket": true,
         "turtle": true,
         "advturtle": true
     }

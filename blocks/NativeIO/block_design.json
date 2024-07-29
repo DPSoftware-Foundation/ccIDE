@@ -1,0 +1,134 @@
+{
+    "io_open": {
+        "message0": "Open file %1 with mode %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FILENAME",
+                "check": "String"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "MODE",
+                "options": [
+                    ["read", "r"],
+                    ["write", "w"],
+                    ["append", "a"],
+                    ["read/write", "r+"],
+                    ["write/read", "w+"]
+                ]
+            }
+        ],
+        "output": "File",
+        "colour": 260,
+        "tooltip": "Open a file with the given mode"
+    },
+    "io_close": {
+        "message0": "Close file %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FILE",
+                "check": "File"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 260,
+        "tooltip": "Close the specified file"
+    },
+    "io_flush": {
+        "message0": "Flush file %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FILE",
+                "check": "File"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 260,
+        "tooltip": "Flush any buffered output, forcing it to be written to the file"
+    },
+    "io_read": {
+        "message0": "Read from file %1 with format %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FILE",
+                "check": "File"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "FORMAT",
+                "options": [
+                    ["line", "l"],
+                    ["line ln", "L"],
+                    ["All", "a"]
+                ]
+            }
+        ],
+        "output": "String",
+        "colour": 260,
+        "tooltip": "Read data from the file"
+    },
+    "io_write": {
+        "message0": "Write %1 to file %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DATA"
+            },
+            {
+                "type": "input_value",
+                "name": "FILE",
+                "check": "File"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 260,
+        "tooltip": "Write data to the file"
+    },
+    "io_lines": {
+        "message0": "Read line %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FILE",
+                "check": "File"
+            }
+        ],
+        "output": "Array",
+        "colour": 260,
+        "tooltip": "Returns an iterator that, each time it is called, returns a new line from the file."
+    },
+    "io_seek": {
+        "message0": "Seek in file %1 to position %2 with offset %3",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FILE",
+                "check": "File"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "POSITION",
+                "options": [
+                    ["Set", "set"],
+                    ["Current", "cur"],
+                    ["End", "end"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "OFFSET",
+                "check": "Number"
+            }
+        ],
+        "output": "Number",
+        "colour": 260,
+        "tooltip": "Seek to a specific position in the file"
+    }
+}

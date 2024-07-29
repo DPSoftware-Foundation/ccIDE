@@ -1,0 +1,10 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Keys" colour="190">
+        <block type="keys_get_key_number"></block>
+        <block type="keys_get_key_name">
+            <value name="KEY">
+                <shadow type="keys_get_key_number"></shadow>
+            </value>
+        </block>
+    </category>
+</xml>
