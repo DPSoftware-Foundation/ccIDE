@@ -3,13 +3,13 @@ ccIDE is block based programming for ComputerCraft lua.
 
 special thank for [this repo](https://github.com/Mirka1405/ccblockly)
 
-![image](https://github.com/user-attachments/assets/57c3f2b4-793b-4136-b503-6569bb577eae)
+![image](https://github.com/user-attachments/assets/599c9ebe-66ca-445d-94da-4216cb57e918)
 
 # Quick Start
 1. install nodejs and git
 2. git clone cd to this project 
 3. Install dependency use `npm install .`
-4. To run this IDE use `npm run dev`
+4. To run this IDE use `npm run dev` or if you using windows you can use `run.bat` to run it.
 5. Done!
 
 ## Install Remote code into computercraft
