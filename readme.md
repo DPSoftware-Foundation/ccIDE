@@ -36,8 +36,9 @@ remote
 ```
 If error "Domain not permitted" try [this solution](https://github.com/cc-tweaked/CC-Tweaked/discussions/626#discussioncomment-241924).
 
-## official support peripherals
-| Peripheral | Status 
+## official support library and peripheral
+### Peripheral mods
+| Mod | Status 
 |------------|--------
 |[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 First support
 |[CC:C Bridge](https://www.curseforge.com/minecraft/mc-mods/cccbridge) | 🟥 Unsupport
@@ -53,9 +54,39 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[SirEdvin's Cloud Solutions](https://modrinth.com/mod/cloud-solutions) | 🟥 Unsupport
 |[CC: VS](https://modrinth.com/mod/cc-vs) | 🟥 Unsupport
 |[CC Shops](https://modrinth.com/mod/cc-shops) | 🟥 Unsupport
-|[SwitchCraft Peripherals](https://www.curseforge.com/minecraft/mc-mods/sc-peripherals) | 🟥 Unsupport
-|[Plethora Peripherals](https://www.curseforge.com/minecraft/mc-mods/plethora-peripherals) | 🟥 Unsupport
-|[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport
+|[SwitchCraft Peripherals](https://www.curseforge.com/minecraft/mc-mods/sc-peripherals) | 🟥 Unsupport (Old version)
+|[Plethora Peripherals](https://www.curseforge.com/minecraft/mc-mods/plethora-peripherals) | 🟥 Unsupport (Fabric only)
+|[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport (Fabric only)
+
+### Library
+| Mod | Status |
+|------------|--------|
+| [Acidity](https://github.com/9551-Dev/acidity) | 🟥 Unsupport |
+| [Anavrins' ChaCha20](https://web.archive.org/web/20200924232302/http://www.computercraft.info/forums2/index.php?/topic/25474-chacha20-encryption-in-computercraft/) ([pastebin](https://pastebin.com/GPzf9JSa)) | 🟥 Unsupport |
+| [Anavrins' MD5](https://pastebin.com/6PVSRckQ) | 🟥 Unsupport |
+| [Anavrins' SHA-1](https://pastebin.com/SfL7vxP3) | 🟥 Unsupport |
+| [Anavrins' SHA-256](https://web.archive.org/web/20230211193054/http://www.computercraft.info/forums2/index.php?/topic/8169-sha-256-in-pure-lua/) ([pastebin](https://pastebin.com/gsFrNjbt)) | 🟥 Unsupport |
+| [AUKit](https://mcjack123.github.io/AUKit/) | 🟥 Unsupport |
+| [Basalt](https://basalt.madefor.cc/) | 🟥 Unsupport |
+| [Bigfont](https://pastebin.com/3LfWxRWh) | 🟥 Unsupport |
+| [C3D](https://c3d.madefor.cc/) | 🟥 Unsupport |
+| [CC-Archive](https://github.com/MCJack123/CC-Archive) | 🟥 Unsupport |
+| [dbprotect](https://gist.github.com/MCJack123/4cf6fc941a2d412b4195caafb9636363) | 🟥 Unsupport |
+| [ecc.lua](https://web.archive.org/web/20190808224502/http://www.computercraft.info/forums2/index.php?/topic/29803-elliptic-curve-cryptography/) ([pastebin](https://pastebin.com/ZGJGBJdg)) | 🟥 Unsupport |
+| [ecnet](https://github.com/migeyel/ecnet) | 🟥 Unsupport |
+| [GuiH](https://guih.madefor.cc) | 🟥 Unsupport |
+| [IsometriH](https://github.com/9551-Dev/IsometriH) | 🟥 Unsupport |
+| [Luz](https://github.com/MCJack123/Luz) | 🟥 Unsupport |
+| [Milo](https://github.com/kepler155c/opus-apps/wiki/Milo-(crafting---storage-system)) | 🟥 Unsupport |
+| [Pine3D](https://github.com/Xella37/Pine3D) | 🟥 Unsupport |
+| [PngLua](https://github.com/9551-Dev/pngLua) | 🟥 Unsupport |
+| [Pixelbox Lite](https://github.com/9551-Dev/pixelbox_lite) | 🟥 Unsupport |
+| [RedRun](https://gist.github.com/MCJack123/473475f07b980d57dd2bd818026c97e8) | 🟥 Unsupport |
+| [Tamperer](https://github.com/Fatboychummy-CC/Tamperer) | 🟥 Unsupport |
+| [Tampl](https://github.com/9551-Dev/tampl) | 🟥 Unsupport |
+| [Telem](https://telem.cc) | 🟥 Unsupport |
+| [VeriCode](https://gist.github.com/MCJack123/7752c85918bcf23ada028abd615e8750) | 🟥 Unsupport |
+
 
 # Some small developer media
 [![wakatime](https://wakatime.com/badge/user/0e729f00-081a-41e0-ab17-b9ac6abfc334/project/e9e0d6a6-dfaf-46d0-bb77-e1f7127e7fb4.svg)](https://wakatime.com/badge/user/0e729f00-081a-41e0-ab17-b9ac6abfc334/project/e9e0d6a6-dfaf-46d0-bb77-e1f7127e7fb4)
