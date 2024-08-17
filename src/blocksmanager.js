@@ -11,7 +11,7 @@ const defineicon = {
     computer: {
         basic: path.join(__dirname, '..', 'assets', 'basic_computer.png'),
         adv: path.join(__dirname, '..', 'assets', 'adv_computer.png'),
-        //command: path.join(__dirname, '..', 'assets', 'command_computer.png'), // new version not use it
+        command: path.join(__dirname, '..', 'assets', 'command_computer.png'),
         pocket: path.join(__dirname, '..', 'assets', 'pocket_computer.png'),
         advpocket: path.join(__dirname, '..', 'assets', 'adv_pocket_computer.png'),
         turtle: path.join(__dirname, '..', 'assets', 'turtle.png'),
@@ -181,9 +181,9 @@ function scanindex() {
                         if (jsonData.design_for_computer.adv) {
                             addimageiconinfo(libraryDetails, defineicon.computer.adv, "Advanced Computer Supported");
                         }
-                        //if (jsonData.design_for_computer.command) {
-                        //    addimageiconinfo(libraryDetails, defineicon.computer.command, "Command Computer Supported");
-                        //}
+                        if (jsonData.design_for_computer.command) {
+                            addimageiconinfo(libraryDetails, defineicon.computer.command, "Command Computer Supported");
+                        }
                         if (jsonData.design_for_computer.pocket) {
                             addimageiconinfo(libraryDetails, defineicon.computer.pocket, "Pocket Computer Supported");
                         }
