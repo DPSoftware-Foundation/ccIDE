@@ -36,7 +36,57 @@ remote
 ```
 If error "Domain not permitted" try [this solution](https://github.com/cc-tweaked/CC-Tweaked/discussions/626#discussioncomment-241924).
 
-## official support library and peripheral
+## official support library, peripheral and module function
+
+### Module (CC)
+| Module | Status 
+|------------|--------
+| [_G](https://tweaked.cc/module/_G.html) | 🟩 Supported all
+| [Disk](https://tweaked.cc/module/disk.html) | 🟩 Supported all
+| [IO](https://tweaked.cc/module/io.html) (NativeIO) | 🟩 Supported all
+| [Keys](https://tweaked.cc/module/keys.html) | 🟩 Supported all
+| [OS](https://tweaked.cc/module/os.html) (System) | 🟩 Supported all
+| [RedNet](https://tweaked.cc/module/rednet.html) | 🟩 Supported all
+| [Redstone](https://tweaked.cc/module/redstone.html) | 🟩 Supported all
+| [Settings](https://tweaked.cc/module/settings.html) | 🟩 Supported all
+| [TextUtils](https://tweaked.cc/module/textutils.html) | 🟩 Supported all
+| [Colors](https://tweaked.cc/module/colors.html) | 🟨 Partially Supported
+| [Commands](https://tweaked.cc/module/commands.html) | 🟥 Unsupport
+| [FS](https://tweaked.cc/module/fs.html) | 🟥 Unsupport
+| [GPS](https://tweaked.cc/module/gps.html) | 🟥 Unsupport
+| [Help](https://tweaked.cc/module/help.html) | 🟥 Unsupport
+| [HTTP](https://tweaked.cc/module/http.html) (Network) | 🟥 Unsupport
+| [Multishell](https://tweaked.cc/module/multishell.html) | 🟥 Unsupport
+| [PaintUtils](https://tweaked.cc/module/paintutils.html) | 🟥 Unsupport
+| [Parallel](https://tweaked.cc/module/parallel.html) | 🟥 Unsupport
+| [Peripheral](https://tweaked.cc/module/peripheral.html) | 🟥 Unsupport
+| [Pocket](https://tweaked.cc/module/pocket.html) | 🟥 Unsupport
+| [Shell](https://tweaked.cc/module/shell.html) | 🟥 Unsupport
+| [Term](https://tweaked.cc/module/term.html) | 🟥 Unsupport
+| [Turtle](https://tweaked.cc/module/turtle.html) | 🟥 Unsupport
+| [Vector](https://tweaked.cc/module/vector.html) | 🟥 Unsupport
+| [Window](https://tweaked.cc/module/window.html) | 🟥 Unsupport
+| [DFPWM Audio](https://tweaked.cc/library/cc.audio.dfpwm.html) | 🟥 Unsupport
+| [Completion](https://tweaked.cc/library/cc.completion.html) | 🟥 Unsupport
+| [Expect](https://tweaked.cc/library/cc.expect.html) | 🟥 Unsupport
+| [NFT Image](https://tweaked.cc/library/cc.image.nft.html) | 🟥 Unsupport
+| [Pretty](https://tweaked.cc/library/cc.pretty.html) | 🟥 Unsupport
+| [Require](https://tweaked.cc/library/cc.require.html) | 🟥 Unsupport
+| [Shell Completion](https://tweaked.cc/library/cc.shell.completion.html) | 🟥 Unsupport
+| [Strings](https://tweaked.cc/library/cc.strings.html) | 🟥 Unsupport
+| [Command Peripheral](https://tweaked.cc/peripheral/command.html) | 🟥 Unsupport
+| [Computer Peripheral](https://tweaked.cc/peripheral/computer.html) | 🟥 Unsupport
+| [Drive Peripheral](https://tweaked.cc/peripheral/drive.html) | 🟥 Unsupport
+| [Modem Peripheral](https://tweaked.cc/peripheral/modem.html) | 🟥 Unsupport
+| [Monitor Peripheral](https://tweaked.cc/peripheral/monitor.html) | 🟥 Unsupport
+| [Printer Peripheral](https://tweaked.cc/peripheral/printer.html) | 🟥 Unsupport
+| [Speaker Peripheral](https://tweaked.cc/peripheral/speaker.html) | 🟥 Unsupport
+| [Energy Storage Peripheral](https://tweaked.cc/generic_peripheral/energy_storage.html) | 🟥 Unsupport
+| [Fluid Storage Peripheral](https://tweaked.cc/generic_peripheral/fluid_storage.html) | 🟥 Unsupport
+| [Inventory](https://tweaked.cc/generic_peripheral/inventory.html) | 🟥 Unsupport
+
+Event: https://tweaked.cc/event/alarm.html
+
 ### Peripheral mods
 | Mod | Status 
 |------------|--------
@@ -59,7 +109,7 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 |[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport (Fabric only)
 
 ### Library
-| Mod | Status |
+| Library | Status |
 |------------|--------|
 | [Acidity](https://github.com/9551-Dev/acidity) | 🟥 Unsupport |
 | [Anavrins' ChaCha20](https://web.archive.org/web/20200924232302/http://www.computercraft.info/forums2/index.php?/topic/25474-chacha20-encryption-in-computercraft/) ([pastebin](https://pastebin.com/GPzf9JSa)) | 🟥 Unsupport |
@@ -86,7 +136,6 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 | [Tampl](https://github.com/9551-Dev/tampl) | 🟥 Unsupport |
 | [Telem](https://telem.cc) | 🟥 Unsupport |
 | [VeriCode](https://gist.github.com/MCJack123/7752c85918bcf23ada028abd615e8750) | 🟥 Unsupport |
-
 
 # Some small developer media
 [![wakatime](https://wakatime.com/badge/user/0e729f00-081a-41e0-ab17-b9ac6abfc334/project/e9e0d6a6-dfaf-46d0-bb77-e1f7127e7fb4.svg)](https://wakatime.com/badge/user/0e729f00-081a-41e0-ab17-b9ac6abfc334/project/e9e0d6a6-dfaf-46d0-bb77-e1f7127e7fb4)
