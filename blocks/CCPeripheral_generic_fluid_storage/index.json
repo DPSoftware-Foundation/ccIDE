@@ -1,10 +1,10 @@
 {
-    "name": "CC: Rednet",
+    "name": "CC: Generic Fluid Storage",
     "author": "DPSoftware Foundation",
-    "description": "Library for rednet",
+    "description": "Methods for interacting with tanks and other fluid storage blocks.",
     "version": "1.0.0",
-    "category": "Network",
-    "keyword": "Rednet",
+    "category": "Peripheral",
+    "keyword": "generic peripheral storage",
     "license": "GPL-3.0-or-later",
     "peripherals": true,
     "library": false,
@@ -14,8 +14,8 @@
         "basic": true,
         "adv": true, 
         "command": true,
-        "pocket": true,
-        "advpocket": true,
+        "pocket": false,
+        "advpocket": false,
         "turtle": true,
         "advturtle": true
     }

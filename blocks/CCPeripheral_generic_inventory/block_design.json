@@ -1,0 +1,107 @@
+{
+    "periph_gen_inv_size": {
+        "message0": "Size of Inventory %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INV",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 130,
+        "tooltip": "Get the size of this inventory."
+    },
+    "periph_gen_inv_list": {
+        "message0": "List all item in Inventory %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INV",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 130,
+        "tooltip": "List all items in this inventory. This returns a table, with an entry for each slot."
+    },
+    "periph_gen_inv_get_item_detail": {
+        "message0": "Get item detail from inventory %1 in slot %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INV",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            }
+        ],
+        "output": "Array",
+        "colour": 130,
+        "tooltip": "Get detailed information about an item.",
+        "helpUrl": "https://tweaked.cc/generic_peripheral/inventory.html#v:getItemDetail"
+    },
+    "periph_gen_inv_get_item_limit": {
+        "message0": "Get item limit from inventory %1 in slot %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INV",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            }
+        ],
+        "output": "Number",
+        "colour": 130,
+        "tooltip": "Get the maximum number of items which can be stored in this slot."
+    },
+    "periph_gen_inv_transfer_items": {
+        "message0": "Inventory %1 in slot %2 %3 inventory %4 in slot %5\nWith limit %6 items",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "INV1",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "INV1SLOT",
+                "check": "Number"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "MODE",
+                "options": [
+                    ["Push to", "PUSH"],
+                    ["Pull from", "PULL"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "INV2",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "INV2SLOT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "LIMIT",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 130,
+        "tooltip": "Transfer items from one inventory to another connected one."
+    }
+}

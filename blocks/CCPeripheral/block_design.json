@@ -1,0 +1,129 @@
+{
+    "peripheral_get_names": {
+        "message0": "Get all peripheral",
+        "output": "Array",
+        "colour": 240,
+        "tooltip": "Provides a list of all peripherals available."
+    },
+    "peripheral_is_present": {
+        "message0": "Peripheral %1 is present",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 240,
+        "tooltip": "Determines if a peripheral is present with the given name."
+    },
+    "peripheral_get_type": {
+        "message0": "Get type of peripheral %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DEVICE",
+                "check": ["Peripheral", "String"]
+            }
+        ],
+        "output": "String",
+        "colour": 240,
+        "tooltip": "Get the types of a named or wrapped peripheral."
+    },
+    "peripheral_has_type": {
+        "message0": "Peripheral %1 has type %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DEVICE",
+                "check": ["Peripheral", "String"]
+            },
+            {
+                "type": "input_value",
+                "name": "TYPE",
+                "check": "String"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 240,
+        "tooltip": "Check if a peripheral is of a particular type."
+    },
+    "peripheral_get_methods": {
+        "message0": "Get methods of peripheral %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            }
+        ],
+        "output": "Array",
+        "colour": 240,
+        "tooltip": "Get all available methods for the peripheral with the given name."
+    },
+    "peripheral_get_name": {
+        "message0": "Get name of peripheral %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DEVICE",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 240,
+        "tooltip": "Get the name of a peripheral wrapped with peripheral.wrap."
+    },
+    "peripheral_call": {
+        "message0": "Call peripheral %1 with method %2\nand args %3",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "METHOD",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "ARGS",
+                "check": "Multiple"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "output": null,
+        "colour": 240,
+        "tooltip": "Call a method on the peripheral with the given name."
+    },
+    "peripheral_wrap": {
+        "message0": "Open peripheral %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            }
+        ],
+        "output": "Peripheral",
+        "colour": 240,
+        "tooltip": "Get a table containing all functions available on a peripheral. These can then be called instead of using peripheral.call every time."
+    },
+    "peripheral_find": {
+        "message0": "Find peripheral %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NAME",
+                "check": "String"
+            }
+        ],
+        "output": "Peripheral",
+        "colour": 240,
+        "tooltip": "Find all peripherals of a specific type, and return the wrapped peripherals."
+    }
+}
+

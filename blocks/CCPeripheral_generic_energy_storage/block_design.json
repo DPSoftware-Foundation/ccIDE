@@ -1,0 +1,28 @@
+{
+    "periph_gen_energy_get": {
+        "message0": "Get current energy from %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ENERGY",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 25,
+        "tooltip": "Get the energy of this block."
+    },
+    "periph_gen_energy_get_capacity": {
+        "message0": "Get max energy capacity from %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ENERGY",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 25,
+        "tooltip": "Get the maximum amount of energy this block can store."
+    }
+}

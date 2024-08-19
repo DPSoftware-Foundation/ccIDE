@@ -47,9 +47,13 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 | [Keys](https://tweaked.cc/module/keys.html) | 🟩 Supported all
 | [OS](https://tweaked.cc/module/os.html) (System) | 🟩 Supported all
 | [RedNet](https://tweaked.cc/module/rednet.html) | 🟩 Supported all
-| [Redstone](https://tweaked.cc/module/redstone.html) | 🟩 Supported all
 | [Settings](https://tweaked.cc/module/settings.html) | 🟩 Supported all
 | [TextUtils](https://tweaked.cc/module/textutils.html) | 🟩 Supported all
+| [Peripheral](https://tweaked.cc/module/peripheral.html) | 🟩 Supported all
+| [Energy Storage Peripheral](https://tweaked.cc/generic_peripheral/energy_storage.html) | 🟩 Supported all
+| [Fluid Storage Peripheral](https://tweaked.cc/generic_peripheral/fluid_storage.html) | 🟩 Supported all
+| [Inventory](https://tweaked.cc/generic_peripheral/inventory.html) | 🟩 Supported all
+| [Redstone](https://tweaked.cc/module/redstone.html) | 🟨 Partially Supported
 | [Colors](https://tweaked.cc/module/colors.html) | 🟨 Partially Supported
 | [Commands](https://tweaked.cc/module/commands.html) | 🟥 Unsupport
 | [FS](https://tweaked.cc/module/fs.html) | 🟥 Unsupport
@@ -59,7 +63,6 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 | [Multishell](https://tweaked.cc/module/multishell.html) | 🟥 Unsupport
 | [PaintUtils](https://tweaked.cc/module/paintutils.html) | 🟥 Unsupport
 | [Parallel](https://tweaked.cc/module/parallel.html) | 🟥 Unsupport
-| [Peripheral](https://tweaked.cc/module/peripheral.html) | 🟥 Unsupport
 | [Pocket](https://tweaked.cc/module/pocket.html) | 🟥 Unsupport
 | [Shell](https://tweaked.cc/module/shell.html) | 🟥 Unsupport
 | [Term](https://tweaked.cc/module/term.html) | 🟥 Unsupport
@@ -81,17 +84,17 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 | [Monitor Peripheral](https://tweaked.cc/peripheral/monitor.html) | 🟥 Unsupport
 | [Printer Peripheral](https://tweaked.cc/peripheral/printer.html) | 🟥 Unsupport
 | [Speaker Peripheral](https://tweaked.cc/peripheral/speaker.html) | 🟥 Unsupport
-| [Energy Storage Peripheral](https://tweaked.cc/generic_peripheral/energy_storage.html) | 🟥 Unsupport
-| [Fluid Storage Peripheral](https://tweaked.cc/generic_peripheral/fluid_storage.html) | 🟥 Unsupport
-| [Inventory](https://tweaked.cc/generic_peripheral/inventory.html) | 🟥 Unsupport
 
 Event: https://tweaked.cc/event/alarm.html
 
 ### Peripheral mods
 | Mod | Status 
 |------------|--------
-|[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 First support
+|[Create Additions](https://www.curseforge.com/minecraft/mc-mods/createaddition) | 🟨 First support
+|[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 Second support
+|[Create](https://www.curseforge.com/minecraft/mc-mods/create) | 🟨 Third support
 |[CC:C Bridge](https://www.curseforge.com/minecraft/mc-mods/cccbridge) | 🟥 Unsupport
+|[Extreme Reactors](https://www.curseforge.com/minecraft/mc-mods/extreme-reactors) ([Command](https://ftbwiki.org/Reactor_Computer_Port)) | 🟥 Unsupport
 |[CC:Destroy Bridge](https://www.curseforge.com/minecraft/mc-mods/ccdbridge) | 🟥 Unsupport
 |[More Red x CC:Tweaked Compat](https://www.curseforge.com/minecraft/mc-mods/more-red-x-cc-tweaked-compat) | 🟥 Unsupport
 |[More Peripherals](https://www.curseforge.com/minecraft/mc-mods/more-peripherals) | 🟥 Unsupport

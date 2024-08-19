@@ -1,0 +1,13 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Peripheral" colour="240">
+        <block type="peripheral_get_names"></block>
+        <block type="peripheral_is_present"></block>
+        <block type="peripheral_get_type"></block>
+        <block type="peripheral_has_type"></block>
+        <block type="peripheral_get_methods"></block>
+        <block type="peripheral_get_name"></block>
+        <block type="peripheral_call"></block>
+        <block type="peripheral_wrap"></block>
+        <block type="peripheral_find"></block>
+    </category>
+</xml>

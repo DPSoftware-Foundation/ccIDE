@@ -1,0 +1,52 @@
+{
+    "periph_gen_fluid_tanks": {
+        "message0": "Get fluid in tanks %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TANKS",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 240,
+        "tooltip": "Get all \"tanks\" in this fluid storage."
+    },
+    "periph_gen_fluid_transfer": {
+        "message0": "Fluid name %1 in tanks %2 %3 tanks %4\nWith limit %5 mb",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FLUIDNAME",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "TANKS1",
+                "check": "Peripheral"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "MODE",
+                "options": [
+                    ["Push to", "PUSH"],
+                    ["Pull from", "PULL"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "TANKS2",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "LIMIT",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 240,
+        "tooltip": "Transfer a fluid from one fluid container to another connected one."
+    }
+}

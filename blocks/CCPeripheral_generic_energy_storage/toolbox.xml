@@ -1,0 +1,6 @@
+<xml id="toolbox" style="display: none;">
+    <category name="FluidTanks" colour="25">
+        <block type="periph_gen_energy_get"></block>
+        <block type="periph_gen_energy_get_capacity"></block>
+    </category>
+</xml>

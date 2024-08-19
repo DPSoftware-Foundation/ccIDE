@@ -1,0 +1,37 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Inventory" colour="130">
+        <block type="periph_gen_inv_size"></block>
+        <block type="periph_gen_inv_list"></block>
+        <block type="periph_gen_inv_get_item_detail">
+            <value name="NUM1">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="periph_gen_inv_get_item_limit">
+            <value name="SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="periph_gen_inv_transfer_items">
+            <value name="INV1SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="INV2SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="LIMIT">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+        </block>
+    </category>
+</xml>

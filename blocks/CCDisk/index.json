@@ -7,7 +7,7 @@
     "keyword": "disk, operations, ccIDE",
     "license": "GPL-3.0-or-later",
     "peripherals": true,
-    "library": true,
+    "library": false,
     "require_network": false,
     "dependencies": {},
     "design_for_computer": {
