@@ -3,7 +3,7 @@ ccIDE is block based programming for ComputerCraft lua.
 
 special thank for [ccblockly](https://github.com/Mirka1405/ccblockly) for idea
 
-![image](https://github.com/user-attachments/assets/599c9ebe-66ca-445d-94da-4216cb57e918)
+![Screenshot 2024-08-20 202018](https://github.com/user-attachments/assets/ba6c1ca6-ce91-41c9-b412-b1f3a8f2e735)
 
 # Quick Start
 1. install nodejs and git
@@ -90,7 +90,7 @@ Event: https://tweaked.cc/event/alarm.html
 ### Peripheral mods
 | Mod | Status 
 |------------|--------
-|[Create Additions](https://www.curseforge.com/minecraft/mc-mods/createaddition) | 🟨 First support
+|[Create Additions](https://www.curseforge.com/minecraft/mc-mods/createaddition) | 🟩 Supported all
 |[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 Second support
 |[Create](https://www.curseforge.com/minecraft/mc-mods/create) | 🟨 Third support
 |[CC:C Bridge](https://www.curseforge.com/minecraft/mc-mods/cccbridge) | 🟥 Unsupport
