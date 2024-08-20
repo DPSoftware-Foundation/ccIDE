@@ -11,16 +11,31 @@ const logger = pino(pretty())
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
-let currentprojectpath = null;
-let currentprojectname = null;
-let currentprojectopen = false;
-let appexiting = false;
-let appreloading = false;
-let currentworkspacechange = false;
-let isopennewproject = false;
+var currentprojectpath = null;
+var currentprojectname = null;
+var currentprojectopen = false;
+var appexiting = false;
+var appreloading = false;
+var currentworkspacechange = false;
+var isopennewproject = false;
 
+var appstarted = false;
+var version;
 
-let appstarted = false;
+try {
+    // Read package.json synchronously
+    const data = fs.readFileSync('package.json', 'utf8');
+
+    // Parse JSON
+    const packageJson = JSON.parse(data);
+
+    // Get project version
+    version = packageJson.version;
+
+    console.log("Project version:", version);
+} catch (err) {
+    console.error("Error reading package.json:", err);
+}
 
 app.whenReady().then(() => {
     logger.info("Initializing splash window...")
@@ -65,12 +80,15 @@ app.whenReady().then(() => {
             dialog.showErrorBox("Error on startup", "Can't find index.html");
         }
     }
-    win.setTitle(`ccIDE`)
+    win.setTitle(`ccIDE v${version}`)
 
     ipc.once('ready', () => {
+        splash.webContents.send("isloaded")
+        splash.webContents.send("change-status", "Thanks for using software from DPSoftware.")
+        splash.webContents.send("change-title", `ccIDE v${version}`)
         logger.info("Ready!")
         if (splash) {
-            splash.close();
+            splash.hide();
         }
         win.show();
         //win.maximize();
@@ -111,7 +129,7 @@ app.whenReady().then(() => {
         appreloading = false;
         isopennewproject = false;
         if (isloaded) {
-            win.setTitle(`ccIDE`)
+            win.setTitle(`ccIDE v${version}`)
             win.reload();
         }
     }
@@ -183,7 +201,7 @@ app.whenReady().then(() => {
                                             currentprojectname = path.basename(result.filePaths[0]);
                                             currentprojectopen = true;
     
-                                            win.setTitle(`${currentprojectname} | ccIDE`)
+                                            win.setTitle(`${currentprojectname} | ccIDE v${version}`)
                                         });
     
                                     }
@@ -218,7 +236,7 @@ app.whenReady().then(() => {
                                         currentprojectname = path.basename(result.filePaths[0]);
                                         currentprojectopen = true;
 
-                                        win.setTitle(`${currentprojectname} | ccIDE`)
+                                        win.setTitle(`${currentprojectname} | ccIDE v${version}`)
                                     });
 
                                 }
@@ -288,6 +306,16 @@ app.whenReady().then(() => {
                     click: () => {
                         win.webContents.send("open-about")
                     }
+                },
+                {
+                    label: 'Splash Screen',
+                    click: () => {
+                        if (!splash.isVisible()) {
+                            splash.show();
+                        } else {
+                            splash.hide();
+                        }
+                    }
                 }
             ]
         }
@@ -348,7 +376,7 @@ app.whenReady().then(() => {
 
                             win.webContents.send('workspace-saved', true);
 
-                            win.setTitle(`${currentprojectname} | ccIDE`)
+                            win.setTitle(`${currentprojectname} | ccIDE v${version}`)
                             if (currentworkspacechange) {
                                 currentworkspacechange = false;
                             }
@@ -373,7 +401,7 @@ app.whenReady().then(() => {
 
                     win.webContents.send('workspace-saved', true);
 
-                    win.setTitle(`${currentprojectname} | ccIDE`)
+                    win.setTitle(`${currentprojectname} | ccIDE v${version}`)
 
                     if (currentworkspacechange) {
                         currentworkspacechange = false;
@@ -408,7 +436,7 @@ app.whenReady().then(() => {
                                     currentprojectname = path.basename(result.filePaths[0]);
                                     currentprojectopen = true;
 
-                                    win.setTitle(`${currentprojectname} | ccIDE`)
+                                    win.setTitle(`${currentprojectname} | ccIDE v${version}`)
                                 });
 
                             }
@@ -444,41 +472,44 @@ app.whenReady().then(() => {
     });
 
     ipc.on('workspace-notsave', (event) => {
-        win.setTitle(`${currentprojectname}* | ccIDE`)
+        win.setTitle(`${currentprojectname}* | ccIDE v${version}`)
         currentworkspacechange = true;
     })
     ipc.on('workspace-unsave', (event) => {
         currentworkspacechange = true;
     })
-})
 
-
-app.on("close", function(e) {
-    console.log("Close event triggered");
-    if (currentprojectopen) {
-        const result = dialog.showMessageBoxSync({
-            type: 'question',
-            buttons: ['Save', 'Don\'t Save', 'Cancel'],
-            defaultId: 2,
-            title: 'Save Changes',
-            message: "Your project is not saved",
-        });
-        if (result === 1) {
-            // Don't save, continue closing
-            win = null;
-        } else if (result === 0) {
-            // Save and then quit
-            appexiting = true;
-            win.webContents.send('save-workspace-request');
+    // Listen for the close event of the main window
+    win.on('close', (event) => {
+        event.preventDefault()
+        if (currentprojectopen) {
+            const result = dialog.showMessageBoxSync({
+                type: 'question',
+                buttons: ['Save', 'Don\'t Save', 'Cancel'],
+                defaultId: 2,
+                title: 'Save Changes',
+                message: "Your project is not saved",
+            });
+            if (result === 1) {
+                // Don't save, continue closing
+                win.close();
+            } else if (result === 0) {
+                // Save and then quit
+                appexiting = true;
+                win.webContents.send('save-workspace-request');
+            }
         } else {
-            // Cancel the close operation
-            e.preventDefault();
+            win.destroy();
         }
-    } else {
-        // No unsaved changes, continue closing
-        win = null;
-    }
-});
+    });
+
+    win.on("closed", () => {
+        if (splash) {
+            splash.close()
+        }
+    })
+    
+})
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

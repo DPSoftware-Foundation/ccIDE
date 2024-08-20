@@ -1,0 +1,22 @@
+{
+    "name": "Create Crafts & Additions",
+    "author": "DPSoftware Foundation",
+    "description": "https://www.curseforge.com/minecraft/mc-mods/createaddition",
+    "version": "1.0",
+    "category": "Create",
+    "keyword": "create mod",
+    "license": "GPL-3.0-or-later",
+    "peripherals": true,
+    "library": false,
+    "require_network": false,
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": true,
+        "adv": true, 
+        "command": true,
+        "pocket": false,
+        "advpocket": false,
+        "turtle": true,
+        "advturtle": true
+    }
+}

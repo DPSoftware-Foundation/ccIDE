@@ -60,8 +60,8 @@
 <body>
     <div id="splash-content">
         <img src="../assets/ccIDEIcon.ico" alt="ccIDE Icon">
-        <h1>Loading ccIDE...</h1>
-        <div class="progress-bar">
+        <h1 id="title">Loading ccIDE...</h1>
+        <div class="progress-bar" id="progressbar">
             <div class="progress-bar-value"></div>
         </div>
         <h6 id="status">Initializing...</h6>
@@ -76,6 +76,15 @@
         ipc.on('change-status', (event, status) => {
             document.getElementById('status').textContent = status;
         });
+
+        ipc.on('change-title', (event, title) => {
+            document.getElementById('title').textContent = title;
+        });
+
+        ipc.on('isloaded', (event) => {
+            document.getElementById('progressbar').remove();
+        });
+        
     </script>
 </body>
 </html>

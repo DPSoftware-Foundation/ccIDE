@@ -47,7 +47,11 @@ luaGenerator.forBlock['peripheral_call'] = function(block, generator) {
     var method = generator.valueToCode(block, 'METHOD', generator.ORDER_ATOMIC);
     var args = generator.valueToCode(block, 'ARGS', generator.ORDER_ATOMIC);
 
-    return [`peripheral.call(${name}, ${method}, ${args})`, luaGenerator.ORDER_NONE];
+    if (block.outputConnection && block.outputConnection.targetConnection) {
+        return [`peripheral.call(${name}, ${method}, ${args})`, luaGenerator.ORDER_NONE];
+    } else {
+        return `peripheral.call(${name}, ${method}, ${args})\n`
+    }    
 };
 
 luaGenerator.forBlock['peripheral_wrap'] = function(block, generator) {
