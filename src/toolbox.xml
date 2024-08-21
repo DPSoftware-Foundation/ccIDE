@@ -332,6 +332,7 @@
         <block type="sys_utils_get_type"></block>
         <block type="ide_addcode"></block>
         <block type="ide_start"></block>
+        <block type="sys_mc_std_color"></block>
     </category>
     <sep></sep>
     <category name="Variables" custom="VARIABLE" colour="330">

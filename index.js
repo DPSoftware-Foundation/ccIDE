@@ -4,7 +4,8 @@ const fs = require('fs');
 const prompt = require('electron-prompt');
 const path = require('path');
 const pino = require('pino')
-const pretty = require('pino-pretty')
+const pretty = require('pino-pretty');
+const { log } = require('console');
 const ipc = ipcMain
 
 const logger = pino(pretty())
@@ -480,9 +481,10 @@ app.whenReady().then(() => {
     })
 
     // Listen for the close event of the main window
+    /*
     win.on('close', (event) => {
         event.preventDefault()
-        if (currentprojectopen) {
+        if (currentprojectopen && !currentworkspacechange) {
             const result = dialog.showMessageBoxSync({
                 type: 'question',
                 buttons: ['Save', 'Don\'t Save', 'Cancel'],
@@ -502,8 +504,10 @@ app.whenReady().then(() => {
             win.destroy();
         }
     });
+    */
 
     win.on("closed", () => {
+        logger.info("Exiting...")
         if (splash) {
             splash.close()
         }
@@ -515,4 +519,5 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
         app.quit();
     }
+    logger.info("Exited")
 });

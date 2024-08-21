@@ -1,0 +1,163 @@
+<xml id="toolbox" style="display: none;">
+    <category name="Advanced Peripherals" colour="200">
+        <label text="ChatBox"></label>
+        <block type="advanced_peripherals_chatbox_send_message">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">Hello, world!</field>
+                </shadow>
+            </value>
+            <value name="PREFIX">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKET">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKETCOLOR">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="RANGE">
+                <shadow type="logic_null"></shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_chatbox_send_message_to_player">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">Hello, world!</field>
+                </shadow>
+            </value>
+            <value name="PLAYER">
+                <shadow type="text">
+                    <field name="TEXT">Player</field>
+                </shadow>
+            </value>
+            <value name="PREFIX">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKET">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKETCOLOR">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="RANGE">
+                <shadow type="logic_null"></shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_chatbox_send_message_to_player">
+            <value name="TEXT">
+                <shadow type="text">
+                    <field name="TEXT">Hello, world!</field>
+                </shadow>
+            </value>
+            <value name="TITLE">
+                <shadow type="text">
+                    <field name="TEXT">Hi</field>
+                </shadow>
+            </value>
+            <value name="PLAYER">
+                <shadow type="text">
+                    <field name="TEXT">Player</field>
+                </shadow>
+            </value>
+            <value name="PREFIX">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKET">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKETCOLOR">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="RANGE">
+                <shadow type="logic_null"></shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_chatbox_send_message_formatted">
+            <value name="PREFIX">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKET">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKETCOLOR">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="RANGE">
+                <shadow type="logic_null"></shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_chatbox_send_message_formatted_to_player">
+            <value name="PLAYER">
+                <shadow type="text">
+                    <field name="TEXT">Player</field>
+                </shadow>
+            </value>
+            <value name="PREFIX">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKET">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKETCOLOR">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="RANGE">
+                <shadow type="logic_null"></shadow>
+            </value>
+        </block>
+
+        <label text="Energy Detector"></label>
+        <block type="advanced_peripherals_energy_detector_get_transfer_rate"></block>
+        <block type="advanced_peripherals_energy_detector_get_transfer_rate_limit"></block>
+        <block type="advanced_peripherals_energy_detector_set_transfer_rate_limit">
+            <value name="TFRLIMIT">
+                <shadow type="math_number">
+                    <field name="NUM">512</field>
+                </shadow>
+            </value>
+        </block>
+
+        <label text="Environment Detector"></label>
+        <block type="advanced_peripherals_env_detector_get_biome"></block>
+        <block type="advanced_peripherals_env_detector_get_block_light_level"></block>
+        <block type="advanced_peripherals_env_detector_get_day_light_level"></block>
+        <block type="advanced_peripherals_env_detector_get_sky_light_level"></block>
+        <block type="advanced_peripherals_env_detector_get_dimension_name"></block>
+        <block type="advanced_peripherals_env_detector_get_dimension_PaN"></block>
+        <block type="advanced_peripherals_env_detector_get_dimension_provider"></block>
+        <block type="advanced_peripherals_env_detector_get_moon_id"></block>
+        <block type="advanced_peripherals_env_detector_get_moon_name"></block>
+        <block type="advanced_peripherals_env_detector_get_time"></block>
+        <block type="advanced_peripherals_env_detector_get_radiation"></block>
+        <block type="advanced_peripherals_env_detector_get_radiation_raw"></block>
+        <block type="advanced_peripherals_env_detector_is_dimension">
+            <value name="DIMENSION">
+                <shadow type="text">
+                    <field name="TEXT">minecraft:overworld</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_env_detector_is_moon">
+            <value name="MOONID">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_env_detector_is_raining"></block>
+        <block type="advanced_peripherals_env_detector_is_sunny"></block>
+        <block type="advanced_peripherals_env_detector_is_thunder"></block>
+        <block type="advanced_peripherals_env_detector_is_slime_chunk"></block>
+        <block type="advanced_peripherals_env_detector_list_dimensions"></block>
+        <block type="advanced_peripherals_env_detector_scan_entities">
+            <value name="BLOCKSRANGE">
+                <shadow type="math_number">
+                    <field name="NUM">32</field>
+                </shadow>
+            </value>
+        </block>
+
+        <label text="Player Detector"></label>
+    </category>
+</xml>

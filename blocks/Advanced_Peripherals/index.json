@@ -1,0 +1,22 @@
+{
+    "name": "Advanced Peripherals",
+    "author": "DPSoftware Foundation",
+    "description": "Advanced Peripherals is a mod that adds many useful extensions for CC:Tweaked.",
+    "version": "1.0.0",
+    "category": "Mod",
+    "keyword": "mod",
+    "license": "GPL-3.0-or-later",
+    "peripherals": true,
+    "library": false,
+    "require_network": false,
+    "dependencies": {},
+    "design_for_computer": {
+        "basic": true,
+        "adv": true, 
+        "command": true,
+        "pocket": false,
+        "advpocket": false,
+        "turtle": true,
+        "advturtle": true
+    }
+}

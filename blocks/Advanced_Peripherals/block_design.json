@@ -1,0 +1,597 @@
+{
+    "advanced_peripherals_chatbox_send_message": {
+        "message0": "Chatbox %1 broadcast %2\nPrefix %3 Brackets %4 Bracket color %5 Range %6",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "CHATBOX",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PREFIX",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKET",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKETCOLOR",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Broadcast message to chat",
+        "helpUrl": "https://docs.advanced-peripherals.de/peripherals/chat_box/#sendmessage"
+    },
+    "advanced_peripherals_chatbox_send_message_to_player": {
+        "message0": "Chatbox %1 send %2 to player %3\nPrefix %4 Brackets %5 Bracket color %6 Range %7",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "CHATBOX",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PLAYER",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PREFIX",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKET",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKETCOLOR",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Send message to player chat"
+    },
+    "advanced_peripherals_chatbox_send_toast_to_player": {
+        "message0": "Chatbox %1 toast send %2 and title %3 to player %4\nPrefix %5 Brackets %6 Bracket color %7 Range %8",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "CHATBOX",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "TITLE",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PLAYER",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PREFIX",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKET",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKETCOLOR",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Send message to player toast",
+        "helpUrl": "https://docs.advanced-peripherals.de/peripherals/chat_box/#sendtoasttoplayer"
+    },
+    "advanced_peripherals_chatbox_send_message_formatted": {
+        "message0": "Chatbox %1 broadcast formatted json %2\nPrefix %3 Brackets %4 Bracket color %5 Range %6",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "CHATBOX",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "JSON",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PREFIX",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKET",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKETCOLOR",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Broadcast message to chat with formatted",
+        "helpUrl": "https://docs.advanced-peripherals.de/peripherals/chat_box/#sendformattedmessage"
+    },
+    "advanced_peripherals_chatbox_send_message_formatted_to_player": {
+        "message0": "Chatbox %1 send formatted json %2 to player %3\nPrefix %4 Brackets %5 Bracket color %6 Range %7",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "CHATBOX",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "JSON",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PLAYER",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PREFIX",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKET",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKETCOLOR",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Send message formatted to player chat"
+    },
+    "advanced_peripherals_chatbox_send_toast_formatted_to_player": {
+        "message0": "Chatbox %1 toast send %2 and title %3 to player %4\nPrefix %5 Brackets %6 Bracket color %7 Range %8",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "CHATBOX",
+                "check": "Peripheral"
+            },
+            {
+                "type": "input_value",
+                "name": "TEXT",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "TITLE",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PLAYER",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "PREFIX",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKET",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "BRACKETCOLOR",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Send message formatted to player toast",
+        "helpUrl": "https://docs.advanced-peripherals.de/peripherals/chat_box/#sendformattedtoasttoplayer"
+    },
+
+    "advanced_peripherals_energy_detector_get_transfer_rate": {
+        "message0": "Get current transfer rate from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the current energy that is going through the block."
+    },
+    "advanced_peripherals_energy_detector_get_transfer_rate_limit": {
+        "message0": "get transfer rate limit from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the max rate limit of energy through the block which has been set."
+    },
+    "advanced_peripherals_energy_detector_set_transfer_rate_limit": {
+        "message0": "Set transfer rate limit to %1 FE for detector %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TFRLIMIT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Set the max energy rate that will go through the block."
+    },
+
+    "advanced_peripherals_env_detector_get_biome": {
+        "message0": "Get current biome from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Returns the current biome the block is in."
+    },
+    "advanced_peripherals_env_detector_get_block_light_level": {
+        "message0": "Get current light level from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the block light level (0 to 15) at the detector block, this can be influenced by light sources"
+    },
+    "advanced_peripherals_env_detector_get_day_light_level": {
+        "message0": "Get current day light level from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the day light level of the current world from 0 to 15. This is uneffected by blocks covering the peripheral."
+    },
+    "advanced_peripherals_env_detector_get_sky_light_level": {
+        "message0": "Get current sky light level from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the current sky light level from 0 to 15 (like a daylight sensor)."
+    },
+    "advanced_peripherals_env_detector_get_dimension_name": {
+        "message0": "Get current dimension name from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Returns the name of the current dimension (ex. overworld, the_nether or the_end)."
+    },
+    "advanced_peripherals_env_detector_get_dimension_PaN": {
+        "message0": "Get current dimension PaN from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Similar to getDimensionName it returns the name of the dimension prefixed with the provider name (ex. minecraft:overworld)."
+    },
+    "advanced_peripherals_env_detector_get_dimension_provider": {
+        "message0": "Get current dimension provider from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Returns the provider of the dimension (ex. minecraft)."
+    },
+    "advanced_peripherals_env_detector_get_moon_id": {
+        "message0": "Get current moon phase id from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the current moon phase's id.",
+        "helpUrl": "https://minecraft.wiki/w/Moon"
+    },
+    "advanced_peripherals_env_detector_get_moon_name": {
+        "message0": "Get current moon phase name from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Returns the current moon phase's name.",
+        "helpUrl": "https://minecraft.wiki/w/Moon"
+    },
+    "advanced_peripherals_env_detector_get_time": {
+        "message0": "Get current time from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the daytime of the current world."
+    },
+    "advanced_peripherals_env_detector_get_radiation": {
+        "message0": "Get current radiation from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns the current radiation level from the Mekanism mod with the radiation unit. (Require Mekanism mod)"
+    },
+    "advanced_peripherals_env_detector_get_radiation_raw": {
+        "message0": "Get current radiation raw from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the current raw radiation level in Sv/h. (Require Mekanism mod)"
+    },
+    "advanced_peripherals_env_detector_is_dimension": {
+        "message0": "Is current dimension %1 from detector %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DIMENSION",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the current dimension matches the dimension parameter."
+    },
+    "advanced_peripherals_env_detector_is_moon": {
+        "message0": "Is current moon phase id %1 from detector %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MOONID",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the current moon phase matches the moonPhaseId parameter.",
+        "helpUrl": "https://minecraft.wiki/w/Moon"
+    },
+    "advanced_peripherals_env_detector_is_raining": {
+        "message0": "Is current raining from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if it is raining."
+    },
+    "advanced_peripherals_env_detector_is_sunny": {
+        "message0": "Is current sunny from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if it is sunny."
+    },
+    "advanced_peripherals_env_detector_is_thunder": {
+        "message0": "Is current thunder from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if it is thundering."
+    },
+    "advanced_peripherals_env_detector_is_slime_chunk": {
+        "message0": "Is current slime chunk from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the current chunk is a slime chunk."
+    },
+    "advanced_peripherals_env_detector_list_dimensions": {
+        "message0": "List all dimensions from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns a table with all of the registered dimensions for the current world, this includes modded dimensions."
+    },
+    "advanced_peripherals_env_detector_scan_entities": {
+        "message0": "Scan entities in range %1 blocks from detector %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "BLOCKSRANGE",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns a table with all entities in the given range Coordinates are relativ and not absolute"
+    }
+}

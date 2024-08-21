@@ -102,3 +102,9 @@ luaGenerator.forBlock['sys_print_error'] = function(block, generator) {
 
     return `printError(${error})\n`;
 };
+
+luaGenerator.forBlock['sys_mc_std_color'] = function(block, generator) {
+    var color = block.getFieldValue('COLOR');
+
+    return [`"${color}"`, luaGenerator.ORDER_NONE];
+};

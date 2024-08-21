@@ -158,5 +158,34 @@
         "nextStatement": null,
         "colour": 110,
         "tooltip": "Prints the specified values to the screen in red, separated by spaces, wrapping if necessary. After printing, the cursor is moved to the next line."
+    },
+    "sys_mc_std_color": {
+        "message0": "Standard chat color %1",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "COLOR",
+                "options": [
+                    ["White", "&f"],
+                    ["Gray", "&7"],
+                    ["Dark Gray", "&8"],
+                    ["Black", "&0"],
+                    ["Dark Red", "&4"],
+                    ["Red", "&c"],
+                    ["Gold", "&6"],
+                    ["Yellow", "&e"],
+                    ["Dark Green", "&2"],
+                    ["Green", "&a"],
+                    ["Dark Aqua", "&b"],
+                    ["Dark Blue", "&1"],
+                    ["Blue", "&9"],
+                    ["Light Purple", "&d"],
+                    ["Dark Purple", "&5"]
+                ]
+            }
+        ],
+        "output": "String",
+        "colour": 220,
+        "tooltip": "Standard chat color picker"
     }
 }

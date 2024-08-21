@@ -106,7 +106,7 @@
         <block type="create_addition_da_dp_link_print">
             <value name="TEXT">
                 <shadow type="text">
-                    <field name="TEXT">Hello, world!</field> <!-- Default value -->
+                    <field name="TEXT">Hello, world!</field>
                 </shadow>
             </value>
         </block>
