@@ -91,7 +91,7 @@ Event: https://tweaked.cc/event/alarm.html
 | Mod | Status 
 |------------|--------
 |[Create Additions](https://www.curseforge.com/minecraft/mc-mods/createaddition) | 🟩 Supported all
-|[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 Second support
+|[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 Unfinished 3/13
 |[Create](https://www.curseforge.com/minecraft/mc-mods/create) | 🟨 Third support
 |[CC:C Bridge](https://www.curseforge.com/minecraft/mc-mods/cccbridge) | 🟥 Unsupport
 |[Extreme Reactors](https://www.curseforge.com/minecraft/mc-mods/extreme-reactors) ([Command](https://ftbwiki.org/Reactor_Computer_Port)) | 🟥 Unsupport
