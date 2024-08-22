@@ -38,7 +38,7 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 
 ## official support library, peripheral and module function
 
-### Module (CC)
+### Module (CC) (15/42)
 | Module | Status 
 |------------|--------
 | [_G](https://tweaked.cc/module/_G.html) | 🟩 Supported all
@@ -50,6 +50,7 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 | [Settings](https://tweaked.cc/module/settings.html) | 🟩 Supported all
 | [TextUtils](https://tweaked.cc/module/textutils.html) | 🟩 Supported all
 | [Peripheral](https://tweaked.cc/module/peripheral.html) | 🟩 Supported all
+| [Turtle](https://tweaked.cc/module/turtle.html) | 🟩 Supported all
 | [Energy Storage Peripheral](https://tweaked.cc/generic_peripheral/energy_storage.html) | 🟩 Supported all
 | [Fluid Storage Peripheral](https://tweaked.cc/generic_peripheral/fluid_storage.html) | 🟩 Supported all
 | [Inventory](https://tweaked.cc/generic_peripheral/inventory.html) | 🟩 Supported all
@@ -66,7 +67,6 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 | [Pocket](https://tweaked.cc/module/pocket.html) | 🟥 Unsupport
 | [Shell](https://tweaked.cc/module/shell.html) | 🟥 Unsupport
 | [Term](https://tweaked.cc/module/term.html) | 🟥 Unsupport
-| [Turtle](https://tweaked.cc/module/turtle.html) | 🟥 Unsupport
 | [Vector](https://tweaked.cc/module/vector.html) | 🟥 Unsupport
 | [Window](https://tweaked.cc/module/window.html) | 🟥 Unsupport
 | [DFPWM Audio](https://tweaked.cc/library/cc.audio.dfpwm.html) | 🟥 Unsupport
@@ -87,11 +87,11 @@ If error "Domain not permitted" try [this solution](https://github.com/cc-tweake
 
 Event: https://tweaked.cc/event/alarm.html
 
-### Peripheral mods
+### Peripheral mods (2/20)
 | Mod | Status 
 |------------|--------
 |[Create Additions](https://www.curseforge.com/minecraft/mc-mods/createaddition) | 🟩 Supported all
-|[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 Unfinished 3/13
+|[Advanced Peripherals](https://www.curseforge.com/minecraft/mc-mods/advanced-peripherals) | 🟨 Unfinished 6/13
 |[Create](https://www.curseforge.com/minecraft/mc-mods/create) | 🟨 Third support
 |[CC:C Bridge](https://www.curseforge.com/minecraft/mc-mods/cccbridge) | 🟥 Unsupport
 |[Extreme Reactors](https://www.curseforge.com/minecraft/mc-mods/extreme-reactors) ([Command](https://ftbwiki.org/Reactor_Computer_Port)) | 🟥 Unsupport
@@ -111,7 +111,7 @@ Event: https://tweaked.cc/event/alarm.html
 |[Plethora Peripherals](https://www.curseforge.com/minecraft/mc-mods/plethora-peripherals) | 🟥 Unsupport (Fabric only)
 |[Some Peripherals](https://modrinth.com/mod/some-peripherals) | 🟥 Unsupport (Fabric only)
 
-### Library
+### Library (0/24)
 | Library | Status |
 |------------|--------|
 | [Acidity](https://github.com/9551-Dev/acidity) | 🟥 Unsupport |
