@@ -1,6 +1,7 @@
 <xml id="toolbox" style="display: none;">
     <category name="Advanced Peripherals" colour="200">
         <label text="ChatBox"></label>
+        <label text="Event: chat"></label>
         <block type="advanced_peripherals_chatbox_send_message">
             <value name="TEXT">
                 <shadow type="text">
@@ -159,5 +160,262 @@
         </block>
 
         <label text="Player Detector"></label>
+        <label text="Event: playerClick, playerJoin, playerLeave, playerChangedDimension"></label>
+        <block type="advanced_peripherals_player_detector_get_player_pos">
+            <value name="PLAYER">
+                <shadow type="text">
+                    <field name="TEXT">Player</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_get_online_player"></block>
+        <block type="advanced_peripherals_player_detector_get_player_in_range">
+            <value name="RANGE">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_get_players_in_coords">
+            <value name="FX">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="FY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="FZ">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TX">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TZ">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_get_players_in_cubic">
+            <value name="WIDTH">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="HEIGHT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="DEPTH">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_is_player_in_range">
+            <value name="PLAYER">
+                <shadow type="text">
+                    <field name="TEXT">Player</field>
+                </shadow>
+            </value>
+            <value name="RANGE">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_is_player_in_coords">
+            <value name="PLAYER">
+                <shadow type="text">
+                    <field name="TEXT">Player</field>
+                </shadow>
+            </value>
+            <value name="FX">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="FY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="FZ">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TX">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TZ">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_is_player_in_cubic">
+            <value name="PLAYER">
+                <shadow type="text">
+                    <field name="TEXT">Player</field>
+                </shadow>
+            </value>
+            <value name="WIDTH">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="HEIGHT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="DEPTH">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_is_players_in_range">
+            <value name="RANGE">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_is_players_in_coords">
+            <value name="FX">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="FY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="FZ">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TX">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TY">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="TZ">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_player_detector_is_players_in_cubic">
+            <value name="WIDTH">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="HEIGHT">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+            <value name="DEPTH">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+
+        <label text="Inventory Manager"></label>
+        <block type="advanced_peripherals_inv_manager_add_item_to_player">
+            <value name="ITEM">
+                <shadow type="text">
+                    <field name="TEXT">minecraft:grass_block</field>
+                </shadow>
+            </value>
+            <value name="TOSLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_inv_manager_remove_item_from_player">
+            <value name="ITEM">
+                <shadow type="text">
+                    <field name="TEXT">minecraft:grass_block</field>
+                </shadow>
+            </value>
+            <value name="FROMSLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="COUNT">
+                <shadow type="math_number">
+                    <field name="NUM">64</field>
+                </shadow>
+            </value>
+            <value name="TOSLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_inv_manager_get_armor"></block>
+        <block type="advanced_peripherals_inv_manager_get_items"></block>
+        <block type="advanced_peripherals_inv_manager_get_owner"></block>
+        <block type="advanced_peripherals_inv_manager_is_player_equipped"></block>
+        <block type="advanced_peripherals_inv_manager_is_wearing">
+            <value name="SLOT">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_inv_manager_get_item_in_hand"></block>
+        <block type="advanced_peripherals_inv_manager_get_item_in_offhand"></block>
+        <block type="advanced_peripherals_inv_manager_get_free_slot"></block>
+        <block type="advanced_peripherals_inv_manager_is_space_available"></block>
+        <block type="advanced_peripherals_inv_manager_get_empty_space"></block>
+
+        <label text="NBT Storage"></label>
+        <block type="advanced_peripherals_nbt_storage_read"></block>
+        <block type="advanced_peripherals_nbt_storage_write_json"></block>
+        <block type="advanced_peripherals_nbt_storage_write_table"></block>
+
+        <label text="Block Reader"></label>
+
     </category>
 </xml>

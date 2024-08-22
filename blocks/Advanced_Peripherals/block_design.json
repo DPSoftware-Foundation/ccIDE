@@ -593,5 +593,611 @@
         "output": "Array",
         "colour": 200,
         "tooltip": "Returns a table with all entities in the given range Coordinates are relativ and not absolute"
+    },
+
+    "advanced_peripherals_player_detector_get_player_pos": {
+        "message0": "Get player %1 information from detector %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "PLAYER",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns information about the player with the username passed.",
+        "helpUrl": "https://advancedperipherals.netlify.app/peripherals/player_detector/#getplayerpos-getplayer"
+    },
+    "advanced_peripherals_player_detector_get_online_player": {
+        "message0": "Get current online player from detector %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns a list of all online players."
+    },
+    "advanced_peripherals_player_detector_get_player_in_range": {
+        "message0": "Get player in range %1 from detector %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "The center of the range is the Player Detector peripheral and not the Computer."
+    },
+    "advanced_peripherals_player_detector_get_players_in_coords": {
+        "message0": "Get all player in area\nFrom X %1 Y %2 Z %3\nTo X %4 Y %5 Z %6\nFrom detector %7",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FX",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "FY",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "FZ",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TX",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TY",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TZ",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns a list of players within the 2 positions."
+    },
+    "advanced_peripherals_player_detector_get_players_in_cubic": {
+        "message0": "Get all player in cube\nWidth %1 Height %2 Depth %3\nat detector %4",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "WIDTH",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "HEIGHT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DEPTH",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns a list of players within a cuboid centered at the peripheral."
+    },
+    "advanced_peripherals_player_detector_is_player_in_range": {
+        "message0": "Is player %1 in range %2 from detector %3",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "PLAYER",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the player whose username matches the provided username is within the given range of the peripheral."
+    },
+    "advanced_peripherals_player_detector_is_player_in_coords": {
+        "message0": "Is player %1 in area\nFrom X %2 Y %3 Z %4\nTo X %5 Y %6 Z %7\nFrom detector %8",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "PLAYER",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "FX",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "FY",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "FZ",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TX",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TY",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TZ",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the player is within the 2 positions."
+    },
+    "advanced_peripherals_player_detector_is_player_in_cubic": {
+        "message0": "Is player %1 in cube\nWidth %2 Height %3 Depth %4\nat detector %5",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "PLAYER",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "WIDTH",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "HEIGHT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DEPTH",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if any player is within the cuboid centered at the peripheral."
+    },
+    "advanced_peripherals_player_detector_is_players_in_range": {
+        "message0": "Is players in range %1 from detector %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "RANGE",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if there is any player in the given range."
+    },
+    "advanced_peripherals_player_detector_is_players_in_coords": {
+        "message0": "Is players in area\nFrom X %1 Y %2 Z %3\nTo X %4 Y %5 Z %6\nFrom detector %7",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FX",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "FY",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "FZ",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TX",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TY",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TZ",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if any player is within the 2 positions."
+    },
+    "advanced_peripherals_player_detector_is_players_in_cubic": {
+        "message0": "Is players in cube\nWidth %1 Height %2 Depth %3\nat detector %4",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "WIDTH",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "HEIGHT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DEPTH",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "DETECTOR",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if any player is within the cuboid centered at the peripheral."
+    },
+
+    "advanced_peripherals_inv_manager_add_item_to_player": {
+        "message0": "Add item\nName %1 to slot %2 with count %3 items\nTo player from chest side %4 with manager %5",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ITEM",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "TOSLOT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "COUNT",
+                "check": "Number"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["North", "north"],
+                    ["East", "east"],
+                    ["West", "west"],
+                    ["South", "south"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Adds an item to the player's inventory and returns the amount of the item added. The direction is the direction of the container relative to the peripheral.",
+        "helpUrl": "https://advancedperipherals.netlify.app/peripherals/inventory_manager/#additemtoplayer"
+    },
+    "advanced_peripherals_inv_manager_remove_item_from_player": {
+        "message0": "Remove item\nName %1 from slot %2 with count %3 items\nTo slot %4 in chest side %5 with manager %6",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "ITEM",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "FROMSLOT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "COUNT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "TOSLOT",
+                "check": "Number"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["North", "north"],
+                    ["East", "east"],
+                    ["West", "west"],
+                    ["South", "south"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "inputsInline": true,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Removes an item from the player's inventory and returns the amount of the item removed. The direction is the direction of the container relative to the peripheral to put the item into."
+    },
+    "advanced_peripherals_inv_manager_get_armor": {
+        "message0": "Get armor from player with manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns a list of the player's current armor slots.",
+        "helpUrl": "https://advancedperipherals.netlify.app/peripherals/inventory_manager/#getarmor"
+    },
+    "advanced_peripherals_inv_manager_get_items": {
+        "message0": "Get items from player with manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns the contents of the player's inventory as a list of items.",
+        "helpUrl": "https://advancedperipherals.netlify.app/peripherals/inventory_manager/#getitems"
+    },
+    "advanced_peripherals_inv_manager_get_owner": {
+        "message0": "Get current player owner from manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Returns the username of the owner of the memory card in the manager or nil if there is no memory card or owner."
+    },
+    "advanced_peripherals_inv_manager_is_player_equipped": {
+        "message0": "Is player equipped from manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the player is wearing atleast one piece of armor."
+    },
+    "advanced_peripherals_inv_manager_is_wearing": {
+        "message0": "Is player wearing in slot %1 from manager %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SLOT",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the player is wearing a armor piece on the given slot."
+    },
+    "advanced_peripherals_inv_manager_get_item_in_hand": {
+        "message0": "Get current item in player hand from manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns the item in the player's main hand.",
+        "helpUrl": "https://advancedperipherals.netlify.app/peripherals/inventory_manager/#getiteminhand"
+    },
+    "advanced_peripherals_inv_manager_get_item_in_offhand": {
+        "message0": "Get current item in player off hand from manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns the item in the player's off hand.",
+        "helpUrl": "https://advancedperipherals.netlify.app/peripherals/inventory_manager/#getiteminoffhand"
+    },
+    "advanced_peripherals_inv_manager_get_free_slot": {
+        "message0": "Get free slot in player from manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the next free slot in the player's inventory. Or -1 if their inventory is full."    },
+    "advanced_peripherals_inv_manager_is_space_available": {
+        "message0": "Is player space available from manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns true if space is available in the player's inventory."    
+    },
+    "advanced_peripherals_inv_manager_get_empty_space": {
+        "message0": "Get empty space in player from manager %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "MANAGER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the number of empty slots in the player's inventory."    
+    },
+
+    "advanced_peripherals_nbt_storage_read": {
+        "message0": "Read nbt with nbt storage %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NBTDEV",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns the NBT data stored in the block."    
+    },
+    "advanced_peripherals_nbt_storage_write_json": {
+        "message0": "Write json %1 To block with nbt storage %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NBTJSON",
+                "check": "String"
+            },
+            {
+                "type": "input_value",
+                "name": "NBTDEV",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Writes the json as NBT data into the block."    
+    },
+    "advanced_peripherals_nbt_storage_write_table": {
+        "message0": "Write nbt %1 To block nbt storage %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NBT",
+                "check": "Array"
+            },
+            {
+                "type": "input_value",
+                "name": "NBTDEV",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Writes NBT data into the block.",
+        "helpUrl": "https://advancedperipherals.netlify.app/peripherals/nbt_storage/#writetable"
     }
 }
