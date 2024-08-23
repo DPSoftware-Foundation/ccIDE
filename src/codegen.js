@@ -1,7 +1,3 @@
-function delay(time) {
-    return new Promise(resolve => setTimeout(resolve, time));
-}
-
 const { luaGenerator } = require('blockly/lua');  // Use require syntax for Blockly module
 const { CCRemote } = require("./ccRemote")
 

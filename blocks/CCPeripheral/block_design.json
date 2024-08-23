@@ -10,7 +10,8 @@
         "args0": [
             {
                 "type": "input_value",
-                "name": "NAME"
+                "name": "NAME",
+                "check": "String"
             }
         ],
         "output": "Boolean",

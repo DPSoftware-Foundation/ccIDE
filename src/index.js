@@ -11,13 +11,16 @@ window.onerror = function (message, source, lineno, colno, error) {
     return true; // Prevents the default browser error handling
 };
 
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+
 console.originalLog = console.log;
 
 console.log = function (...args) {
     ipc.send("update-log-status", ...args)
     console.originalLog(...args)
 };
-
 
 console.log("Importing module...")
 const fs = require('fs');

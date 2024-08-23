@@ -14,8 +14,8 @@
         "basic": true,
         "adv": true, 
         "command": true,
-        "pocket": false,
-        "advpocket": false,
+        "pocket": true,
+        "advpocket": true,
         "turtle": true,
         "advturtle": true
     }

@@ -2,3 +2,5 @@ node_modules/
 .mcattributes
 package-lock.json
 dist/
+dist_debug/
+ccIDE.wheel

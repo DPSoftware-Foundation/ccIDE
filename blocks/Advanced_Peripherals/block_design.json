@@ -1199,5 +1199,314 @@
         "colour": 200,
         "tooltip": "Writes NBT data into the block.",
         "helpUrl": "https://advancedperipherals.netlify.app/peripherals/nbt_storage/#writetable"
+    },
+
+    "advanced_peripherals_block_reader_get_block_name": {
+        "message0": "Get current block name in front of reader %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "READER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Returns the registry name of the block (ex. minecraft:dirt)"
+    },
+    "advanced_peripherals_block_reader_get_block_data": {
+        "message0": "Get current block data in front of reader %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "READER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns the block data of the block if block is a tile entity."
+    },
+    "advanced_peripherals_block_reader_get_block_states": {
+        "message0": "Get current block states in front of reader %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "READER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns the properties of a block and its state."
+    },
+    "advanced_peripherals_block_reader_is_tile_entity": {
+        "message0": "Is entity in front of reader %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "READER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true whether the block is a tile entity or not."
+    },
+
+    "advanced_peripherals_geo_scanner_get_fuel_level": {
+        "message0": "Get current fuel level from scanner %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SCANNER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the amount of stored fuel."
+    },
+    "advanced_peripherals_geo_scanner_get_max_fuel_level": {
+        "message0": "Get max fuel level from scanner %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SCANNER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the maximum amount of possible stored fuel."
+    },
+    "advanced_peripherals_geo_scanner_cost": {
+        "message0": "Calculate cost for scan in radius %1 with scanner %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "RADIUS",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "SCANNER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the cost in FE for a scan with the given radius."
+    },
+    "advanced_peripherals_geo_scanner_scan": {
+        "message0": "Scan in radius %1 with scanner %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "RADIUS",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "SCANNER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": ["Array", "String"],
+        "colour": 200,
+        "tooltip": "Returns a list of data about all blocks in the radius. Or if the scan fails it returns nil and an error message.",
+        "helpUrl": "https://advancedperipherals.netlify.app/peripherals/geo_scanner/#scan"
+    },
+    "advanced_peripherals_geo_get_scan_cooldown": {
+        "message0": "Get cooldown scan time from scanner %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SCANNER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the current time remaining until then next scan() can be ran."    
+    },
+    "advanced_peripherals_geo_chunk_analyze": {
+        "message0": "Analyze current chunk with scanner %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SCANNER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": ["Array", "String"],
+        "colour": 200,
+        "tooltip": "Returns a table of data about how many of each ore type is in the block's chunk. Or if the analyze fails it returns nil and an error message."    
+    },
+
+    "advanced_peripherals_redstone_integrator_get_input": {
+        "message0": "Get redstone input from side %1 of integrator %2",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["North", "north"],
+                    ["East", "east"],
+                    ["West", "west"],
+                    ["South", "south"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "INTEGRATOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true or false depending on if the redstone at the given side is on."    
+    },
+    "advanced_peripherals_redstone_integrator_get_output": {
+        "message0": "Get redstone output from side %1 of integrator %2",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["North", "north"],
+                    ["East", "east"],
+                    ["West", "west"],
+                    ["South", "south"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "INTEGRATOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true or false depending on if the Redstone Integrator is sending a signal to the given side."    
+    },
+    "advanced_peripherals_redstone_integrator_get_analog_input": {
+        "message0": "Get redstone analog input from side %1 of integrator %2",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["North", "north"],
+                    ["East", "east"],
+                    ["West", "west"],
+                    ["South", "south"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "INTEGRATOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the redstone level input on the given side. (0-15)"    
+    },
+    "advanced_peripherals_redstone_integrator_get_analog_output": {
+        "message0": "Get redstone analog output from side %1 of integrator %2",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["North", "north"],
+                    ["East", "east"],
+                    ["West", "west"],
+                    ["South", "south"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "INTEGRATOR",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the redstone level being output by the Redstone Integrator on the given side. (0-15)"    
+    },
+    "advanced_peripherals_redstone_integrator_set_output": {
+        "message0": "Set redstone output %1 to side %2 of integrator %3",
+        "args0": [
+            {
+                "type": "field_dropdown",
+                "name": "POWERED",
+                "options": [
+                    ["On", "ON"],
+                    ["Off", "OFF"]
+                ]
+            },
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["North", "north"],
+                    ["East", "east"],
+                    ["West", "west"],
+                    ["South", "south"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "INTEGRATOR",
+                "check": "Peripheral"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Sets the redstone level output to 0 or 15 on the given side depending on powered."    
+    },
+    "advanced_peripherals_redstone_integrator_set_analog_output": {
+        "message0": "Set redstone analog output level %1 to side %2 of integrator %3",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POWER",
+                "check": "Number"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "SIDE",
+                "options": [
+                    ["Top", "top"],
+                    ["Bottom", "bottom"],
+                    ["North", "north"],
+                    ["East", "east"],
+                    ["West", "west"],
+                    ["South", "south"]
+                ]
+            },
+            {
+                "type": "input_value",
+                "name": "INTEGRATOR",
+                "check": "Peripheral"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Sets the redstone level output on the given side to the given power level. (0-15)"    
     }
 }

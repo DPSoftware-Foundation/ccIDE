@@ -6,8 +6,8 @@
                 "type": "field_dropdown",
                 "name": "STATE",
                 "options": [
-                    ["On", "OFF"],
-                    ["Off", "ON"]
+                    ["On", "ON"],
+                    ["Off", "OFF"]
                 ]
             },
             {

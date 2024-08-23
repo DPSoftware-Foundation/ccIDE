@@ -434,3 +434,122 @@ luaGenerator.forBlock['advanced_peripherals_nbt_storage_write_table'] = function
 
     return `${nbtstorage}.writeTable(${nbt})\n`;
 };
+
+// Generator for Block Reader
+
+luaGenerator.forBlock['advanced_peripherals_block_reader_get_block_name'] = function(block, generator) {
+    var reader = generator.valueToCode(block, 'READER', generator.ORDER_ATOMIC);
+
+    return [`${reader}.getBlockName()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_block_reader_get_block_data'] = function(block, generator) {
+    var reader = generator.valueToCode(block, 'READER', generator.ORDER_ATOMIC);
+
+    return [`${reader}.getBlockData()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_block_reader_get_block_states'] = function(block, generator) {
+    var reader = generator.valueToCode(block, 'READER', generator.ORDER_ATOMIC);
+
+    return [`${reader}.getBlockStates()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_block_reader_is_tile_entity'] = function(block, generator) {
+    var reader = generator.valueToCode(block, 'READER', generator.ORDER_ATOMIC);
+
+    return [`${reader}.isTileEntity()`, luaGenerator.ORDER_NONE];
+};
+
+// Generator for Geo Scanner
+
+luaGenerator.forBlock['advanced_peripherals_geo_scanner_get_fuel_level'] = function(block, generator) {
+    var scanner = generator.valueToCode(block, 'SCANNER', generator.ORDER_ATOMIC);
+
+    return [`${scanner}.getFuelLevel()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_geo_scanner_get_max_fuel_level'] = function(block, generator) {
+    var scanner = generator.valueToCode(block, 'SCANNER', generator.ORDER_ATOMIC);
+
+    return [`${scanner}.getMaxFuelLevel()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_geo_scanner_cost'] = function(block, generator) {
+    var radius = generator.valueToCode(block, 'RADIUS', generator.ORDER_ATOMIC);
+    var scanner = generator.valueToCode(block, 'SCANNER', generator.ORDER_ATOMIC);
+
+    return [`${scanner}.cost(${radius})`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_geo_scanner_scan'] = function(block, generator) {
+    var radius = generator.valueToCode(block, 'RADIUS', generator.ORDER_ATOMIC);
+    var scanner = generator.valueToCode(block, 'SCANNER', generator.ORDER_ATOMIC);
+
+    return [`${scanner}.scan(${radius})`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_geo_get_scan_cooldown'] = function(block, generator) {
+    var scanner = generator.valueToCode(block, 'SCANNER', generator.ORDER_ATOMIC);
+
+    return [`${scanner}.getScanCooldown()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_geo_chunk_analyze'] = function(block, generator) {
+    var scanner = generator.valueToCode(block, 'SCANNER', generator.ORDER_ATOMIC);
+
+    return [`${scanner}.chunkAnalyze()`, luaGenerator.ORDER_NONE];
+};
+
+// Generator for Redstone Integrator
+
+luaGenerator.forBlock['advanced_peripherals_redstone_integrator_get_input'] = function(block, generator) {
+    var side = block.getFieldValue('SIDE');
+    var integrator = generator.valueToCode(block, 'INTEGRATOR', generator.ORDER_ATOMIC);
+
+    return [`${integrator}.getInput("${side}")`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_redstone_integrator_get_output'] = function(block, generator) {
+    var side = block.getFieldValue('SIDE');
+    var integrator = generator.valueToCode(block, 'INTEGRATOR', generator.ORDER_ATOMIC);
+
+    return [`${integrator}.getOutput("${side}")`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_redstone_integrator_get_analog_input'] = function(block, generator) {
+    var side = block.getFieldValue('SIDE');
+    var integrator = generator.valueToCode(block, 'INTEGRATOR', generator.ORDER_ATOMIC);
+
+    return [`${integrator}.getAnalogInput("${side}")`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_redstone_integrator_get_analog_output'] = function(block, generator) {
+    var side = block.getFieldValue('SIDE');
+    var integrator = generator.valueToCode(block, 'INTEGRATOR', generator.ORDER_ATOMIC);
+
+    return [`${integrator}.getAnalogOutput("${side}")`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_redstone_integrator_set_output'] = function(block, generator) {
+    var powered = block.getFieldValue('POWERED');
+    var side = block.getFieldValue('SIDE');
+    var integrator = generator.valueToCode(block, 'INTEGRATOR', generator.ORDER_ATOMIC);
+
+    var ispowerd;
+    if (powered == "ON") {
+        ispowerd = "true";
+    } else {
+        ispowerd = "false";
+    }
+
+    return `${integrator}.setOutput("${side}", ${ispowerd})\n`;
+};
+
+luaGenerator.forBlock['advanced_peripherals_redstone_integrator_set_analog_output'] = function(block, generator) {
+    var power = generator.valueToCode(block, 'POWER', generator.ORDER_ATOMIC);
+    var side = block.getFieldValue('SIDE');
+    var integrator = generator.valueToCode(block, 'INTEGRATOR', generator.ORDER_ATOMIC);
+
+    return `${integrator}.setOutput("${side}", ${power})\n`;
+};

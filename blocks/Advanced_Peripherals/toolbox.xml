@@ -416,6 +416,51 @@
         <block type="advanced_peripherals_nbt_storage_write_table"></block>
 
         <label text="Block Reader"></label>
+        <block type="advanced_peripherals_block_reader_get_block_name"></block>
+        <block type="advanced_peripherals_block_reader_get_block_data"></block>
+        <block type="advanced_peripherals_block_reader_get_block_states"></block>
+        <block type="advanced_peripherals_block_reader_is_tile_entity"></block>
 
+        <label text="Geo Scanner"></label>
+        <block type="advanced_peripherals_geo_scanner_get_fuel_level"></block>
+        <block type="advanced_peripherals_geo_scanner_get_max_fuel_level"></block>
+        <block type="advanced_peripherals_geo_scanner_cost">
+            <value name="RADIUS">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_geo_scanner_scan">
+            <value name="RADIUS">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_geo_get_scan_cooldown"></block>
+        <block type="advanced_peripherals_geo_chunk_analyze"></block>
+
+        <label text="Redstone Integrator"></label>
+        <block type="advanced_peripherals_redstone_integrator_get_input"></block>
+        <block type="advanced_peripherals_redstone_integrator_get_output"></block>
+        <block type="advanced_peripherals_redstone_integrator_get_analog_input"></block>
+        <block type="advanced_peripherals_redstone_integrator_get_analog_output"></block>
+        <block type="advanced_peripherals_redstone_integrator_set_output"></block>
+        <block type="advanced_peripherals_redstone_integrator_set_analog_output">
+            <value name="POWER">
+                <shadow type="math_number">
+                    <field name="NUM">15</field>
+                </shadow>
+            </value>
+        </block>
+
+        <label text="AR Controller"></label>
+
+        <label text="ME Bridge"></label>
+
+        <label text="RS Bridge"></label>
+
+        <label text="Colony Integrator"></label>
     </category>
 </xml>

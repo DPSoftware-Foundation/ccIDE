@@ -5,10 +5,12 @@ const prompt = require('electron-prompt');
 const path = require('path');
 const pino = require('pino')
 const pretty = require('pino-pretty');
-const { log } = require('console');
+const https = require('node:https');
+const LocalStorage = require('node-localstorage').LocalStorage
 const ipc = ipcMain
 
 const logger = pino(pretty())
+const localStorage = new LocalStorage('.');
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
@@ -22,6 +24,7 @@ var isopennewproject = false;
 
 var appstarted = false;
 var version;
+var gitver;
 
 try {
     // Read package.json synchronously
@@ -32,18 +35,55 @@ try {
 
     // Get project version
     version = packageJson.version;
-
-    console.log("Project version:", version);
 } catch (err) {
     console.error("Error reading package.json:", err);
 }
 
-app.whenReady().then(() => {
+function checkupdate() {
+    return new Promise((resolve, reject) => {
+        const req = https.request({
+                hostname: 'api.github.com',
+                port: 443,
+                path: '/repos/DPSoftware-Foundation/ccIDE/releases/latest',
+                method: 'GET',
+                headers: {
+                'User-Agent': 'ccIDE-Check-Update-Service', // GitHub API requires a User-Agent header
+            }
+        }, (res) => {
+            let data = '';
+            res.setEncoding('utf8');
+            res.on('data', (chunk) => {
+                data += chunk;
+            });
+            res.on('end', () => {
+                try {
+                    const json = JSON.parse(data);
+                    resolve(json.tag_name); // Return the tag_name or other relevant data
+                } catch (e) {
+                    reject('Error parsing JSON: ' + e.message);
+                }
+            });
+        });
+    
+        req.on('error', (e) => {
+            reject('Error fetching release: ' + e.message);
+        });
+    
+        req.end();
+    });
+}
+
+function normalizeVersion(version, length = 4) {
+    // Split the version string into parts and pad with zeros if necessary
+    return version.split('.').map(part => part.padStart(2, '0')).concat(Array(length).fill('00')).slice(0, length).join('.');
+}
+
+app.whenReady().then(async () => {
     logger.info("Initializing splash window...")
     reloadall(false);
     var splash = new BrowserWindow({
-        width: 600, 
-        height: 300, 
+        width: 720, 
+        height: 400, 
         icon: path.join(__dirname, 'assets', 'ccIDEIcon.ico'),
         transparent: true, 
         frame: false, 
@@ -51,12 +91,72 @@ app.whenReady().then(() => {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false,
-        }
+        },
+        resizable: false
     });
 
     splash.loadFile('src/splash.html');
 
+    while (!splash.isVisible()) {}
+
+    // checkupdate
+    logger.info("Checking for new update...")
+    splash.webContents.send("change-status", "Checking for new update...")
+    
+    try {
+        const latestRelease = await checkupdate();
+        // Store the version or use it as needed
+        gitver = latestRelease;
+    } catch (error) {
+        logger.error('Error in update check:', error);
+    }
+
+    logger.info("Version in github: " + gitver)
+    logger.info("Current version: " + version)
+
+    const normalizedAppVersion = normalizeVersion(version);
+    const normalizedReleaseVersion = normalizeVersion(gitver);
+
+    if (normalizedAppVersion >= normalizedReleaseVersion) {
+        logger.info("Software is up-to-date.");
+    } else {
+        logger.info("A new update is available: " + gitver)
+        var is_not_skip_update = localStorage.getItem('skip_update_version') != normalizedAppVersion;
+        var is_ignore = localStorage.getItem('ignore_update');
+        if (is_ignore || is_not_skip_update) {
+            const result = dialog.showMessageBoxSync({
+                type: 'question',
+                buttons: ['Update', 'Ignore', 'Skip'],
+                defaultId: 0,
+                title: 'Update Available',
+                message: `A new version (${gitver}) is available. Do you want to update now?`,
+                detail: 'Click "Update" to go to the release page, "Ignore" to ignore this update, or "Skip" to skip this version.'
+            });
+            switch (result.response) {
+                case 0: // 'Update'
+                    (async () => {
+                        try {
+                            const { default: open } = await import('open');
+                        
+                            await open('https://github.com/DPSoftware-Foundation/ccIDE/releases/latest');
+                            console.log('URL opened in default browser');
+                        } catch (err) {
+                            console.error('Error opening URL:', err);
+                        }
+                    })();
+                    break;
+                case 1: // 'Ignore'
+                    localStorage.setItem('ignore_update', true);
+                    break;
+                case 2: // 'Skip'
+                    localStorage.setItem('skip_update_version', normalizedReleaseVersion);
+                    break;
+            }
+        }
+    }
+
     logger.info("Initializing main windows...")
+    splash.webContents.send("change-status", "Initializing main windows...")
 
     const win = new BrowserWindow({
         width: 1280,
@@ -95,6 +195,15 @@ app.whenReady().then(() => {
         //win.maximize();
         appstarted = true;
     });
+
+    ipc.on("splash-close", (event) => {
+        if (appstarted) {
+            splash.hide();
+        } else {
+            splash.close();
+            win.close();
+        }
+    })
 
     ipc.on('erroronstart', (event, errormessage) => {
         logger.error(errormessage)
@@ -508,7 +617,7 @@ app.whenReady().then(() => {
 
     win.on("closed", () => {
         logger.info("Exiting...")
-        if (splash) {
+        if (!splash.isDestroyed()) {
             splash.close()
         }
     })

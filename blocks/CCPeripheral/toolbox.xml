@@ -1,13 +1,47 @@
 <xml id="toolbox" style="display: none;">
     <category name="Peripheral" colour="240">
         <block type="peripheral_get_names"></block>
-        <block type="peripheral_is_present"></block>
-        <block type="peripheral_get_type"></block>
-        <block type="peripheral_has_type"></block>
-        <block type="peripheral_get_methods"></block>
+        <block type="peripheral_is_present">
+            <value name="NAME">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
+        <block type="peripheral_get_type">
+            <value name="DEVICE">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
+        <block type="peripheral_has_type">
+            <value name="DEVICE">
+                <shadow type="text"></shadow>
+            </value>
+            <value name="TYPE">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
+        <block type="peripheral_get_methods">
+            <value name="NAME">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
         <block type="peripheral_get_name"></block>
-        <block type="peripheral_call"></block>
-        <block type="peripheral_wrap"></block>
-        <block type="peripheral_find"></block>
+        <block type="peripheral_call">
+            <value name="NAME">
+                <shadow type="text"></shadow>
+            </value>
+            <value name="METHOD">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
+        <block type="peripheral_wrap">
+            <value name="NAME">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
+        <block type="peripheral_find">
+            <value name="NAME">
+                <shadow type="text"></shadow>
+            </value>
+        </block>
     </category>
 </xml>
