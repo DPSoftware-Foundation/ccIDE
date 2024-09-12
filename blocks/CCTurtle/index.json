@@ -9,7 +9,7 @@
     "peripherals": false,
     "library": false,
     "require_network": false,
-    "dependencies": {},
+    "dependencies": [],
     "design_for_computer": {
         "basic": false,
         "adv": false, 

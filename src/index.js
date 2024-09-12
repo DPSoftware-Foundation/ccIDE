@@ -185,18 +185,11 @@ document.getElementById("packageman-import-btn").addEventListener('click', () =>
     const selectedItems = document.querySelectorAll('.library-item.selected');
     selectedItems.forEach(item => {
         const packagefolder = item.getAttribute('data-libraryfolder');
-        if (!usedlibinproject.includes(packagefolder)) {
-            try {
-                originaltoolbar = loadperipheral(workspace, originaltoolbar, packagefolder);
-                usedlibinproject.push(packagefolder);
-            } catch (e) {
-                document.getElementById('statusMessage').textContent = `Can't Import ${packagefolder}: ${e}`;
-            }
-        }
-        setTimeout(() => {
-            document.getElementById('statusMessage').textContent = `Ready`;
-        }, 1000);
+        originaltoolbar = loadperipheral(workspace, originaltoolbar, packagefolder, usedlibinproject);
     });
+    setTimeout(() => {
+        document.getElementById('statusMessage').textContent = `Ready`;
+    }, 1000);
 });
 
 // Ensure Blockly container is shown after the workspace is injected

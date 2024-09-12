@@ -41,23 +41,26 @@ function mergeXml(xml1, xml2) {
     return mergedXml;
 }
 
-function loadperipheral(workspace, currenttoolbar, peripherals) {
-    console.log(`Importing ${peripherals} blocks`)
-
-    const filePath = path.join(peripheralsfolder, peripherals);
-    const jsonfilePath = path.join(filePath, "block_design.json");
-    const xmlfilePath = path.join(filePath, "toolbox.xml");
-    const generatorfilePath = path.join(filePath, "generator.js"); // Path to generator.js
-
-    // Load generator.js
-    // Load blocks from block_design.json
-    fs.readFile(jsonfilePath, 'utf-8', (err, data) => {
-        if (err) {
-            console.error('Error loading JSON file:', err);
-            return;
-        }
+function loadperipheral(workspace, currenttoolbar, peripherals, usedlibinproject) {
+    if (!usedlibinproject.includes(peripherals)) {
         try {
-            const blocksJson = JSON.parse(data);
+            console.log(`Importing ${peripherals} blocks`);
+
+            const filePath = path.join(peripheralsfolder, peripherals);
+            const jsonfilePath = path.join(filePath, "block_design.json");
+            const xmlfilePath = path.join(filePath, "toolbox.xml");
+            const generatorfilePath = path.join(filePath, "generator.js");
+            const indexfilePath = path.join(filePath, "index.json");
+
+            // Synchronously read and parse the index.json file
+            const indexcontent = JSON.parse(fs.readFileSync(indexfilePath, 'utf8'));
+            const dependencies = indexcontent.dependencies;
+            dependencies.forEach((dependency) => {
+                currenttoolbar = loadperipheral(workspace, currenttoolbar, dependency, usedlibinproject);
+            });
+
+            // Synchronously load and parse block_design.json
+            const blocksJson = JSON.parse(fs.readFileSync(jsonfilePath, 'utf8'));
             for (const blockId in blocksJson) {
                 if (blocksJson.hasOwnProperty(blockId)) {
                     Blockly.Blocks[blockId] = {
@@ -67,25 +70,28 @@ function loadperipheral(workspace, currenttoolbar, peripherals) {
                     };
                 }
             }
+
+            // Synchronously load and merge new toolbox XML
+            const toolbar = fs.readFileSync(xmlfilePath, 'utf8');
+            const newxml = mergeXml(currenttoolbar, toolbar);
+            workspace.updateToolbox(newxml);
+
+            document.getElementById('statusMessage').textContent = `Loaded ${peripherals}`;
+
+            // Synchronously require generator.js
+            require(generatorfilePath); // This will execute generator.js if it's a Node.js module
+
+            console.log(`Loaded ${peripherals} blocks`);
+            usedlibinproject.push(peripherals);
+
+            return newxml;
         } catch (e) {
-            document.getElementById('statusMessage').textContent = 'Error parsing JSON file: ' + e;
-            return;
+            document.getElementById('statusMessage').textContent = `Can't Import ${peripherals}: ${e}`;
+            ipc.send("error", `Can't Import ${peripherals}: ${e}`);
         }
-    });
-
-    // Load and merge new toolbox XML
-    const toolbar = fs.readFileSync(xmlfilePath, 'utf8');
-    const newxml = mergeXml(currenttoolbar, toolbar);
-    
-    workspace.updateToolbox(newxml);
-
-    document.getElementById('statusMessage').textContent = `Loaded ${peripherals}`;
-
-    require(generatorfilePath); // This will execute generator.js if it's a Node.js module
-
-    console.log(`Loaded ${peripherals} blocks`)
-
-    return newxml;
+    } else {
+        return currenttoolbar;
+    }
 }
 
 function extractFolderName(path) {

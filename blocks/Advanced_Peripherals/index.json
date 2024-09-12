@@ -9,7 +9,9 @@
     "peripherals": true,
     "library": false,
     "require_network": false,
-    "dependencies": {},
+    "dependencies": [
+        "CCPeripheral"
+    ],
     "design_for_computer": {
         "basic": true,
         "adv": true, 

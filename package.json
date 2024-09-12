@@ -1,12 +1,12 @@
 {
   "name": "ccide",
-  "version": "1.4",
+  "version": "1.5",
   "description": "ComputerCraft mod virtual lua IDE",
   "main": "index.js",
   "scripts": {
-    "dev": "electron .",
-    "build": "electron-packager . ccIDE --platform=win32 --arch=x64 --icon=assets/ccIDEIcon.ico --out=dist --overwrite && for /d %i in (dist\\ccIDE-*) do copy package.json %i\\",
-    "build_debug": "electron-packager . ccIDE --platform=win32 --arch=x64 --icon=assets/ccIDEIcon.ico --out=dist_debug --overwrite --debug && for /d %i in (dist_debug\\ccIDE-*) do copy package.json %i\\"
+    "dev": "title ccIDE && electron .",
+    "build": "title building ccIDE && electron-packager . ccIDE --platform=win32 --arch=x64 --icon=assets/ccIDEIcon.ico --out=dist --overwrite && for /d %i in (dist\\ccIDE-*) do copy package.json %i\\",
+    "build_debug": "title building ccIDE (Debug) && electron-packager . ccIDE --platform=win32 --arch=x64 --icon=assets/ccIDEIcon.ico --out=dist_debug --overwrite --debug && for /d %i in (dist_debug\\ccIDE-*) do copy package.json %i\\"
   },
   "author": "DPSoftware Foundation",
   "license": "GPL-3.0-or-later",
