@@ -553,3 +553,138 @@ luaGenerator.forBlock['advanced_peripherals_redstone_integrator_set_analog_outpu
 
     return `${integrator}.setOutput("${side}", ${power})\n`;
 };
+
+// Generator for Minecraft: Beacon
+
+luaGenerator.forBlock['advanced_peripherals_mc_beacon_get_level'] = function(block, generator) {
+    var beacon = generator.valueToCode(block, 'BEACON', generator.ORDER_ATOMIC);
+
+    return [`${beacon}.getLevel()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_mc_beacon_get_primary_effect'] = function(block, generator) {
+    var beacon = generator.valueToCode(block, 'BEACON', generator.ORDER_ATOMIC);
+
+    return [`${beacon}.getPrimaryEffect()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_mc_beacon_get_secondary_effect'] = function(block, generator) {
+    var beacon = generator.valueToCode(block, 'BEACON', generator.ORDER_ATOMIC);
+
+    return [`${beacon}.getSecondaryEffect()`, luaGenerator.ORDER_NONE];
+};
+
+// Generator for Minecraft: Note Block
+
+luaGenerator.forBlock['advanced_peripherals_mc_note_block_play_note'] = function(block, generator) {
+    var noteblock = generator.valueToCode(block, 'NOTEBLOCK', generator.ORDER_ATOMIC);
+
+    return `${noteblock}.playNote()\n`;
+};
+
+luaGenerator.forBlock['advanced_peripherals_mc_note_block_get_note'] = function(block, generator) {
+    var noteblock = generator.valueToCode(block, 'NOTEBLOCK', generator.ORDER_ATOMIC);
+
+    return [`${beacon}.getNote()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_mc_note_block_change_note_by'] = function(block, generator) {
+    var to = generator.valueToCode(block, 'TO', generator.ORDER_ATOMIC); 
+    var noteblock = generator.valueToCode(block, 'NOTEBLOCK', generator.ORDER_ATOMIC);
+
+    return `${noteblock}.changeNoteBy(${to})\n`;
+};
+
+luaGenerator.forBlock['advanced_peripherals_mc_note_block_change_note'] = function(block, generator) {
+    var noteblock = generator.valueToCode(block, 'NOTEBLOCK', generator.ORDER_ATOMIC);
+
+    return `${noteblock}.changeNote()\n`;
+};
+
+// Generator for Botania: Flowers
+
+luaGenerator.forBlock['advanced_peripherals_botania_flowers_get_mana'] = function(block, generator) {
+    var flower = generator.valueToCode(block, 'FLOWER', generator.ORDER_ATOMIC);
+
+    return [`${flower}.getMana()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_flowers_get_max_mana'] = function(block, generator) {
+    var flower = generator.valueToCode(block, 'FLOWER', generator.ORDER_ATOMIC);
+
+    return [`${flower}.getMaxMana()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_flowers_is_floating'] = function(block, generator) {
+    var flower = generator.valueToCode(block, 'FLOWER', generator.ORDER_ATOMIC);
+
+    return [`${flower}.isFloating()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_flowers_is_on_enchanted_soil'] = function(block, generator) {
+    var flower = generator.valueToCode(block, 'FLOWER', generator.ORDER_ATOMIC);
+
+    return [`${flower}.isOnEnchantedSoil()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_flowers_is_empty'] = function(block, generator) {
+    var flower = generator.valueToCode(block, 'FLOWER', generator.ORDER_ATOMIC);
+
+    return [`${flower}.isEmpty()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_flowers_is_full'] = function(block, generator) {
+    var flower = generator.valueToCode(block, 'FLOWER', generator.ORDER_ATOMIC);
+
+    return [`${flower}.isFull()`, luaGenerator.ORDER_NONE];
+};
+
+// Generator for Botania: Mana Pool
+
+luaGenerator.forBlock['advanced_peripherals_botania_mana_pool_get_mana'] = function(block, generator) {
+    var pool = generator.valueToCode(block, 'POOL', generator.ORDER_ATOMIC);
+
+    return [`${pool}.getMana()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_mana_pool_get_max_mana'] = function(block, generator) {
+    var pool = generator.valueToCode(block, 'POOL', generator.ORDER_ATOMIC);
+
+    return [`${pool}.getMaxMana()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_mana_pool_get_mana_needed'] = function(block, generator) {
+    var pool = generator.valueToCode(block, 'POOL', generator.ORDER_ATOMIC);
+
+    return [`${pool}.getManaNeeded()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_mana_pool_is_empty'] = function(block, generator) {
+    var pool = generator.valueToCode(block, 'POOL', generator.ORDER_ATOMIC);
+
+    return [`${pool}.isEmpty()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_mana_pool_is_full'] = function(block, generator) {
+    var pool = generator.valueToCode(block, 'POOL', generator.ORDER_ATOMIC);
+
+    return [`${pool}.isFull()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_mana_pool_can_charge_item'] = function(block, generator) {
+    var pool = generator.valueToCode(block, 'POOL', generator.ORDER_ATOMIC);
+
+    return [`${pool}.canChargeItem()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_mana_pool_has_items'] = function(block, generator) {
+    var pool = generator.valueToCode(block, 'POOL', generator.ORDER_ATOMIC);
+
+    return [`${pool}.hasItems()`, luaGenerator.ORDER_NONE];
+};
+
+luaGenerator.forBlock['advanced_peripherals_botania_mana_pool_get_items'] = function(block, generator) {
+    var pool = generator.valueToCode(block, 'POOL', generator.ORDER_ATOMIC);
+
+    return [`${pool}.getItems()`, luaGenerator.ORDER_NONE];
+};

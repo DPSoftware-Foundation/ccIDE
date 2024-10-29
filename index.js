@@ -7,10 +7,11 @@ const pino = require('pino')
 const pretty = require('pino-pretty');
 const https = require('node:https');
 const LocalStorage = require('node-localstorage').LocalStorage
+
 const ipc = ipcMain
 
 const logger = pino(pretty())
-const localStorage = new LocalStorage('.');
+const localStorage = new LocalStorage('./data');
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
 
@@ -111,46 +112,51 @@ app.whenReady().then(async () => {
         logger.error('Error in update check:', error);
     }
 
-    logger.info("Version in github: " + gitver)
     logger.info("Current version: " + version)
+    logger.info("Version in github: " + gitver)
+    
 
     const normalizedAppVersion = normalizeVersion(version);
-    const normalizedReleaseVersion = normalizeVersion(gitver);
 
-    if (normalizedAppVersion >= normalizedReleaseVersion) {
-        logger.info("Software is up-to-date.");
+    if (!gitver) {
+        logger.error("Can't check update")
     } else {
-        logger.info("A new update is available: " + gitver)
-        var is_not_skip_update = localStorage.getItem('skip_update_version') != normalizedAppVersion;
-        var is_ignore = localStorage.getItem('ignore_update');
-        if (is_ignore || is_not_skip_update) {
-            const result = dialog.showMessageBoxSync({
-                type: 'question',
-                buttons: ['Update', 'Ignore', 'Skip'],
-                defaultId: 0,
-                title: 'Update Available',
-                message: `A new version (${gitver}) is available. Do you want to update now?`,
-                detail: 'Click "Update" to go to the release page, "Ignore" to ignore this update, or "Skip" to skip this version.'
-            });
-            switch (result.response) {
-                case 0: // 'Update'
-                    (async () => {
-                        try {
-                            const { default: open } = await import('open');
-                        
-                            await open('https://github.com/DPSoftware-Foundation/ccIDE/releases/latest');
-                            console.log('URL opened in default browser');
-                        } catch (err) {
-                            console.error('Error opening URL:', err);
-                        }
-                    })();
-                    break;
-                case 1: // 'Ignore'
-                    localStorage.setItem('ignore_update', true);
-                    break;
-                case 2: // 'Skip'
-                    localStorage.setItem('skip_update_version', normalizedReleaseVersion);
-                    break;
+        const normalizedReleaseVersion = normalizeVersion(gitver);
+        if (normalizedAppVersion >= normalizedReleaseVersion) {
+            logger.info("Software is up-to-date.");
+        } else {
+            logger.info("A new update is available: " + gitver)
+            var is_not_skip_update = localStorage.getItem('skip_update_version') != normalizedAppVersion;
+            var is_ignore = localStorage.getItem('ignore_update');
+            if (is_ignore || is_not_skip_update) {
+                const result = dialog.showMessageBoxSync({
+                    type: 'question',
+                    buttons: ['Update', 'Ignore', 'Skip'],
+                    defaultId: 0,
+                    title: 'Update Available',
+                    message: `A new version (${gitver}) is available. Do you want to update now?`,
+                    detail: 'Click "Update" to go to the release page, "Ignore" to ignore this update, or "Skip" to skip this version.'
+                });
+                switch (result.response) {
+                    case 0: // 'Update'
+                        (async () => {
+                            try {
+                                const { default: open } = await import('open');
+                            
+                                await open('https://github.com/DPSoftware-Foundation/ccIDE/releases/latest');
+                                console.log('URL opened in default browser');
+                            } catch (err) {
+                                console.error('Error opening URL:', err);
+                            }
+                        })();
+                        break;
+                    case 1: // 'Ignore'
+                        localStorage.setItem('ignore_update', true);
+                        break;
+                    case 2: // 'Skip'
+                        localStorage.setItem('skip_update_version', normalizedReleaseVersion);
+                        break;
+                }
             }
         }
     }
@@ -168,7 +174,7 @@ app.whenReady().then(async () => {
             enableRemoteModule: true,
             contextIsolation: false,
         },
-        show: false,
+        //show: false,
         center: true,
     })
     

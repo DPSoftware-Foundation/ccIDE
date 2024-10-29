@@ -218,7 +218,7 @@
         "tooltip": "Send message formatted to player chat"
     },
     "advanced_peripherals_chatbox_send_toast_formatted_to_player": {
-        "message0": "Chatbox %1 toast send %2 and title %3 to player %4\nPrefix %5 Brackets %6 Bracket color %7 Range %8",
+        "message0": "Chatbox %1 toast send formatted json %2 and title %3 to player %4\nPrefix %5 Brackets %6 Bracket color %7 Range %8",
         "args0": [
             {
                 "type": "input_value",
@@ -227,7 +227,7 @@
             },
             {
                 "type": "input_value",
-                "name": "TEXT",
+                "name": "JSON",
                 "check": "String"
             },
             {
@@ -1508,5 +1508,301 @@
         "nextStatement": null,
         "colour": 200,
         "tooltip": "Sets the redstone level output on the given side to the given power level. (0-15)"    
+    },
+
+    "advanced_peripherals_mc_beacon_get_level": {
+        "message0": "Get level from beacon %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "BEACON",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the level of the Beacon."    
+    },
+    "advanced_peripherals_mc_beacon_get_primary_effect": {
+        "message0": "Get primary effect from beacon %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "BEACON",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Returns the registry name of the beacon's primary effect."    
+    },
+    "advanced_peripherals_mc_beacon_get_secondary_effect": {
+        "message0": "Get secondary secondary effect from beacon %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "BEACON",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "String",
+        "colour": 200,
+        "tooltip": "Returns the registry name of the beacon's secondary effect."    
+    },
+
+    "advanced_peripherals_mc_note_block_play_note": {
+        "message0": "Play current note sound at note block %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NOTEBLOCK",
+                "check": "Peripheral"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Plays the Note Block's current note sound."    
+    },
+    "advanced_peripherals_mc_note_block_get_note": {
+        "message0": "Get current note from note block %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NOTEBLOCK",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the index for the Note Block's current note. A number from 0 to 24."    
+    },
+    "advanced_peripherals_mc_note_block_change_note_by": {
+        "message0": "Change note to %1 at note block %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "TO",
+                "check": "Number"
+            },
+            {
+                "type": "input_value",
+                "name": "NOTEBLOCK",
+                "check": "Peripheral"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Changes the Note Block's note to the given note. note must be a number from 0 to 24."    
+    },
+    "advanced_peripherals_mc_note_block_change_note": {
+        "message0": "Change note by 1 at note block %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "NOTEBLOCK",
+                "check": "Peripheral"
+            }
+        ],
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 200,
+        "tooltip": "Increments the Note Block's note to the next available note."    
+    },
+
+    "advanced_peripherals_botania_flowers_get_mana": {
+        "message0": "Get mana from flower %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FLOWER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the amount of mana stored in the flower."    
+    },
+    "advanced_peripherals_botania_flowers_get_max_mana": {
+        "message0": "Get max mana from flower %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FLOWER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the maximum amount of mana that the flower can hold."    
+    },
+    "advanced_peripherals_botania_flowers_is_floating": {
+        "message0": "Is flower %1 floating",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FLOWER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the flower is a floating flower.",   
+        "inputsInline": true
+    },
+    "advanced_peripherals_botania_flowers_is_on_enchanted_soil": {
+        "message0": "Is flower %1 on enchanted soil",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FLOWER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the flower is placed on enchanted soil.",   
+        "inputsInline": true
+    },
+    "advanced_peripherals_botania_flowers_is_empty": {
+        "message0": "Is flower %1 empty",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FLOWER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the Flower is empty.",   
+        "inputsInline": true
+    },
+    "advanced_peripherals_botania_flowers_is_full": {
+        "message0": "Is flower %1 full",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FLOWER",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the Flower is full.",   
+        "inputsInline": true
+    },
+
+    "advanced_peripherals_botania_mana_pool_get_mana": {
+        "message0": "Get mana from pool %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POOL",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the amount of mana stored in the pool."
+    },
+    "advanced_peripherals_botania_mana_pool_get_max_mana": {
+        "message0": "Get max mana from pool %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POOL",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the maximum amount of mana that the pool can hold."
+    },
+    "advanced_peripherals_botania_mana_pool_get_mana_needed": {
+        "message0": "Get amount of mana is pool %1 needed to fill full",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POOL",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Number",
+        "colour": 200,
+        "tooltip": "Returns the amount of mana needed to fill the pool. Equivalent to getMaxMana() - getMana().",
+        "inputsInline": true
+    },
+    "advanced_peripherals_botania_mana_pool_is_empty": {
+        "message0": "Is pool %1 empty",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POOL",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the Mana Pool is empty.",
+        "inputsInline": true
+    },
+    "advanced_peripherals_botania_mana_pool_is_full": {
+        "message0": "Is pool %1 full",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POOL",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the Mana Pool is full.",
+        "inputsInline": true
+    },
+    "advanced_peripherals_botania_mana_pool_can_charge_item": {
+        "message0": "Can pool %1 change item",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POOL",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if mode of the Mana Pool is set to charge the items on it.",
+        "inputsInline": true
+    },
+    "advanced_peripherals_botania_mana_pool_has_items": {
+        "message0": "Is pool %1 has item",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POOL",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 200,
+        "tooltip": "Returns true if the Mana Pool has at least one item on it.",
+        "inputsInline": true
+    },
+    "advanced_peripherals_botania_mana_pool_get_items": {
+        "message0": "get items from pool %1 ",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "POOL",
+                "check": "Peripheral"
+            }
+        ],
+        "output": "Array",
+        "colour": 200,
+        "tooltip": "Returns a table with the items lying on the Mana Pool."
     }
+
+
 }

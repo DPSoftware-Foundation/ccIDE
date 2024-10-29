@@ -45,7 +45,7 @@
                 <shadow type="logic_null"></shadow>
             </value>
         </block>
-        <block type="advanced_peripherals_chatbox_send_message_to_player">
+        <block type="advanced_peripherals_chatbox_send_toast_to_player">
             <value name="TEXT">
                 <shadow type="text">
                     <field name="TEXT">Hello, world!</field>
@@ -89,6 +89,30 @@
             </value>
         </block>
         <block type="advanced_peripherals_chatbox_send_message_formatted_to_player">
+            <value name="PLAYER">
+                <shadow type="text">
+                    <field name="TEXT">Player</field>
+                </shadow>
+            </value>
+            <value name="PREFIX">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKET">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="BRACKETCOLOR">
+                <shadow type="logic_null"></shadow>
+            </value>
+            <value name="RANGE">
+                <shadow type="logic_null"></shadow>
+            </value>
+        </block>
+		<block type="advanced_peripherals_chatbox_send_toast_formatted_to_player">
+			<value name="TITLE">
+                <shadow type="text">
+                    <field name="TEXT">Hi</field>
+                </shadow>
+            </value>
             <value name="PLAYER">
                 <shadow type="text">
                     <field name="TEXT">Player</field>
@@ -462,5 +486,41 @@
         <label text="RS Bridge"></label>
 
         <label text="Colony Integrator"></label>
+
+        <label text="Minecraft: Beacon"></label>
+        <block type="advanced_peripherals_mc_beacon_get_level"></block>
+        <block type="advanced_peripherals_mc_beacon_get_primary_effect"></block>
+        <block type="advanced_peripherals_mc_beacon_get_secondary_effect"></block>
+
+        <label text="Minecraft: Note Block"></label>
+        <block type="advanced_peripherals_mc_note_block_play_note"></block>
+        <block type="advanced_peripherals_mc_note_block_get_note"></block>
+        <block type="advanced_peripherals_mc_note_block_change_note_by">
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">0</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="advanced_peripherals_mc_note_block_change_note"></block>
+
+        <label text="Botania: Flowers"></label>
+        <block type="advanced_peripherals_botania_flowers_get_mana"></block>
+        <block type="advanced_peripherals_botania_flowers_get_max_mana"></block>
+        <block type="advanced_peripherals_botania_flowers_is_floating"></block>
+        <block type="advanced_peripherals_botania_flowers_is_on_enchanted_soil"></block>
+        <block type="advanced_peripherals_botania_flowers_is_empty"></block>
+        <block type="advanced_peripherals_botania_flowers_is_full"></block>
+
+        <label text="Botania: Mana Pool"></label>
+        <block type="advanced_peripherals_botania_mana_pool_get_mana"></block>
+        <block type="advanced_peripherals_botania_mana_pool_get_max_mana"></block>
+        <block type="advanced_peripherals_botania_mana_pool_get_mana_needed"></block>
+        <block type="advanced_peripherals_botania_mana_pool_is_empty"></block>
+        <block type="advanced_peripherals_botania_mana_pool_is_full"></block>
+        <block type="advanced_peripherals_botania_mana_pool_can_charge_item"></block>
+        <block type="advanced_peripherals_botania_mana_pool_has_items"></block>
+        <block type="advanced_peripherals_botania_mana_pool_get_items"></block>
+
     </category>
 </xml>

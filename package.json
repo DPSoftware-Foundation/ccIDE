@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@blockly/plugin-workspace-search": "^9.0.5",
+    "@blockly/theme-dark": "^7.0.7",
     "@electron/remote": "^2.1.2",
     "blockly": "^11.1.1",
     "bootstrap": "^5.3.3",
@@ -23,6 +24,8 @@
     "open": "^10.1.0",
     "pino": "^9.3.2",
     "pino-pretty": "^11.2.2",
+    "toastify-js": "^1.12.0",
+    "unzipper": "^0.12.3",
     "xmldom": "^0.6.0"
   }
 }

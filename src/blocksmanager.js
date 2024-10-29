@@ -1,10 +1,102 @@
 const fs = require('fs');
 const path = require('path');
+const https = require('https');
+const unzipper = require('unzipper');
 const { DOMParser, XMLSerializer } = require('xmldom');
 
 const peripheralsfolder = path.join(__dirname, "../blocks"); 
 
 const fallbackImagePath = path.join(__dirname, '..', 'assets', 'noimagefallback.png'); // Path to fallback image
+
+let progressBar = document.getElementById('progressBarloading');
+let blocks_url = "https://cdn.damp11113.xyz/file/zip/ccide/blockslastest.zip?dl=1"
+
+function isBlocksFolderEmpty() {
+    try {
+        const files = fs.readdirSync(peripheralsfolder);
+        return files.length === 0; // Returns true if the folder is empty
+    } catch (err) {
+        console.error('Error reading folder:', err);
+        return false; // Return false or handle error as needed
+    }
+}
+
+async function downloadBlocks() {
+    try {
+        progressBar.style.display = 'inline-block';
+        // Create the output directory if it doesn't exist
+        if (!fs.existsSync(peripheralsfolder)) {
+            fs.mkdirSync(peripheralsfolder, { recursive: true });
+        }
+
+        console.log('Downloading blocks...');
+
+        const zipFilePath = path.join(peripheralsfolder, 'blocks.zip');
+
+        // Download the file as a Promise
+        await new Promise((resolve, reject) => {
+            https.get(blocks_url, (response) => {
+                if (response.statusCode !== 200) {
+                    reject(new Error(`Download failed with status code ${response.statusCode}`));
+                    return;
+                }
+
+                const totalBytes = parseInt(response.headers['content-length'], 10);
+                let downloadedBytes = 0;
+
+                const file = fs.createWriteStream(zipFilePath);
+
+                response.on('data', (chunk) => {
+                    downloadedBytes += chunk.length;
+                    const percentCompleted = Math.round((downloadedBytes / totalBytes) * 100);
+                    progressBar.value = percentCompleted;
+                    progressBar.innerText = percentCompleted + '%'; // Fallback text
+                    process.stdout.write(`Download progress: ${percentCompleted}%\r`);
+                });
+
+                response.pipe(file);
+
+                file.on('finish', () => {
+                    file.close();
+                    console.log('\nFile downloaded successfully.');
+                    resolve();
+                });
+
+                file.on('error', (error) => {
+                    fs.unlinkSync(zipFilePath);
+                    reject(error);
+                });
+            }).on('error', (error) => {
+                reject(error);
+            });
+        });
+
+        console.log('Unzipping file...');
+        
+        // Unzip the file as a Promise
+        await new Promise((resolve, reject) => {
+            fs.createReadStream(zipFilePath)
+                .pipe(unzipper.Extract({ path: peripheralsfolder }))
+                .on('close', () => {
+                    console.log('File unzipped successfully.');
+                    fs.unlinkSync(zipFilePath); // Delete the zip file after extraction
+                    console.log('Zip file deleted.');
+
+                    console.log('Downloaded blocks');
+                    progressBar.style.display = 'none';
+                    resolve();
+                })
+                .on('error', (error) => {
+                    reject(error);
+                });
+        });
+
+
+
+    } catch (error) {
+        console.error('Error downloading or unzipping file:', error);
+    }
+}
 
 
 const defineicon = {
@@ -76,7 +168,7 @@ function loadperipheral(workspace, currenttoolbar, peripherals, usedlibinproject
             const newxml = mergeXml(currenttoolbar, toolbar);
             workspace.updateToolbox(newxml);
 
-            document.getElementById('statusMessage').textContent = `Loaded ${peripherals}`;
+            fireNotify(`Loaded ${peripherals}`, "success")
 
             // Synchronously require generator.js
             require(generatorfilePath); // This will execute generator.js if it's a Node.js module
@@ -86,7 +178,7 @@ function loadperipheral(workspace, currenttoolbar, peripherals, usedlibinproject
 
             return newxml;
         } catch (e) {
-            document.getElementById('statusMessage').textContent = `Can't Import ${peripherals}: ${e}`;
+            fireNotify(`Can't Import ${peripherals}: ${e}`, "error")
             ipc.send("error", `Can't Import ${peripherals}: ${e}`);
         }
     } else {
@@ -125,7 +217,6 @@ function addimageiconinfo(div, src, tiptool) {
 
 function scanindex() {
     let foundedpackages = 0;
-    document.getElementById('statusMessage').textContent = "Scanning Packages...";
     // clear all item in libcontainer
     document.getElementById('libcontainer').innerHTML = "";
 
@@ -230,14 +321,12 @@ function scanindex() {
         });
     });
 
-    document.getElementById('statusMessage').textContent = `Founded ${foundedpackages} Packages`;
-    setTimeout(() => {
-        document.getElementById('statusMessage').textContent = `Ready`;
-    }, 1000);
+    fireNotify(`Founded ${foundedpackages} Packages`, "success")
 }
-
 
 module.exports = {
     loadperipheral,
-    scanindex
+    scanindex,
+    isBlocksFolderEmpty,
+    downloadBlocks
 }

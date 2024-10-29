@@ -3,137 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <script>
-        const {shell} = require('electron');
-    </script>
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-	<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-</head>
-<body>
-    <!-- Navigation bar -->
-    <nav id="navbar">
-        <!--
-        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Computer Types" style="background-color: #0087bd;">
-            <svg viewBox="0 0 24 24"><path d="M6 4h12v1h3v2h-3v2h3v2h-3v2h3v2h-3v2h3v2h-3v1H6v-1H3v-2h3v-2H3v-2h3v-2H3V9h3V7H3V5h3V4m5 11v3h1v-3h-1m2 0v3h1v-3h-1m2 0v3h1v-3h-1z" /></svg>
-        </button>
-        -->
-        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Packages Managers" style="background-color: #0087bd;" onclick="openlibraryselect()">
-            <svg viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15l-1.89 1.07L16 8.61l1.96-1.11L12 4.15M6.04 7.5 12 10.85l1.96-1.1-5.88-3.4L6.04 7.5M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-6.7l-6 3.37v6.71l6-3.38z" /></svg>
-        </button>
-        <!-- 
-        <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Preview code" style="background-color: #0087bd; margin-left: auto; position: absolute; right: 115px;">
-            <svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z" /></svg>
-        </button>
-        -->
-        <button class="navbar-button" id="navbar-button-computer-disconnect" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Disconnect Client" style="background-color: #bd0000; margin-left: auto; position: absolute; right: 65px;" onclick="clientexit()" disabled>
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .89-2 2v4h2V5h14v14H5v-4H3v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8.92 12.58L11.5 17l5-5-5-5-1.42 1.41L12.67 11H3v2h9.67l-2.59 2.58z" /></svg>
-        </button>
-        <button class="navbar-button" id="navbar-button-computer-run" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Run" style="background-color: #10bd00; margin-left: auto;" onclick="gencode()" disabled>
-            <svg viewBox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7z" /></svg>
-        </button>
-    </nav>
+    <div class="loading-area">
+        <div id="loadingContent">
+            <div class="loader"></div>
+            <br>
+            <h3>Please wait...</h3>
+            <h5 id="loadingstatus"></h5>
+            <progress id="progressBarloading" value="0" max="100"></progress>
 
-    <!-- Blockly workspace container -->
-    <section id="blocklyContainer">
-        <div id="blocklyDiv"></div>
-    </section>
 
-    <!-- Status bar -->
-    <div id="statusBar">
-        <p id="statusMessage">Initializing...</p>
-    </div>
-
-    <div class="popup" id="upload-popup">
-        <div class="popup-content">
-            <button type="button" class="btn-close float-end" aria-label="Close" id="uploadCloseBtn"></button>
-            <div class="upload-progress-container" style="text-align: center;">
-                <div class="progress-container">
-                    <div class="progress" id="progress"></div>
-                    <div class="circle active">
-                        <svg viewBox="0 0 24 24"><path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3h2z" /></svg>
-                    </div>
-                    <div class="circle">
-                        <svg viewBox="0 0 24 24"><path d="m5.5 4.14-1 1.72L15 12 4.5 18.14l1 1.72L19 12 5.5 4.14z" /></svg>
-                    </div>
-                    <div class="circle">
-                        <svg viewBox="0 0 24 24"><path d="M9 16v-6H5l7-7 7 7h-4v6H9m-4 4v-2h14v2H5z" /></svg>
-                    </div>
-                    <div class="circle">
-                        <svg viewBox="0 0 24 24"><path d="m20 22-3.86-1.55c.7-1.53 1.2-3.11 1.51-4.72L20 22M7.86 20.45 4 22l2.35-6.27c.31 1.61.81 3.19 1.51 4.72M12 2s5 2 5 10c0 3.1-.75 5.75-1.67 7.83A2 2 0 0 1 13.5 21h-3a2 2 0 0 1-1.83-1.17C7.76 17.75 7 15.1 7 12c0-8 5-10 5-10m0 10c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" /></svg>
-                    </div>
-                </div>
-                <p id="upload-status"></p>
-            </div>
-        </div>
-    </div>
-
-    <div class="popup" id="about-popup">
-        <div class="popup-content">
-            <button type="button" class="btn-close float-end" aria-label="Close" id="aboutCloseBtn"></button>
-            <h2>ccIDE</h2>
-            <p>
-                ccIDE is an integrated development environment designed for coding Lua scripts
-                for ComputerCraft. It provides a user-friendly interface for creating and managing
-                projects, designing custom blocks, and debugging scripts efficiently.
-            </p>
-            <p>
-                Developed by DPSoftware Foundation, ccIDE aims to streamline the development
-                process for ComputerCraft programmers, offering features like block-based coding,
-                real-time collaboration, and seamless integration with ComputerCraft environments.
-            </p>
-            <p>
-                Visit <a href="https://damp11113.xyz/dpsoftware/ccide">ccIDE Website</a> for more information and updates.
-            </p>
-            <div class="license">
-                &copy; 2024 DPSoftware Foundation. Licensed under GPL v3.
-            </div>
-            <style>
-                .license {
-                    font-size: 14px;
-                    color: #888;
-                    text-align: center;
-                    margin-top: 20px;
-                }
-            </style>
-        </div>
-    </div>
-
-    <div class="popup" id="library-popup" style="overflow-y:hidden;">
-        <div class="popup-content p-3" style="max-width: 1280px; position: relative; margin-top: 100px;">
-            <button type="button" class="btn-close" aria-label="Close" id="libraryCloseBtn" style="position: absolute; top: 10px; right: 10px;"></button>
-            <h3>Packages Managers</h3>
-            <div class="library-content">
-                <div id="libcontainer">
-                    <div class="library-item overflow-auto library-container" data-libraryfolder="name">
-                        <img src="image.jpg" class="libimage" onerror="this.onerror=null;this.src='../assets/noimagefallback.png'; this.alt='No Image Available';">
-                        <div class="library-details">
-                            <h3>Title [v1.0 by Author]</h3>
-                            <p>Library description goes here.</p>
-                            <img src="../assets/basic_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Basic Computer">
-                            <img src="../assets/adv_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Advanced Computer">
-                            <img src="../assets/command_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Command Computer">
-                            <img src="../assets/pocket_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Pocket Computer">
-                            <img src="../assets/adv_pocket_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Advanced Pocket Computer">
-                            <img src="../assets/turtle.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Basic Turtle">
-                            <img src="../assets/adv_turtle.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Advanced Turtle">
-                            <img src="../assets/peripheral.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Peripheral">
-                            <img src="../assets/library.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Library">
-                            <img src="../assets/network-require.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Network Require">
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            <div class="button-container">
-                <button type="button" class="btn btn-success btn-sm" id="packageman-import-btn">Import Packages</button>
-                <button type="button" class="btn btn-warning btn-sm" onclick='scanindex()'>Refetch Packages</button>
-                <button type="button" class="btn btn-primary btn-sm" onclick='shell.openExternal("https://damp11113.xyz/dpsoftware/ccide/library")'>Download Packages</button>
+            <div class="dpclogoload">
+                <img src="../assets/DPSoftware2.png" style="width: 25%;"/>
             </div>
         </div>
     </div>
     
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/toastify-js/src/toastify.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+<body>
+    
+    <div class="content-area">
+        <!-- Navigation bar -->
+        <nav id="navbar">
+            <!--
+            <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Computer Types" style="background-color: #0087bd;">
+                <svg viewBox="0 0 24 24"><path d="M6 4h12v1h3v2h-3v2h3v2h-3v2h3v2h-3v2h3v2h-3v1H6v-1H3v-2h3v-2H3v-2h3v-2H3V9h3V7H3V5h3V4m5 11v3h1v-3h-1m2 0v3h1v-3h-1m2 0v3h1v-3h-1z" /></svg>
+            </button>
+            -->
+            <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Packages Managers" style="background-color: #0087bd;" onclick="openlibraryselect()">
+                <svg viewBox="0 0 24 24"><path d="M21 16.5c0 .38-.21.71-.53.88l-7.9 4.44c-.16.12-.36.18-.57.18-.21 0-.41-.06-.57-.18l-7.9-4.44A.991.991 0 0 1 3 16.5v-9c0-.38.21-.71.53-.88l7.9-4.44c.16-.12.36-.18.57-.18.21 0 .41.06.57.18l7.9 4.44c.32.17.53.5.53.88v9M12 4.15l-1.89 1.07L16 8.61l1.96-1.11L12 4.15M6.04 7.5 12 10.85l1.96-1.1-5.88-3.4L6.04 7.5M5 15.91l6 3.38v-6.71L5 9.21v6.7m14 0v-6.7l-6 3.37v6.71l6-3.38z" /></svg>
+            </button>
+            <!-- 
+            <button class="navbar-button" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Preview code" style="background-color: #0087bd; margin-left: auto; position: absolute; right: 115px;">
+                <svg viewBox="0 0 24 24"><path d="M12 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5 5 5 0 0 1 5-5 5 5 0 0 1 5 5 5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5z" /></svg>
+            </button>
+            -->
+            <button class="navbar-button" id="navbar-button-computer-disconnect" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Disconnect Client" style="background-color: #bd0000; margin-left: auto; position: absolute; right: 65px;" onclick="clientexit()" disabled>
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .89-2 2v4h2V5h14v14H5v-4H3v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2m-8.92 12.58L11.5 17l5-5-5-5-1.42 1.41L12.67 11H3v2h9.67l-2.59 2.58z" /></svg>
+            </button>
+            <button class="navbar-button" id="navbar-button-computer-run" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Run" style="background-color: #10bd00; margin-left: auto;" onclick="gencode()" disabled>
+                <svg viewBox="0 0 24 24"><path d="M8 5.14v14l11-7-11-7z" /></svg>
+            </button>
+        </nav>
+
+        <!-- Blockly workspace container -->
+        <section id="blocklyContainer">
+            <div id="blocklyDiv"></div>
+        </section>
+
+        <div class="popup" id="upload-popup">
+            <div class="popup-content">
+                <button type="button" class="btn-close float-end" aria-label="Close" id="uploadCloseBtn"></button>
+                <div class="upload-progress-container" style="text-align: center;">
+                    <div class="progress-container">
+                        <div class="progress" id="progress"></div>
+                        <div class="circle active">
+                            <svg viewBox="0 0 24 24"><path d="M8 3a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2H3v2h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h2v-2H8v-5a2 2 0 0 0-2-2 2 2 0 0 0 2-2V5h2V3m6 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3h2z" /></svg>
+                        </div>
+                        <div class="circle">
+                            <svg viewBox="0 0 24 24"><path d="m5.5 4.14-1 1.72L15 12 4.5 18.14l1 1.72L19 12 5.5 4.14z" /></svg>
+                        </div>
+                        <div class="circle">
+                            <svg viewBox="0 0 24 24"><path d="M9 16v-6H5l7-7 7 7h-4v6H9m-4 4v-2h14v2H5z" /></svg>
+                        </div>
+                        <div class="circle">
+                            <svg viewBox="0 0 24 24"><path d="m20 22-3.86-1.55c.7-1.53 1.2-3.11 1.51-4.72L20 22M7.86 20.45 4 22l2.35-6.27c.31 1.61.81 3.19 1.51 4.72M12 2s5 2 5 10c0 3.1-.75 5.75-1.67 7.83A2 2 0 0 1 13.5 21h-3a2 2 0 0 1-1.83-1.17C7.76 17.75 7 15.1 7 12c0-8 5-10 5-10m0 10c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z" /></svg>
+                        </div>
+                    </div>
+                    <p id="upload-status"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="popup" id="about-popup">
+            <div class="popup-content">
+                <button type="button" class="btn-close float-end" aria-label="Close" id="aboutCloseBtn"></button>
+                <h2>ccIDE</h2>
+                <p>
+                    ccIDE is an integrated development environment designed for coding Lua scripts
+                    for ComputerCraft. It provides a user-friendly interface for creating and managing
+                    projects, designing custom blocks, and debugging scripts efficiently.
+                </p>
+                <p>
+                    Developed by DPSoftware Foundation, ccIDE aims to streamline the development
+                    process for ComputerCraft programmers, offering features like block-based coding,
+                    real-time collaboration, and seamless integration with ComputerCraft environments.
+                </p>
+                <p>
+                    Visit <a href="https://damp11113.xyz/dpsoftware/ccide">ccIDE Website</a> for more information and updates.
+                </p>
+                <div class="license">
+                    &copy; 2024 DPSoftware Foundation. Licensed under GPL v3.
+                </div>
+                <style>
+                    .license {
+                        font-size: 14px;
+                        color: #888;
+                        text-align: center;
+                        margin-top: 20px;
+                    }
+                </style>
+            </div>
+        </div>
+
+        <div class="popup" id="library-popup" style="overflow-y:hidden;">
+            <div class="popup-content p-3" style="max-width: 1280px; position: relative; margin-top: 100px;">
+                <button type="button" class="btn-close" aria-label="Close" id="libraryCloseBtn" style="position: absolute; top: 10px; right: 10px;"></button>
+                <h3>Packages Managers</h3>
+                <div class="library-content">
+                    <div id="libcontainer">
+                        <div class="library-item overflow-auto library-container" data-libraryfolder="name">
+                            <img src="image.jpg" class="libimage" onerror="this.onerror=null;this.src='../assets/noimagefallback.png'; this.alt='No Image Available';">
+                            <div class="library-details">
+                                <h3>Title [v1.0 by Author]</h3>
+                                <p>Library description goes here.</p>
+                                <img src="../assets/basic_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Basic Computer">
+                                <img src="../assets/adv_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Advanced Computer">
+                                <img src="../assets/command_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Command Computer">
+                                <img src="../assets/pocket_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Pocket Computer">
+                                <img src="../assets/adv_pocket_computer.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Advanced Pocket Computer">
+                                <img src="../assets/turtle.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Basic Turtle">
+                                <img src="../assets/adv_turtle.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Advanced Turtle">
+                                <img src="../assets/peripheral.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Peripheral">
+                                <img src="../assets/library.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Library">
+                                <img src="../assets/network-require.png" class="libimageicon" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Network Require">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="button-container">
+                    <button type="button" class="btn btn-success btn-sm" id="packageman-import-btn">Import Packages</button>
+                    <button type="button" class="btn btn-warning btn-sm" onclick='scanindex()'>Refetch Packages</button>
+                    <button type="button" class="btn btn-primary btn-sm" onclick='downloadBlocks()'>Download Packages</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const {shell} = require('electron');
+    </script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="frontend.js"></script>
     <script src="index.js"></script>
     <script src="codegen.js"></script>

@@ -9,14 +9,13 @@ class CCRemote {
 
         console.log("Remote server is started");
 
+        fireNotify("Computer isn't connect", "warning", "https://github.com/DPSoftware-Foundation/ccIDE#install-remote-code-into-computercraft")
+
         this.socket.on('connection', (ws) => {
             document.getElementById("navbar-button-computer-disconnect").disabled = false;
             document.getElementById("navbar-button-computer-run").disabled = false;
 
-            document.getElementById('statusMessage').textContent = "Computer connected";
-            setTimeout(() => {
-                document.getElementById('statusMessage').textContent = `Ready`;
-            }, 1000);
+            fireNotify("Computer connected", "success")
 
             console.log('WebSocket connection established.');
 
@@ -34,10 +33,7 @@ class CCRemote {
                 document.getElementById("navbar-button-computer-disconnect").disabled = true;
                 document.getElementById("navbar-button-computer-run").disabled = true;
 
-                document.getElementById('statusMessage').textContent = "Computer disconnected";
-                setTimeout(() => {
-                    document.getElementById('statusMessage').textContent = `Ready`;
-                }, 1000);
+                fireNotify("Computer disconnected", "warning")
             });
 
             ws.on('error', (error) => {
