@@ -1,10 +1,18 @@
 :root {
     --line-border-fill: #3498db;
-    --line-border-empty: #e0e0e0;
+    --line-border-empty: #7f8c8d; /* Lighter gray for dark mode */
+    --background-color: #121212; /* Dark background for body */
+    --text-color: #e0e0e0; /* Lighter text color */
+    --button-bg: #333; /* Dark button background */
+    --button-hover-bg: #0066cc; /* Button hover color */
+    --progress-bg: #3498db; /* Progress bar fill color */
+    --error-color: #e74c3c; /* Error state color */
 }
 
 body {
-    background-color: #212121;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Arial', sans-serif;
     overflow: hidden; /* Hide scrollbars */
 }
 
@@ -88,7 +96,7 @@ body {
 }
 
 .navbar-button {
-    background-color: #2c3e50;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     border-radius: 50%; /* Make the button circular */
@@ -114,7 +122,7 @@ body {
 }
 
 .navbar-button:hover {
-    background-color: #0066cc; /* Darken color on hover */
+    background-color: var(--button-hover-bg); /* Darken color on hover */
     z-index: 99; 
 }
 
@@ -149,7 +157,8 @@ body {
 
 /* Styles for the upload-popup content */
 .popup-content {
-    background-color: #fefefe;
+    background-color: #333;
+    color: #fefefe;
     margin: 15% auto; /* Center the upload-popup vertically and horizontally */
     padding: 20px;
     border: 1px solid #888;
@@ -203,7 +212,7 @@ body {
 }
 
 .progress {
-    background-color: var(--line-border-fill);
+    background-color: var(--progress-bg);
     position: absolute;
     top: 50%;
     left: 0;
@@ -215,9 +224,8 @@ body {
 }
 
 .progress.error {
-    background-color: red; /* Set to red color for error state */
+    background-color: var(--error-color); /* Set to red color for error state */
 }
-
 
 .circle {
     background-color: #fff;
@@ -238,7 +246,7 @@ body {
 }
 
 .circle.error {
-    border-color: red; /* Optionally, change border color to red */
+    border-color: var(--error-color); /* Optionally, change border color to red */
     color: white; /* Optionally, adjust text color for visibility */
 }
 
@@ -268,10 +276,10 @@ body {
 .library-item {
     cursor: pointer;
     padding: 10px;
-    border-bottom: 1px solid #e9ecef;
+    border-bottom: 1px solid #7f8c8d; /* Lighter border */
 }
 .library-item.selected {
-    background-color: #e9ecef;
+    background-color: #34495e; /* Darker background for selected items */
 }
 .library-content {
     flex: 1;
@@ -280,11 +288,27 @@ body {
     max-height: 720px; /* Ensure a max height for scrolling */
 }
 .library-item:hover {
-    background-color: #cacaca;
+    background-color: #7f8c8d; /* Hover effect for items */
 }
 
 .button-container {
     display: flex;
-    justify-content: flex-end;
-    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.btn-invisible {
+    background: transparent;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.swipe-text {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.pointer-pointer {
+    cursor: pointer;
 }
