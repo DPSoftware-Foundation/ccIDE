@@ -6,14 +6,14 @@ const path = require('path');
 const pino = require('pino')
 const pretty = require('pino-pretty');
 const https = require('node:https');
-const LocalStorage = require('node-localstorage').LocalStorage
 
 const ipc = ipcMain
 
 const logger = pino(pretty())
-const localStorage = new LocalStorage('./data');
 
 process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+
+var ena_splash = process.env['CCIDE_ENABLE_MAIN_SPLASH'] == 'true';
 
 var currentprojectpath = null;
 var currentprojectname = null;
@@ -174,7 +174,7 @@ app.whenReady().then(async () => {
             enableRemoteModule: true,
             contextIsolation: false,
         },
-        //show: false,
+        show: ena_splash,
         center: true,
     })
     
@@ -224,10 +224,13 @@ app.whenReady().then(async () => {
     });
 
     ipc.on('update-log-status', (event, status) => {
-        logger.info(status)
+        logger.info(status);
         if (!appstarted) {
-            splash.webContents.send("change-status", status)
-        } 
+            splash.webContents.send("change-status", status);
+        }
+        if (status == "Downloading blocks...") {
+            win.show();
+        }
     });
     
     //app.on('activate', () => {

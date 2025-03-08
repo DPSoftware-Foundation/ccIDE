@@ -4,9 +4,16 @@ const https = require('https');
 const unzipper = require('unzipper');
 const { DOMParser, XMLSerializer } = require('xmldom');
 
+
 const peripheralsfolder = path.join(__dirname, "../blocks"); 
 
 const fallbackImagePath = path.join(__dirname, '..', 'assets', 'noimagefallback.png'); // Path to fallback image
+
+if (!fs.existsSync(peripheralsfolder)) {
+    // If it doesn't exist, create it
+    fs.mkdirSync(peripheralsfolder, { recursive: true });
+    console.log('Block Folder created');
+}
 
 let progressBar = document.getElementById('progressBarloading');
 let blocks_url = "https://cdn.damp11113.xyz/file/zip/ccide/blockslastest.zip?dl=1"
@@ -264,8 +271,14 @@ function scanindex() {
                         
                         // Create the title element
                         const title = document.createElement('h3');
-                        title.textContent = jsonData.name + ` [v${jsonData.version} by ${jsonData.author}]`;
+                        title.textContent = jsonData.name;
                         libraryDetails.appendChild(title);
+
+                        // Create the credit and version element
+                        const cv = document.createElement('p');
+                        cv.classList.add('library-details-cv');
+                        cv.textContent = `v${jsonData.version} by ${jsonData.author}`;
+                        libraryDetails.appendChild(cv);
 
                         // Create the description element
                         const description = document.createElement('p');

@@ -271,8 +271,13 @@ body {
 }
 .library-details {
     flex: 1;
-    line-height: 10px;
+    line-height: 5px;
 }
+.library-details-cv {
+    color: #7a7a7a;
+    font-size: 15px;
+}
+
 .library-item {
     cursor: pointer;
     padding: 10px;
